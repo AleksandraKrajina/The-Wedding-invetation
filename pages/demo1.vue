@@ -80,11 +80,11 @@
 
           <!-- Center Images -->
           <div class="flex md:w-1/3 relative">
-            <div class="w-64 h-64 md:w-64 md:h-64 rounded-full overflow-hidden">
-              <img src="/assets/images/demo1/couple1.jpg" alt="Bride" class="w-64 h-64 object-cover" />
+            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ">
+              <img src="/assets/images/demo1/couple1.jpg" alt="Bride" class="w-full h-full object-cover" />
             </div>
-            <div class="w-64 md:w-64 md:h-64 rounded-full overflow-hidden -ml-16 mt-16">
-              <img src="/assets/images/demo1/couple1.jpg" alt="Groom" class="w-64 h-64 object-cover" />
+            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden -ml-16 mt-16">
+              <img src="/assets/images/demo1/couple1.jpg" alt="Groom" class="w-full h-full object-cover" />
             </div>
           </div>
 
