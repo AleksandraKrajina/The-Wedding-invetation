@@ -22,8 +22,8 @@
               </div>
             </div>
           </div>
-
-          <h2 class="text-8xl font-light text-rose-300 mb-4">Sophia & Oliver</h2>
+          <!-- <h2 class="text-3xl font-light mb-4">Save the Date</h2> -->
+          <h2 class="lg:text-8xl text-6xl font-light text-rose-300 mb-4">Aleksandra & Gvido</h2>
           <p class="text-gray-600 mb-8 text-lg">We Are Getting Married November 15, 2025</p>
 
           <!-- Countdown Timer -->
@@ -80,11 +80,11 @@
 
           <!-- Center Images -->
           <div class="flex md:w-1/3 relative">
-            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden">
-              <img src="/assets/images/demo1/couple1.jpg" alt="Bride" class="w-full h-full object-cover" />
+            <div class="w-64 h-64 md:w-64 md:h-64 rounded-full overflow-hidden">
+              <img src="/assets/images/demo1/couple1.jpg" alt="Bride" class="w-64 h-64 object-cover" />
             </div>
-            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden -ml-16 mt-16">
-              <img src="/assets/images/demo1/couple1.jpg" alt="Groom" class="w-full h-full object-cover" />
+            <div class="w-64 md:w-64 md:h-64 rounded-full overflow-hidden -ml-16 mt-16">
+              <img src="/assets/images/demo1/couple1.jpg" alt="Groom" class="w-64 h-64 object-cover" />
             </div>
           </div>
 
@@ -147,23 +147,25 @@
                 </div>
 
                 <!-- Content Container -->
-                <div class="grid grid-cols-2 items-center">
-                  <!-- Text Content (Always Left) -->
-                  <div class="pr-20 text-right">
-                    <p class="text-gray-600 mb-2">{{ event.date }}</p>
-                    <h3 class="text-2xl font-light mb-4">{{ event.title }}</h3>
-                    <p class="text-gray-600">{{ event.description }}</p>
-                  </div>
-
-                  <!-- Image (Alternating Sides) -->
-                  <div :class="[
-                    'relative',
-                    index % 2 === 0 ? 'pl-20' : '-order-1 pr-20'
-                  ]">
-                    <div class="w-32 h-32 rounded-full overflow-hidden">
-                      <img :src="event.image" :alt="event.title" class="w-full h-full object-cover" />
+                <div class="grid grid-cols-[1fr,auto,1fr] gap-8 items-center">
+                  <!-- Left Side -->
+                  <div :class="[index % 2 === 0 ? 'text-right' : 'col-start-3']">
+                    <div class="max-w-md ml-auto mr-0" :class="{ 'ml-0 mr-auto': index % 2 !== 0 }">
+                      <p class="text-gray-600 mb-2">{{ event.date }}</p>
+                      <h3 class="text-2xl font-light mb-4">{{ event.title }}</h3>
+                      <p class="text-gray-600">{{ event.description }}</p>
                     </div>
                   </div>
+
+                  <!-- Center Timeline -->
+                  <div class="w-8 flex justify-center">
+                    <div class="w-8 h-8 rounded-full bg-white border border-rose-200 flex items-center justify-center">
+                      <i class="pi pi-heart text-rose-300"></i>
+                    </div>
+                  </div>
+
+                  <!-- Right Side (Empty for spacing) -->
+                  <div></div>
                 </div>
               </div>
             </div>
@@ -342,6 +344,7 @@
     </section>
 
   </div>
+  <GeneralFooter />
 </template>
 
 <script setup>
