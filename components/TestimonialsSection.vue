@@ -27,19 +27,19 @@ const testimonials = [
     name: "Sarah & James",
     date: "June 2024",
     text: "Our wedding website was absolutely perfect! The team captured our style perfectly and made the whole process so easy.",
-    image: ""
+    image: '/assets/images/demo1/couple1.jpg'
   },
   {
     name: "Emily & Michael",
     date: "May 2024",
     text: "The RSVP system saved us so much time. Our guests loved how easy it was to navigate and find all the information.",
-    image: ""
+    image: '/assets/images/demo1/couple1.jpg'
   },
   {
     name: "Lisa & David",
     date: "April 2024",
     text: "Professional, responsive, and creative. They turned our vision into reality and exceeded our expectations!",
-    image: ""
+    image: '/assets/images/demo1/couple1.jpg'
   }
 ]
 </script>

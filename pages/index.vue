@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto">
         <!-- Navigation -->
-        <nav class="fixed w-full container z-50 bg-white  my-4">
+        <nav class="fixed w-full container z-50 bg-white">
             <div class="container mx-auto px-4 flex justify-between items-center">
                 <div class="text-2xl text-gray-800 font-light">
                     <img src="../assets/images/logo/4.png" class="w-16 p-1" alt="Vow Perfect Logo">
@@ -18,50 +18,43 @@
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center">
             <img src="../assets/images/hero/hero.png"
-                class="absolute inset-0 w-full h-full object-cover filter brightness-50 px-8 py-40 md:px-4 md:py-44" alt="Wedding Hero">
+                class="absolute inset-0 w-full h-full object-cover filter brightness-50 px-8 py-40 md:px-4 md:py-44"
+                alt="Wedding Hero">
             <div class="container mx-auto px-4 text-center relative z-10 text-white">
                 <div class="container mx-auto px-4 text-center">
                     <h1 class="text-5xl md:text-7xl font-light mb-6 animate-fade-up">
                         Creating Your Perfect Day</h1>
                     <p class="text-xl text-gray-100 mb-8 animate-fade-up animation-delay-300">Beautiful websites for
                         your beautiful moments</p>
-                    <Button label="Get Started" class="p-button-lg" />
+                    <button class="bg-[#C8A898] p-2 text-gray-900 font-bold">
+                        book a consultation, now
+                    </button>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section class="py-20 bg-gray-50">
+        <section class="py-20 ">
             <div class="container mx-auto px-4">
                 <div class="max-w-3xl mx-auto text-center space-y-8">
-                    <h2 class="text-4xl font-light mb-4">A free wedding website that's just... you!</h2>
+                    <h2 class="text-4xl font-light mb-4">We do all the work, you focus only on the wedding!</h2>
                     <p class="text-gray-600 text-lg leading-relaxed">
                         Tell your guests all they need to know about the big day on your customized wedding website -
                         add all your events, photos and videos! All in one of our beautifully designed themes.
                     </p>
-                    <Button label="See A Demo" class="p-button-outlined" />
+                    <button class="bg-[#C8A898] p-2 text-gray-900 font-bold">
+                        see demo
+                    </button>
                 </div>
                 <div class="mt-16">
-                    <img src="/assets/images/hero/hero.png" class="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                    <img src="/public/assets/images/mockup.png" class="w-full max-w-3xl mx-auto rounded-lg"
                         alt="Wedding Website Demo">
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-light text-center mb-16">Our Services</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div v-for="service in services" :key="service.title"
-                        class="p-6 text-center hover:shadow-lg transition-shadow">
-                        <i :class="service.icon" class="text-4xl text-pink-300 mb-4"></i>
-                        <h3 class="text-xl mb-2">{{ service.title }}</h3>
-                        <p class="text-gray-600">{{ service.description }}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+        <!-- <ProcessSection /> -->
 
         <!-- Portfolio Preview -->
         <section class="py-20 bg-neutral-50">
@@ -100,7 +93,6 @@
                 </div>
             </div>
         </section>
-
         <TestimonialsSection />
         <!-- Contact Section -->
         <section class="py-20 bg-white">
@@ -126,6 +118,7 @@
 </template>
 
 <script setup>
+import Button from 'primevue/button';
 const navItems = ['Home', 'Services', 'Portfolio', 'Pricing', 'Contact']
 
 const scrolled = ref(false)
@@ -197,15 +190,15 @@ const services = [
 const portfolio = [
     {
         title: 'Sarah & James',
-        image: ''
+        image: '/assets/images/demo1/couple1.jpg'
     },
     {
         title: 'Emma & Michael',
-        image: ''
+        image: '/assets/images/demo1/Hero.jpg'
     },
     {
         title: 'Lisa & David',
-        image: ''
+        image: '/assets/images/demo1/hero.png'
     }
 ]
 </script>
