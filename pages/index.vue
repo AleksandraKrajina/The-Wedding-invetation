@@ -1,63 +1,49 @@
 <template>
-    <div>
-        <nav class="fixed w-full z-50 transition-colors"
-            :class="{ 'bg-white shadow-md': scrolled, 'bg-transparent': !scrolled }">
-            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-                <div class="text-2xl font-light" :class="{ 'text-white': !scrolled, 'text-gray-800': scrolled }">
-                    <img src="../assets/images/logo/4.png"
-                    class="w-32 p-1" alt="Vow Perfect Logo">
+    <div class="container mx-auto">
+        <!-- Navigation -->
+        <nav class="fixed w-full container z-50 bg-white  my-4">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <div class="text-2xl text-gray-800 font-light">
+                    <img src="../assets/images/logo/4.png" class="w-16 p-1" alt="Vow Perfect Logo">
                 </div>
-                <div class="flex gap-8">
-                    <a v-for="item in navItems" :key="item"
-                        :class="{ 'text-white': !scrolled, 'text-gray-800': scrolled }"
-                        class="hover:opacity-75 transition-opacity" href="#">
+                <div class="flex gap-4">
+                    <a v-for="item in navItems" :key="item" class="text-gray-800 hover:opacity-75 transition-opacity"
+                        href="#">
                         {{ item }}
                     </a>
                 </div>
             </div>
         </nav>
+
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center">
             <img src="../assets/images/hero/hero.png"
-                class="absolute inset-0 w-full h-full object-cover filter brightness-50" alt="Wedding Hero">
+                class="absolute inset-0 w-full h-full object-cover filter brightness-50 px-8 py-40 md:px-4 md:py-44" alt="Wedding Hero">
             <div class="container mx-auto px-4 text-center relative z-10 text-white">
                 <div class="container mx-auto px-4 text-center">
                     <h1 class="text-5xl md:text-7xl font-light mb-6 animate-fade-up">
                         Creating Your Perfect Day</h1>
-                    <p class="text-xl text-gray-100 mb-8">Beautiful websites for your beautiful moments</p>
+                    <p class="text-xl text-gray-100 mb-8 animate-fade-up animation-delay-300">Beautiful websites for
+                        your beautiful moments</p>
                     <Button label="Get Started" class="p-button-lg" />
                 </div>
             </div>
         </section>
-        <!-- About us -->
-        <section class="py-20 bg-white">
+
+        <!-- About Section -->
+        <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-4">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-6">
-                        <h2 class="text-3xl font-light">About Our Agency</h2>
-                        <p class="text-gray-600 leading-relaxed">
-                            With over a decade of experience crafting beautiful wedding websites, we understand that
-                            your love story is unique. Our passionate team of designers and developers work closely with
-                            each couple to create a digital presence that perfectly captures their special day.
-                        </p>
-                        <div class="grid grid-cols-2 gap-8 mt-8">
-                            <div>
-                                <div class="text-3xl font-light text-pink-400">500+</div>
-                                <p class="text-gray-600">Happy Couples</p>
-                            </div>
-                            <div>
-                                <div class="text-3xl font-light text-pink-400">10+</div>
-                                <p class="text-gray-600">Years Experience</p>
-                            </div>
-                        </div>
-                        <Button label="Learn More" class="p-button-outlined mt-4" />
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="../assets/images/about/team-1.png" class="w-full aspect-square object-cover"
-                            alt="Our Team">
-                        <img src="../assets/images/about/team-1.png" class="w-full aspect-square object-cover mt-8"
-                            alt="Our Office">
-                    </div>
+                <div class="max-w-3xl mx-auto text-center space-y-8">
+                    <h2 class="text-4xl font-light mb-4">A free wedding website that's just... you!</h2>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Tell your guests all they need to know about the big day on your customized wedding website -
+                        add all your events, photos and videos! All in one of our beautifully designed themes.
+                    </p>
+                    <Button label="See A Demo" class="p-button-outlined" />
+                </div>
+                <div class="mt-16">
+                    <img src="/assets/images/hero/hero.png" class="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                        alt="Wedding Website Demo">
                 </div>
             </div>
         </section>
@@ -114,6 +100,8 @@
                 </div>
             </div>
         </section>
+
+        <TestimonialsSection />
         <!-- Contact Section -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-4 max-w-lg">
@@ -209,15 +197,15 @@ const services = [
 const portfolio = [
     {
         title: 'Sarah & James',
-        image: '/placeholder-1.jpg'
+        image: ''
     },
     {
         title: 'Emma & Michael',
-        image: '/placeholder-2.jpg'
+        image: ''
     },
     {
         title: 'Lisa & David',
-        image: '/placeholder-3.jpg'
+        image: ''
     }
 ]
 </script>
@@ -229,7 +217,7 @@ const portfolio = [
 
 .animate-fade-up {
     opacity: 0;
-    animation: fadeUp 1s forwards;
+    animation: fadeUp 2s forwards;
 }
 
 .animation-delay-300 {
