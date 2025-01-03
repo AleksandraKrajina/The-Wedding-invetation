@@ -38,7 +38,7 @@ const pricingPlans = [
     {
         name: 'Basic',
         originalPrice: '499',
-        price: '299',
+        price: '199',
         features: [
             'Custom Design',
             'Mobile Responsive',
@@ -51,7 +51,7 @@ const pricingPlans = [
     {
         name: 'Premium',
         originalPrice: '899',
-        price: '599',
+        price: '499',
         features: [
             'Everything in Basic',
             'Photo Gallery',

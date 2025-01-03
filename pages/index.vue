@@ -27,7 +27,8 @@
         <section class="py-20 opacity-0 transition-opacity duration-700" data-observe>
             <div class="container mx-auto px-4">
                 <div class="max-w-3xl mx-auto text-center space-y-8">
-                    <h2 class="text-4xl font-light mb-4">We do all the work for you, <br> you focus only on the wedding!</h2>
+                    <h2 class="text-4xl font-light mb-4">We do all the work for you, <br> you focus only on the wedding!
+                    </h2>
                     <p class="text-gray-600 text-lg leading-relaxed">
                         Tell your guests all they need to know about the big day on your customized wedding website -
                         add all your events, photos and videos! All in one of our beautifully designed themes.
@@ -67,28 +68,10 @@
         </section> -->
         <!-- Pricing -->
         <Pricing />
-       
+
         <TestimonialsSection class="py-20 opacity-0 transition-opacity duration-700" data-observe />
         <!-- Contact Section -->
-        <section class="py-20 opacity-0 transition-opacity duration-700" data-observe>
-            <div class="container mx-auto px-4 max-w-lg">
-                <h2 class="text-3xl font-light text-center mb-16">Contact Us</h2>
-                <form class="space-y-6">
-                    <div>
-                        <InputText placeholder="Your Name" class="w-full" />
-                    </div>
-                    <div>
-                        <InputText placeholder="Email" type="email" class="w-full" />
-                    </div>
-                    <div>
-                        <textarea rows="4"
-                            class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-200"
-                            placeholder="Your Message"></textarea>
-                    </div>
-                    <Button label="Send Message" class="w-full" />
-                </form>
-            </div>
-        </section>
+        <Contact />
     </div>
     <GeneralFooter />
 </template>
