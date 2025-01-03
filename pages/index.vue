@@ -4,7 +4,9 @@
         <GeneralNavigation />
 
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center">
+        <section
+            class="relative min-h-screen flex items-center justify-center opacity-0 transition-opacity duration-700"
+            data-observe>
             <img src="../assets/images/hero/hero.png"
                 class="absolute inset-0 w-full h-full object-cover filter brightness-50 px-8 py-40 md:px-4 md:py-44"
                 alt="Wedding Hero">
@@ -22,34 +24,37 @@
         </section>
 
         <!-- About Section -->
-        <section class="py-20 ">
+        <section class="py-20 opacity-0 transition-opacity duration-700" data-observe>
             <div class="container mx-auto px-4">
                 <div class="max-w-3xl mx-auto text-center space-y-8">
-                    <h2 class="text-4xl font-light mb-4">We do all the work, you focus only on the wedding!</h2>
+                    <h2 class="text-4xl font-light mb-4">We do all the work for you, <br> you focus only on the wedding!</h2>
                     <p class="text-gray-600 text-lg leading-relaxed">
                         Tell your guests all they need to know about the big day on your customized wedding website -
                         add all your events, photos and videos! All in one of our beautifully designed themes.
                     </p>
-                    <button class="bg-[#C8A898] p-2 text-gray-900 font-bold">
-                        see demo
-                    </button>
+                    <NuxtLink to="/demo1" target="_blank">
+                        <button class="bg-[#C8A898] p-2 text-gray-900 font-bold mt-4">
+                            see it in action
+                        </button>
+                    </NuxtLink>
                 </div>
-                <div class="mt-16">
-                    <img src="/public/assets/images/mockup.png" class="w-full max-w-3xl mx-auto rounded-lg"
+                <div class="mt-2 flex justify-center items-center flex-col ">
+                    <img src="/public/assets/images/mockup.png" class="w-full max-w-4xl mx-auto rounded-lg"
                         alt="Wedding Website Demo">
                 </div>
             </div>
         </section>
 
 
-        <!-- <ProcessSection /> -->
+        <ProcessSection />
 
         <!-- Portfolio Preview -->
-        <section class="py-20">
+        <!-- <section class="py-20 opacity-0 transition-opacity duration-700" data-observe>
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-light text-center mb-16">Recent Work</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div v-for="work in portfolio" :key="work.title" class="relative group overflow-hidden bg-black drop-shadow-lg mx-12">
+                    <div v-for="work in portfolio" :key="work.title"
+                        class="relative group overflow-hidden bg-black drop-shadow-lg mx-12">
                         <img :src="work.image" :alt="work.title"
                             class="w-full aspect-square object-cover transition-transform group-hover:scale-105 opacity-75">
                         <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 
@@ -59,31 +64,13 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- Pricing -->
-        <section class="py-20 ">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-light text-center mb-16">Pricing Plans</h2>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div v-for="plan in pricingPlans" :key="plan.name"
-                        class="bg-white p-8 rounded-lg shadow-lg text-center">
-                        <h3 class="text-2xl mb-4">{{ plan.name }}</h3>
-                        <div class="text-4xl mb-6">${{ plan.price }}</div>
-                        <ul class="space-y-3 mb-8 text-left">
-                            <li v-for="feature in plan.features" :key="feature" class="flex items-center">
-                                <i class="pi pi-check text-green-500 mr-2"></i>
-                                {{ feature }}
-                            </li>
-                        </ul>
-                        <Button :label="plan.action"
-                            :class="plan.featured ? 'p-button-primary' : 'p-button-outlined'" />
-                    </div>
-                </div>
-            </div>
-        </section>
-        <TestimonialsSection />
+        <Pricing />
+       
+        <TestimonialsSection class="py-20 opacity-0 transition-opacity duration-700" data-observe />
         <!-- Contact Section -->
-        <section class="py-20 bg-white">
+        <section class="py-20 opacity-0 transition-opacity duration-700" data-observe>
             <div class="container mx-auto px-4 max-w-lg">
                 <h2 class="text-3xl font-light text-center mb-16">Contact Us</h2>
                 <form class="space-y-6">
@@ -117,33 +104,7 @@ onMounted(() => {
     })
 })
 
-const pricingPlans = [
-    {
-        name: 'Basic',
-        price: '499',
-        features: [
-            'Custom Design',
-            'Mobile Responsive',
-            'RSVP Form',
-            '3 Month Hosting'
-        ],
-        action: 'Get Started',
-        featured: false
-    },
-    {
-        name: 'Premium',
-        price: '899',
-        features: [
-            'Everything in Basic',
-            'Photo Gallery',
-            'Guest List Management',
-            'Custom Domain',
-            '1 Year Hosting'
-        ],
-        action: 'Choose Plan',
-        featured: true
-    }
-]
+
 const services = [
     {
         title: 'Custom Design',
@@ -176,6 +137,24 @@ const portfolio = [
         image: '/assets/images/demo1/hero.png'
     }
 ]
+
+onMounted(() => {
+    const sections = document.querySelectorAll('[data-observe]');
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'animate-fadeIn');
+                    observer.unobserve(entry.target); // Stop observing after animation triggers
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+});
 </script>
 
 <style scoped>
