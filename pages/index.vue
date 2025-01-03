@@ -1,19 +1,7 @@
 <template>
     <div class="container mx-auto">
         <!-- Navigation -->
-        <nav class="fixed w-full container z-50 bg-white">
-            <div class="container mx-auto px-4 flex justify-between items-center">
-                <div class="text-2xl text-gray-800 font-light">
-                    <img src="../assets/images/logo/4.png" class="w-16 p-1" alt="Vow Perfect Logo">
-                </div>
-                <div class="flex gap-4">
-                    <a v-for="item in navItems" :key="item" class="text-gray-800 hover:opacity-75 transition-opacity"
-                        href="#">
-                        {{ item }}
-                    </a>
-                </div>
-            </div>
-        </nav>
+        <GeneralNavigation />
 
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center">
@@ -57,13 +45,13 @@
         <!-- <ProcessSection /> -->
 
         <!-- Portfolio Preview -->
-        <section class="py-20 bg-neutral-50">
+        <section class="py-20">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-light text-center mb-16">Recent Work</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div v-for="work in portfolio" :key="work.title" class="relative group overflow-hidden">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div v-for="work in portfolio" :key="work.title" class="relative group overflow-hidden bg-black drop-shadow-lg mx-12">
                         <img :src="work.image" :alt="work.title"
-                            class="w-full aspect-square object-cover transition-transform group-hover:scale-105">
+                            class="w-full aspect-square object-cover transition-transform group-hover:scale-105 opacity-75">
                         <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 
                           transition-opacity flex items-center justify-center">
                             <span class="text-white text-lg">{{ work.title }}</span>
@@ -73,10 +61,10 @@
             </div>
         </section>
         <!-- Pricing -->
-        <section class="py-20 bg-neutral-50">
+        <section class="py-20 ">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-light text-center mb-16">Pricing Plans</h2>
-                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <div v-for="plan in pricingPlans" :key="plan.name"
                         class="bg-white p-8 rounded-lg shadow-lg text-center">
                         <h3 class="text-2xl mb-4">{{ plan.name }}</h3>
@@ -115,11 +103,11 @@
             </div>
         </section>
     </div>
+    <GeneralFooter />
 </template>
 
 <script setup>
 import Button from 'primevue/button';
-const navItems = ['Home', 'Services', 'Portfolio', 'Pricing', 'Contact']
 
 const scrolled = ref(false)
 
@@ -154,19 +142,6 @@ const pricingPlans = [
         ],
         action: 'Choose Plan',
         featured: true
-    },
-    {
-        name: 'Luxury',
-        price: '1499',
-        features: [
-            'Everything in Premium',
-            'Live Chat Support',
-            'Wedding Timeline',
-            'Gift Registry',
-            'Lifetime Hosting'
-        ],
-        action: 'Contact Us',
-        featured: false
     }
 ]
 const services = [

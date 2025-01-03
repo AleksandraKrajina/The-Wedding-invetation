@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 bg-gray-50">
+  <section class="py-20 ">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-light text-center mb-16">What Couples Say</h2>
       <div class="grid md:grid-cols-3 gap-8">
