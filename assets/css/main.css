@@ -11,3 +11,24 @@
       font-family: 'Playfair Display', serif;
     }
   }
+
+
+  .p-datatable-paginator-bottom {
+    margin-top: 10px;
+    border: none !important;
+  }
+
+  .p-select-list{
+    background-color: white;
+    gap: 4;
+  }
+  .p-select {
+    padding: 5px;
+  }
+  .p-select-label {
+    padding: 5px;
+  }
+  .p-select-option .p-focus{
+    
+    padding: 5px;
+  }
