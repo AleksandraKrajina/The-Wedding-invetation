@@ -11,78 +11,85 @@
       <h1 class="text-center text-3xl font-light text-gray-900 font-playfair">Welcome Back</h1>
       
       <!-- Login Form -->
-      <div class="flex flex-col gap-6 w-full">
+      <form @submit.prevent="handleLogin" class="flex flex-col gap-6 w-full">
         <div class="flex flex-col gap-2">
           <label for="email" class="text-gray-600">Email</label>
-          <InputText 
-            id="email" 
-            v-model="email" 
-            placeholder="Email Address" 
-            class="w-full p-3"
-          />
+          <div class="relative">
+            <input 
+              id="email" 
+              v-model="email" 
+              type="email"
+              placeholder="Email Address" 
+              class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none transition-colors"
+            />
+            <i class="pi pi-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          </div>
         </div>
         
         <div class="flex flex-col gap-2">
           <label for="password" class="text-gray-600">Password</label>
-          <Password 
-            v-model="password" 
-            placeholder="Password" 
-            :feedback="false"
-            toggleMask
-            class="w-full"
-          />
+          <div class="relative">
+            <input 
+              id="password" 
+              v-model="password" 
+              :type="showPassword ? 'text' : 'password'"
+              placeholder="Password" 
+              class="w-full pl-10 pr-12 py-3 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none transition-colors"
+            />
+            <i class="pi pi-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <button 
+              type="button"
+              @click="showPassword = !showPassword"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <i :class="showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <!-- Forgot Password Link -->
-      <div class="flex items-center justify-end w-full">
-        <a href="#" class="text-[#C8A898] hover:text-[#bd7a59] transition-all text-sm">
-          Forgot your password?
+        <!-- Forgot Password Link -->
+        <div class="flex items-center justify-end w-full">
+          <a href="#" class="text-[#C8A898] hover:text-[#bd7a59] transition-colors text-sm">
+            Forgot your password?
+          </a>
+        </div>
+
+        <!-- Login Button -->
+        <a 
+        href="/dashboard"
+          type="submit"
+          class="w-full bg-[#C8A898] hover:bg-[#bd7a59] text-white py-3 px-4 rounded-md transition-colors flex items-center justify-center gap-2"
+        >
+          <i class="pi pi-sign-in"></i>
+        
+          <span>Sign In</span>
         </a>
-      </div>
-
-      <!-- Login Button -->
-      <Button 
-        label="Sign In" 
-        @click="handleLogin"
-        class="w-full bg-[#C8A898] border-none hover:bg-[#bd7a59]"
-      />
+      </form>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import Button from 'primevue/button'
-import InputText from 'primevue/inputtext'
-import Password from 'primevue/password'
-
 const email = ref('')
 const password = ref('')
+const showPassword = ref(false)
 
 const handleLogin = () => {
-  // Handle login logic here
   console.log('Login attempt:', { email: email.value, password: password.value })
 }
 </script>
 
-<style scoped>
-:deep(.p-password-input) {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 0.375rem;
+<style>
+@import 'primeicons/primeicons.css';
+
+/* Optional: Add smooth transition for input focus */
+input {
+  transition: all 0.2s ease;
 }
 
-:deep(.p-inputtext:enabled:focus) {
-  border-color: #C8A898;
-  box-shadow: 0 0 0 1px #f7dfd3;
-}
-
-:deep(.p-button.p-button-icon-only) {
-  padding: 0.75rem;
-}
-
-:deep(.p-password i) {
-  color: #6b7280;
+/* Optional: Add hover effect for inputs */
+input:hover {
+  border-color: #e5e7eb;
 }
 </style>

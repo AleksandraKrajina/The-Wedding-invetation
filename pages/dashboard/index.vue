@@ -2,549 +2,482 @@
 <template>
   <div class="min-h-screen flex flex-col bg-gray-50">
     <!-- Navigation Header -->
-    <div class="bg-white border-b border-gray-100 px-6 flex justify-between items-center relative lg:static min-h-[70px]">
-      <!-- Logo -->
-      <img src="/assets/images/logo/vp-logo.png" class="w-12 p-2" alt="Vow Perfect Logo">
-      
-      <!-- Mobile Menu Toggle -->
-      <div
-        v-styleclass="{
-          selector: '@next',
-          enterFromClass: 'hidden',
-          leaveToClass: 'hidden',
-          hideOnOutsideClick: true
-        }"
-        class="cursor-pointer block lg:hidden text-gray-700 pr-6"
-      >
-        <i class="pi pi-bars text-2xl" />
-      </div>
+    <nav class="bg-white border-b border-gray-100">
+      <div class="px-6 flex justify-between items-center h-[70px]">
+        <img src="/assets/images/logo/vp-logo.png" class="w-12 p-2" alt="Vow Perfect Logo">
 
-      <!-- Navigation Menu -->
-      <div class="grow justify-between hidden lg:flex absolute lg:static w-full left-0 top-full z-10 shadow-lg lg:shadow-none bg-white">
-        <ul class="list-none p-0 m-0 flex select-none flex-col lg:flex-row gap-2">
-          <li class="lg:flex lg:items-end">
-            <a
-              class="flex items-center px-6 py-4 lg:px-4 lg:py-4 font-medium cursor-pointer transition-colors duration-150"
-              :class="{
-                'bg-[#f7dfd3] text-[#C8A898]': activeTab === 0,
-                'hover:bg-gray-50': activeTab !== 0
-              }"
-              @click="activeTab = 0"
-            >
-              <i class="pi pi-users mr-2" />
-              <span>RSVP Management</span>
-            </a>
-          </li>
-          <li class="lg:flex lg:items-end">
-            <a
-              class="flex items-center px-6 py-4 lg:px-4 lg:py-4 font-medium cursor-pointer transition-colors duration-150"
-              :class="{
-                'bg-[#f7dfd3] text-[#C8A898]': activeTab === 1,
-                'hover:bg-gray-50': activeTab !== 1
-              }"
-              @click="activeTab = 1"
-            >
-              <i class="pi pi-user mr-2" />
-              <span>Profile</span>
-            </a>
-          </li>
-        </ul>
+        <!-- Mobile Menu Button -->
+        <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="lg:hidden text-gray-700">
+          <i class="pi pi-bars"></i>
+        </button>
 
-        <!-- User Menu -->
-        <ul class="list-none p-0 lg:pr-6 m-0 flex lg:items-center select-none flex-col lg:flex-row border-t border-gray-100 lg:border-t-0">
-          <li class="border-t border-gray-100 lg:border-t-0">
-            <a class="flex px-6 p-4 lg:px-4 lg:py-2 items-center hover:bg-gray-50 font-medium rounded cursor-pointer transition-colors duration-150">
-              <img src="/assets/images/demo1/couple1.jpg" class="mr-4 lg:mr-2 w-8 h-8 rounded-full" />
-              <div class="block">
+        <!-- Navigation Menu -->
+        <div :class="[
+          'absolute lg:static left-0 right-0 top-[70px] bg-white lg:bg-transparent',
+          'lg:flex items-center justify-between flex-1 lg:px-6',
+          isMobileMenuOpen ? 'block' : 'hidden lg:flex'
+        ]">
+          <ul class="flex flex-col lg:flex-row gap-2 p-4 lg:p-0">
+            <li v-for="tab in tabs" :key="tab.id">
+              <button @click="activeTab = tab.id" :class="[
+                'flex items-center px-6 py-4 w-full lg:px-4 font-medium rounded-md transition-colors',
+                activeTab === tab.id ? 'bg-[#f7dfd3] text-[#C8A898]' : 'hover:bg-gray-50'
+              ]">
+                <i :class="[tab.icon, 'mr-2']"></i>
+                {{ tab.name }}
+              </button>
+            </li>
+          </ul>
+
+          <!-- User Menu -->
+          <div class="p-4 lg:p-0 border-t lg:border-t-0 border-gray-100">
+            <div class="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-md cursor-pointer">
+              <img src="/assets/images/demo1/couple1.jpg" class="w-8 h-8 rounded-full object-cover" alt="Profile">
+              <div>
                 <div class="text-gray-900 font-medium">{{ coupleNames }}</div>
-                <span class="text-gray-600 font-medium text-sm">{{ weddingDate }}</span>
+                <div class="text-gray-500 text-sm">{{ weddingDate }}</div>
               </div>
-            </a>
-          </li>
-        </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </nav>
 
     <!-- Main Content Area -->
-    <div class="p-8 flex flex-col flex-auto">
-      <!-- RSVP Management Tab -->
+    <main class="flex-1 p-8 mx-2">
+      <!-- RSVP Management -->
       <div v-if="activeTab === 0" class="space-y-6">
         <div class="flex justify-between items-center">
-          <h1 class="text-3xl font-light">RSVP Management</h1>
-          <span class="bg-[#C8A898] px-4 py-2 rounded-full text-white text-sm">
-            {{ totalResponses }} Responses
-          </span>
-        </div>
-
-        <!-- RSVP Stats Cards -->
-        <div class="grid md:grid-cols-3 gap-6">
-          <div v-for="stat in rsvpStats" :key="stat.label" 
-               class="bg-white p-6 rounded-lg shadow-sm">
-            <h3 class="text-gray-600 text-sm mb-2">{{ stat.label }}</h3>
-            <p class="text-3xl font-light">{{ stat.value }}</p>
+          <h1 class="text-2xl font-light">RSVP Management</h1>
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-[#C8A898] text-white">
+              {{ totalResponses }} Responses
+            </span>
           </div>
         </div>
 
-        <!-- Filters and Search -->
-        <div class="md:flex gap-6 mx-2 items-center hidden">
-          <!-- Status Filter -->
-          <div class="p-4 w-1/4">
-            <label class="text-sm text-gray-600 mb-2 block">Status Filter</label>
-            <Dropdown
-              v-model="filters.status"
-              :options="statusOptions"
-              optionLabel="label"
-              placeholder="Select Status"
-              class="w-full bg-white"
-              @change="filterData"
-            />
+        <!-- Filters -->
+        <div class="flex gap-6 items-end">
+          <div class="flex-1 max-w-xs">
+            <label class="block text-sm text-gray-600 mb-2">Status Filter</label>
+            <select v-model="filters.status"
+              class="w-full px-3 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none">
+              <option v-for="option in statusOptions" :key="option.value" :value="option.value">
+                {{ option.label }}
+              </option>
+            </select>
           </div>
-          
-          <!-- Search Input -->
-          <div class=" w-2/3">
-            <label class="text-sm text-gray-600 mb-2 block">Search Guests</label>
-            <div class="relative flex items-center">
-              <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                <i class="pi pi-search text-gray-400 w-8 block"></i>
-              </span>
-              <InputText
-                v-model="filters.searchQuery"
-                placeholder="Search by name or email..."
-                class="w-1/3 ml-10"
-                @input="filterData"
-              />
-              <Button
-                v-if="hasActiveFilters"
-                label="Clear Filters"
-                class="absolute right-0 top-0 bottom-0 p-button-text"
-                @click="clearFilters"
-              />
+
+          <div class="flex-1">
+            <label class="block text-sm text-gray-600 mb-2">Search Guests</label>
+            <div class="relative flex gap-2">
+              <div class="relative flex-1">
+                <input v-model="filters.searchQuery" type="text" placeholder="Search by name or email..."
+                  class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none">
+                <i class="pi pi-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+              </div>
+              <button @click="clearFilters"
+                class="px-4 py-2 bg-red-100 text-red-600 rounded-md hover:bg-red-200 transition-colors">
+                Clear
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- RSVP List -->
-        <DataTable
-          :value="filteredRsvpList"
-          :paginator="true"
-          :rows="10"
-          paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink"
-          responsiveLayout="scroll"
-          class="p-datatable-sm"
-        >
-          <Column field="name" header="Guest Name"></Column>
-          <Column field="email" header="Email"></Column>
-          <Column field="status" header="Status">
-            <template #body="slotProps">
-              <Tag
-                :value="slotProps.data.status"
-                :severity="getStatusSeverity(slotProps.data.status)"
-              />
-            </template>
-          </Column>
-          <Column field="guests" header="Additional Guests"></Column>
-          <Column field="mealPreference" header="Meal Preference"></Column>
-        </DataTable>
+        <!-- Guest Table -->
+        <!-- Guest Table -->
+        <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr class="bg-gray-50 border-b border-gray-200">
+                  <th v-for="column in tableColumns" :key="column.field"
+                    class="px-6 py-3 text-left text-sm font-medium text-gray-500"
+                    :class="{ 'cursor-pointer hover:bg-gray-100': column.sortable }"
+                    @click="column.sortable && sortData(column.field)">
+                    <div class="flex items-center gap-2">
+                      {{ column.header }}
+                      <div v-if="column.sortable" class="flex flex-col">
+                        <i class="pi pi-angle-up text-xs"
+                          :class="{ 'text-[#C8A898]': sortField === column.field && sortDirection === 'asc' }"></i>
+                        <i class="pi pi-angle-down text-xs"
+                          :class="{ 'text-[#C8A898]': sortField === column.field && sortDirection === 'desc' }"></i>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+              <!-- Empty State -->
+              <tbody v-if="paginatedGuests.length === 0" class="divide-y divide-gray-200">
+                <tr>
+                  <td colspan="4" class="px-6 py-8 text-center text-gray-500">
+                    <div class="flex flex-col items-center">
+                      <i class="pi pi-search text-4xl mb-2"></i>
+                      <p class="text-lg">No guests found</p>
+                      <p class="text-sm">Try adjusting your filters or search term</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+
+              <!-- Table Content -->
+              <tbody v-else class="divide-y divide-gray-200">
+                <tr v-for="guest in paginatedGuests" :key="guest.id" class="hover:bg-gray-50">
+                  <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">
+                    {{ guest.name }}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span :class="[
+                      'inline-flex items-center px-3 py-1 rounded-full text-sm',
+                      getStatusClasses(guest.status)
+                    ]">
+                      {{ guest.status }}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                    {{ guest.guests }}
+                  </td>
+                  <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                    {{ guest.mealPreference }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="flex items-center justify-between px-6 py-3 border-t border-gray-200 bg-white">
+            <div class="flex items-center gap-2">
+              <button @click="currentPage = Math.max(1, currentPage - 1)" :disabled="currentPage === 1"
+                class="px-3 py-1 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="pi pi-angle-left"></i>
+              </button>
+              <div class="flex gap-1">
+                <button v-for="page in totalPages" :key="page" @click="currentPage = page" :class="[
+                  'px-3 py-1 rounded min-w-[32px]',
+                  currentPage === page
+                    ? 'bg-[#f7dfd3] text-[#C8A898]'
+                    : 'hover:bg-gray-100'
+                ]">
+                  {{ page }}
+                </button>
+              </div>
+              <button @click="currentPage = Math.min(totalPages, currentPage + 1)"
+                :disabled="currentPage === totalPages"
+                class="px-3 py-1 rounded hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="pi pi-angle-right"></i>
+              </button>
+            </div>
+
+            <div class="text-sm text-gray-500">
+              Showing {{ paginatedGuests.length }} of {{ totalResponses }} guests
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Profile Tab -->
-      <div v-if="activeTab === 1" class="max-w-2xl mx-auto space-y-8">
-        <h2 class="text-3xl font-light text-center">Wedding Details</h2>
-        
+      <div v-if="activeTab === 2" class="max-w-2xl mx-auto space-y-8">
+        <h2 class="text-2xl font-light text-center">Wedding Details</h2>
+
         <form @submit.prevent="updateProfile" class="space-y-6 bg-white p-8 rounded-lg shadow-sm">
           <div class="grid md:grid-cols-2 gap-6">
-            <!-- Couple Details -->
+            <!-- Partner 1 -->
             <div class="space-y-4">
               <h3 class="text-xl font-light">Partner 1</h3>
-              <InputText v-model="profile.partner1Name" placeholder="Full Name" class="w-full" />
-              <InputText v-model="profile.partner1Email" placeholder="Email" class="w-full" />
+              <div class="space-y-2">
+                <input v-model="profile.partner1Name" type="text" placeholder="Full Name"
+                  class="w-full px-3 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none">
+                <input v-model="profile.partner1Email" type="email" placeholder="Email"
+                  class="w-full px-3 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none">
+              </div>
             </div>
-            
+
+            <!-- Partner 2 -->
             <div class="space-y-4">
               <h3 class="text-xl font-light">Partner 2</h3>
-              <InputText v-model="profile.partner2Name" placeholder="Full Name" class="w-full" />
-              <InputText v-model="profile.partner2Email" placeholder="Email" class="w-full" />
+              <div class="space-y-2">
+                <input v-model="profile.partner2Name" type="text" placeholder="Full Name"
+                  class="w-full px-3 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none">
+                <input v-model="profile.partner2Email" type="email" placeholder="Email"
+                  class="w-full px-3 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none">
+              </div>
             </div>
           </div>
 
-          <!-- Wedding Details -->
+          <!-- Event Details -->
           <div class="space-y-4">
             <h3 class="text-xl font-light">Event Details</h3>
-            <Calendar v-model="profile.weddingDate" placeholder="Wedding Date" class="w-full" />
-            <InputText v-model="profile.venue" placeholder="Venue" class="w-full" />
-            <InputTextarea v-model="profile.additionalInfo" 
-                          placeholder="Additional Information for Guests"
-                          rows="4" 
-                          class="w-full" />
+            <input v-model="profile.weddingDate" type="date"
+              class="w-full px-3 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none">
+            <input v-model="profile.venue" type="text" placeholder="Venue"
+              class="w-full px-3 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none">
+            <textarea v-model="profile.additionalInfo" placeholder="Additional Information for Guests" rows="4"
+              class="w-full px-3 py-2 border border-gray-200 rounded-md focus:border-[#C8A898] focus:ring-1 focus:ring-[#C8A898] outline-none resize-none"></textarea>
           </div>
 
           <div class="flex justify-center">
-            <Button label="Save Changes" 
-                    class="bg-[#C8A898] border-none hover:bg-[#bd7a59]" />
+            <button type="submit"
+              class="px-6 py-2 bg-[#C8A898] text-white rounded-md hover:bg-[#bd7a59] transition-colors">
+              Save Changes
+            </button>
           </div>
         </form>
       </div>
-    </div>
+
+      <!-- Table Management Tab -->
+      <DashboardTableManagement v-if="activeTab === 1" />
+    </main>
   </div>
 </template>
-
 <script setup>
-import { ref, computed } from 'vue'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
-import Button from 'primevue/button'
-import InputText from 'primevue/inputtext'
-import InputTextarea from 'primevue/textarea'
-import Calendar from 'primevue/calendar'
-import Tag from 'primevue/tag'
-import Dropdown from 'primevue/dropdown'
+import { ref, computed, watch } from 'vue'
+
+const tabs = [
+  { id: 0, name: 'RSVP Management', icon: 'pi pi-users' },
+  { id: 1, name: 'Table Management', icon: 'pi pi-th-large' },
+  { id: 2, name: 'Profile', icon: 'pi pi-user' }
+]
+
+const tableColumns = [
+  { field: 'name', header: 'Guest Name', sortable: true },
+  { field: 'status', header: 'Status', sortable: true },
+  { field: 'guests', header: 'Additional Guests', sortable: true },
+  { field: 'mealPreference', header: 'Meal Preference', sortable: true }
+]
 
 const activeTab = ref(0)
+const isMobileMenuOpen = ref(false)
+const currentPage = ref(1)
+const itemsPerPage = 10
 const coupleNames = ref('Aleksandra & Guido')
 const weddingDate = ref('November 15, 2025')
-const totalResponses = ref(45)
+const sortField = ref('name')
+const sortDirection = ref('asc')
 
-// RSVP Management Data
-const rsvpStats = ref([
-  { label: 'Total Invited', value: 120 },
-  { label: 'Attending', value: 45 },
-  { label: 'Declined', value: 15 },
-])
-
-const rsvpList = ref([
-  { 
-    name: 'John Smith', 
-    email: 'john@email.com',
-    status: 'Attending',
-    guests: 2,
-    mealPreference: 'Vegetarian'
-  },
-  { 
-    name: 'Emma Johnson', 
-    email: 'emma.j@email.com',
-    status: 'Attending',
-    guests: 1,
-    mealPreference: 'Regular'
-  },
-  { 
-    name: 'Michael Brown', 
-    email: 'mbrown@email.com',
-    status: 'Declined',
-    guests: 0,
-    mealPreference: '-'
-  },
-  { 
-    name: 'Sarah Wilson', 
-    email: 'swilson@email.com',
-    status: 'Attending',
-    guests: 3,
-    mealPreference: 'Regular'
-  },
-  { 
-    name: 'David Garcia', 
-    email: 'dgarcia@email.com',
-    status: 'Pending',
-    guests: 2,
-    mealPreference: 'Pending'
-  },
-  { 
-    name: 'Lisa Chen', 
-    email: 'lchen@email.com',
-    status: 'Attending',
-    guests: 0,
-    mealPreference: 'Vegan'
-  },
-  { 
-    name: 'James Williams', 
-    email: 'jwilliams@email.com',
-    status: 'Declined',
-    guests: 0,
-    mealPreference: '-'
-  },
-  { 
-    name: 'Maria Rodriguez', 
-    email: 'mrodriguez@email.com',
-    status: 'Attending',
-    guests: 4,
-    mealPreference: 'Regular'
-  },
-  { 
-    name: 'Robert Taylor', 
-    email: 'rtaylor@email.com',
-    status: 'Pending',
-    guests: 1,
-    mealPreference: 'Pending'
-  },
-  { 
-    name: 'Jennifer Lee', 
-    email: 'jlee@email.com',
-    status: 'Attending',
-    guests: 2,
-    mealPreference: 'Vegetarian'
-  }
-])
-
-// Filters
 const filters = ref({
-  status: null,
+  status: 'all',
   searchQuery: ''
 })
 
 const statusOptions = [
-  { label: 'All', value: null },
+  { label: 'All', value: 'all' },
   { label: 'Attending', value: 'Attending' },
   { label: 'Declined', value: 'Declined' },
   { label: 'Pending', value: 'Pending' }
 ]
 
-// Compute if any filters are active
-const hasActiveFilters = computed(() => {
-  return filters.value.status !== null || filters.value.searchQuery !== ''
-})
-
-// Filtered list computed property
-const filteredRsvpList = computed(() => {
-  let filtered = [...rsvpList.value]
-
-  // Apply status filter
-  if (filters.value.status) {
-    filtered = filtered.filter(item => item.status === filters.value.status.value)
+const rsvpList = ref([
+  {
+    id: 1,
+    name: 'John Smith',
+    status: 'Attending',
+    guests: 2,
+    mealPreference: 'Vegetarian'
+  },
+  {
+    id: 2,
+    name: 'Emma Johnson',
+    status: 'Attending',
+    guests: 1,
+    mealPreference: 'Regular'
+  },
+  {
+    id: 3,
+    name: 'Michael Brown',
+    status: 'Declined',
+    guests: 0,
+    mealPreference: '-'
+  },
+  {
+    id: 4,
+    name: 'Sarah Wilson',
+    status: 'Attending',
+    guests: 3,
+    mealPreference: 'Regular'
+  },
+  {
+    id: 5,
+    name: 'David Garcia',
+    status: 'Pending',
+    guests: 2,
+    mealPreference: 'Pending'
+  },
+  {
+    id: 6,
+    name: 'Lisa Chen',
+    status: 'Attending',
+    guests: 0,
+    mealPreference: 'Vegan'
+  },
+  {
+    id: 7,
+    name: 'James Williams',
+    status: 'Declined',
+    guests: 0,
+    mealPreference: '-'
+  },
+  {
+    id: 8,
+    name: 'Maria Rodriguez',
+    status: 'Attending',
+    guests: 4,
+    mealPreference: 'Regular'
+  },
+  {
+    id: 9,
+    name: 'Robert Taylor',
+    status: 'Pending',
+    guests: 1,
+    mealPreference: 'Pending'
+  },
+  {
+    id: 10,
+    name: 'Jennifer Lee',
+    status: 'Attending',
+    guests: 2,
+    mealPreference: 'Vegetarian'
   }
+])
 
-  // Apply search filter
-  if (filters.value.searchQuery) {
-    const query = filters.value.searchQuery.toLowerCase()
-    filtered = filtered.filter(item =>
-      item.name.toLowerCase().includes(query) ||
-      item.email.toLowerCase().includes(query)
-    )
-  }
-
-  return filtered
-})
-
-// Profile Data
 const profile = ref({
   partner1Name: 'Aleksandra',
   partner1Email: 'aleksandra@email.com',
   partner2Name: 'Guido',
   partner2Email: 'guido@email.com',
-  weddingDate: new Date('2025-11-15'),
+  weddingDate: '2025-11-15',
   venue: 'Grand Palace',
   additionalInfo: ''
 })
 
-const getStatusSeverity = (status) => {
+const filteredAndSortedList = computed(() => {
+  if (!rsvpList.value) return []
+  let filtered = []
+  filtered = [...rsvpList.value]
+
+  // Status filtering with proper type checking
+  const statusFilter = filters.value.status
+  if (statusFilter && statusFilter !== 'all') {
+    filtered = filtered.filter(guest => guest.status === statusFilter)
+  }
+
+  // Search filtering with better error handling
+  const searchQuery = filters.value.searchQuery?.trim().toLowerCase()
+  if (searchQuery) {
+    filtered = filtered.filter(guest => {
+      const searchableFields = [
+        guest.name,
+        guest.email,
+        guest.status,
+        guest.mealPreference,
+        String(guest.guests)
+      ].map(field => (field || '').toLowerCase())
+
+      return searchableFields.some(field => field.includes(searchQuery))
+    })
+  }
+
+  // Sorting with proper type checking
+  if (sortField.value) {
+    filtered.sort((a, b) => {
+      const aValue = a[sortField.value]
+      const bValue = b[sortField.value]
+
+      // Handle undefined/null values
+      if (!aValue && !bValue) return 0
+      if (!aValue) return 1
+      if (!bValue) return -1
+
+      // Numeric comparison
+      if (typeof aValue === 'number' && typeof bValue === 'number') {
+        return sortDirection.value === 'asc'
+          ? aValue - bValue
+          : bValue - aValue
+      }
+
+      // String comparison
+      const aString = String(aValue).toLowerCase()
+      const bString = String(bValue).toLowerCase()
+
+      return sortDirection.value === 'asc'
+        ? aString.localeCompare(bString)
+        : bString.localeCompare(aString)
+    })
+  }
+
+  return filtered
+})
+
+const totalResponses = computed(() => filteredAndSortedList.value.length)
+
+const totalPages = computed(() => {
+  const total = filteredAndSortedList.value.length
+  return Math.max(1, Math.ceil(total / itemsPerPage))
+})
+
+const paginatedGuests = computed(() => {
+  const filtered = filteredAndSortedList.value
+  const start = (currentPage.value - 1) * itemsPerPage
+  const end = Math.min(start + itemsPerPage, filtered.length)
+
+  // Ensure currentPage is valid
+  if (currentPage.value > totalPages.value) {
+    currentPage.value = totalPages.value
+  }
+
+  return filtered.slice(start, end)
+})
+
+const getStatusClasses = (status) => {
   switch (status) {
-    case 'Attending': return 'success'
-    case 'Declined': return 'danger'
-    default: return 'warning'
+    case 'Attending':
+      return 'bg-green-100 text-green-800'
+    case 'Declined':
+      return 'bg-red-100 text-red-800'
+    default:
+      return 'bg-yellow-100 text-yellow-800'
   }
 }
 
-const filterData = () => {
-  // Filtering is handled by computed property
+const sortData = (field) => {
+  if (sortField.value === field) {
+    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
+  } else {
+    sortField.value = field
+    sortDirection.value = 'asc'
+  }
 }
 
 const clearFilters = () => {
   filters.value = {
-    status: null,
+    status: 'all',
     searchQuery: ''
   }
+  currentPage.value = 1
+  sortField.value = 'name'
+  sortDirection.value = 'asc'
 }
 
 const updateProfile = () => {
-  // Handle profile update logic
   console.log('Profile updated:', profile.value)
 }
+
+// Add watchers for filters
+watch(() => filters.value.status, () => {
+  currentPage.value = 1
+})
+
+watch(() => filters.value.searchQuery, () => {
+  currentPage.value = 1
+})
+
+// Add watcher for sorting
+watch([sortField, sortDirection], () => {
+  currentPage.value = 1
+})
 </script>
 
-<style scoped>
-/* Base styles */
-:deep(.p-component) {
-  font-family: inherit;
-}
-
-/* Dropdown styles */
-:deep(.p-dropdown) {
-  width: 100%;
-  border-radius: 0.375rem;
-  border: 1px solid #e5e7eb;
-  background: #fff;
-}
-
-:deep(.p-dropdown:not(.p-disabled).p-focus) {
-  border-color: #C8A898;
-  box-shadow: none;
-}
-
-:deep(.p-dropdown-panel) {
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  margin-top: 4px;
-}
-
-:deep(.p-dropdown-panel .p-dropdown-items .p-dropdown-item) {
-  padding: 0.75rem 1.25rem;
-  color: #374151;
-}
-
-:deep(.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight) {
-  background-color: #f7dfd3;
-  color: #C8A898;
-}
-
-:deep(.p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover) {
-  background-color: #f7dfd3;
-  color: #C8A898;
-}
-
-/* Input styles */
-:deep(.p-inputtext) {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  background: #fff;
-  font-size: 0.875rem;
-}
-
-:deep(.p-inputtext:enabled:focus) {
-  outline: none;
-  border-color: #C8A898;
-  box-shadow: none;
-}
-
-/* Button styles */
-:deep(.p-button.p-button-text) {
-  color: #6b7280;
-  padding: 0.75rem 1rem;
-  font-weight: normal;
-}
-
-:deep(.p-button.p-button-text:hover) {
-  background: rgba(0,0,0,0.04);
-  color: #374151;
-}
-
-/* DataTable styles */
-:deep(.p-datatable) {
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-:deep(.p-datatable .p-datatable-thead > tr > th) {
-  background: #f9fafb;
-  border-bottom: 1px solid #e5e7eb;
-  color: #374151;
-  padding: 0.75rem 1.25rem;
-  font-weight: 500;
-}
-
-:deep(.p-datatable .p-datatable-tbody > tr > td) {
-  padding: 0.75rem 1.25rem;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-:deep(.p-datatable .p-datatable-tbody > tr:last-child > td) {
-  border-bottom: none;
-}
-
-:deep(.p-datatable .p-datatable-tbody > tr:hover) {
-  background: #f9fafb;
-}
-
-/* Tag styles */
-:deep(.p-tag) {
-  border-radius: 9999px;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.875rem;
-}
-
-:deep(.p-tag.p-tag-success) {
-  background-color: #86efac;
-  color: #166534;
-}
-
-:deep(.p-tag.p-tag-danger) {
-  background-color: #fecaca;
-  color: #dc2626;
-}
-
-:deep(.p-tag.p-tag-warning) {
-  background-color: #fef3c7;
-  color: #d97706;
-}
-
-/* Paginator styles */
-:deep(.p-paginator) {
-  background: #fff;
-  border-top: 1px solid #e5e7eb;
-  padding: 0.75rem;
-}
-
-:deep(.p-paginator .p-paginator-pages .p-paginator-page) {
-  min-width: 2rem;
-  height: 2rem;
-  margin: 0 0.125rem;
-  border-radius: 0.375rem;
-}
-
-:deep(.p-paginator .p-paginator-pages .p-paginator-page.p-highlight) {
-  background: #f7dfd3;
-  color: #C8A898;
-}
-
-:deep(.p-paginator .p-paginator-first),
-:deep(.p-paginator .p-paginator-prev),
-:deep(.p-paginator .p-paginator-next),
-:deep(.p-paginator .p-paginator-last) {
-  color: #6b7280;
-}
-
-:deep(.p-paginator .p-paginator-first:not(.p-disabled):hover),
-:deep(.p-paginator .p-paginator-prev:not(.p-disabled):hover),
-:deep(.p-paginator .p-paginator-next:not(.p-disabled):hover),
-:deep(.p-paginator .p-paginator-last:not(.p-disabled):hover) {
-  background: #f7dfd3;
-  color: #C8A898;
-}
-
-/* Calendar styles */
-:deep(.p-calendar) {
-  width: 100%;
-}
-
-:deep(.p-calendar .p-inputtext) {
-  width: 100%;
-}
-
-:deep(.p-calendar-w-btn .p-datepicker-trigger) {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-left: none;
-  color: #6b7280;
-}
-
-:deep(.p-calendar-w-btn .p-datepicker-trigger:hover) {
-  background: #f9fafb;
-  color: #374151;
-}
-
-/* TextArea styles */
-:deep(.p-inputtextarea) {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  background: #fff;
-  font-size: 0.875rem;
-}
-
-:deep(.p-inputtextarea:enabled:focus) {
-  outline: none;
-  border-color: #C8A898;
-  box-shadow: none;
-}
+<style>
+@import 'primeicons/primeicons.css';
 </style>
