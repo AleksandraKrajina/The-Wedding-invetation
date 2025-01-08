@@ -1,8 +1,8 @@
 # pages/dashboard.vue
 <template>
-  <div class="min-h-screen flex flex-col bg-gray-50">
+  <div class="min-h-screen flex flex-col bg-gray-50 ">
     <!-- Navigation Header -->
-    <nav class="bg-white border-b border-gray-100">
+    <nav class="bg-white border-b border-gray-100 ">
       <div class="px-6 flex justify-between items-center h-[70px]">
         <img src="/assets/images/logo/vp-logo.png" class="w-12 p-2" alt="Vow Perfect Logo">
 
@@ -44,7 +44,7 @@
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-1 p-8 mx-2">
+    <main class="flex-1 p-8 mx-2 ">
       <!-- RSVP Management -->
       <div v-if="activeTab === 0" class="space-y-6">
         <div class="flex justify-between items-center">
