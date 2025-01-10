@@ -9,7 +9,7 @@
       <div class="relative z-10 w-full">
         <div class="absolute top-[-200px] left-0 right-0 p-6 container mx-auto">
           <div class="flex justify-between flex-col md:flex-row items-center text-white text-lg md:text-xl">
-            <div>15.09.2023.</div>
+            <div>15.09.2025.</div>
             <div>VENČANJE</div>
             <div>SONATA OPEN CONCEPT</div>
           </div>
@@ -62,26 +62,26 @@
 
     <section class="py-20 bg-black text-white">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-5 mx-2 md:mx-0 md:grid-cols-5 gap-8 text-center">
-          <div>
-            <div class="text-xl md:text-7xl font-light mb-2">{{ timeLeft.months }}</div>
-            <div class="text-sm ">meseci</div>
+        <div class="grid grid-cols-5 mx-2 md:mx-0 gap-8 text-center">
+          <div class="flex flex-col items-center">
+            <div class="text-xl md:text-7xl font-light">{{ timeLeft.months }}</div>
+            <div class="text-sm mt-2">meseci</div>
           </div>
-          <div>
-            <div class="text-xl md:text-7xl font-light mb-2">{{ timeLeft.days }}</div>
-            <div class="text-sm ">dana</div>
+          <div class="flex flex-col items-center">
+            <div class="text-xl md:text-7xl font-light">{{ timeLeft.days }}</div>
+            <div class="text-sm mt-2">dana</div>
           </div>
-          <div>
-            <div class="text-xl md:text-7xl font-light mb-2">{{ timeLeft.hours }}</div>
-            <div class="text-sm ">sati</div>
+          <div class="flex flex-col items-center">
+            <div class="text-xl md:text-7xl font-light">{{ timeLeft.hours }}</div>
+            <div class="text-sm mt-2">sati</div>
           </div>
-          <div>
-            <div class="text-xl md:text-7xl font-light mb-2">{{ timeLeft.minutes }}</div>
-            <div class="text-sm ">minuta</div>
+          <div class="flex flex-col items-center">
+            <div class="text-xl md:text-7xl font-light">{{ timeLeft.minutes }}</div>
+            <div class="text-sm mt-2">minuta</div>
           </div>
-          <div>
-            <div class="text-xl md:text-7xl font-light mb-2">{{ timeLeft.seconds }}</div>
-            <div class="text-sm ">sekundi</div>
+          <div class="flex flex-col items-center">
+            <div class="text-xl md:text-7xl font-light">{{ timeLeft.seconds }}</div>
+            <div class="text-sm mt-2">sekundi</div>
           </div>
         </div>
       </div>
@@ -90,12 +90,12 @@
     <!-- Event Details -->
     <section class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-6xl font-light text-center mb-16">KAD I GDE</h2>
+        <h2 class="text-6xl font-light text-left mb-16">KAD I GDE</h2>
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Church Ceremony -->
           <div>
             <div class="relative">
-              <img src="/assets/images/demo1/couple1.jpg" alt="Church Ceremony"
+              <img src="/assets/images/demo2/when3.png" alt="Church Ceremony"
                 class="w-full aspect-[4/3] object-cover" />
               <div class="border border-gray-200 p-6">
                 <div class="space-y-1">
@@ -114,8 +114,7 @@
           <!-- Civil Ceremony -->
           <div>
             <div class="relative">
-              <img src="/assets/images/demo1/couple1.jpg" alt="Civil Ceremony"
-                class="w-full aspect-[4/3] object-cover" />
+              <img src="/assets/images/demo2/when2.png" alt="Civil Ceremony" class="w-full aspect-[4/3] object-cover" />
               <div class="border border-gray-200 p-6">
                 <div class="space-y-1">
                   <p class="text-sm">16H30</p>
@@ -134,7 +133,7 @@
           <!-- Reception -->
           <div>
             <div class="relative">
-              <img src="/assets/images/demo1/couple1.jpg" alt="Reception" class="w-full aspect-[4/3] object-cover" />
+              <img src="/assets/images/demo2/when1.png" alt="Reception" class="w-full aspect-[4/3] object-cover" />
               <div class="border border-gray-200 p-6">
                 <div class="space-y-1">
                   <p class="text-sm">NAKON GRAĐANSKOG VENČANJA I</p>
@@ -154,7 +153,7 @@
     </section>
 
     <!-- Our Story -->
-    <section class="py-20 bg-black text-white">
+    <section class="py-20 bg-[url('@/assets/images/demo2/our-story.png')] bg-cover bg-center text-white">
       <div class="container mx-auto px-4 text-center space-y-8">
         <h2 class="text-4xl font-light">NAŠA PRIČA</h2>
         <p class="max-w-2xl mx-auto">
@@ -167,8 +166,17 @@
       </div>
     </section>
 
+    <section>
+      <div class="container mx-auto px-4 text-center space-y-8 min-h-[30svh] flex justify-center items-center">
+        <p class="max-w-2xl mx-4 text-2xl md:text-3xl font-light">
+          Sreli su se pogledi, dogodilo se "S tobom i na kraj sveta"
+          rodila se ljubav iskrena i lepa.
+        </p>
+      </div>
+    </section>
+
     <!-- Gallery Grid -->
-    <section class="py-20">
+    <section class="py-20 bg-black">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
           <img v-for="i in 6" :key="i" src="/assets/images/demo1/couple1.jpg" :alt="`Gallery image ${i}`"
@@ -178,31 +186,34 @@
     </section>
 
     <!-- Wedding Party -->
-    <section class="py-20 bg-black text-white">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-light mb-16">BOG NA NEBU, KUM NA ZEMLJI.</h2>
-        <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <div class="space-y-6">
-            <img src="/assets/images/demo1/couple1.jpg" alt="Mila Milić"
-              class="w-64 h-64 object-cover rounded-full mx-auto" />
-            <div>
-              <h3 class="text-2xl font-light">MILA MILIĆ</h3>
-              <p class="text-gray-300">
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-16 items-center mx-auto">
+          <!-- Mila's Card -->
+          <div class="self-start border border-gray-400">
+            <img src="/assets/images/demo2/bm2.png" alt="Mila Milić"
+              class="w-full aspect-[4/3] object-cover mb-4" />
+            <div class="p-3">
+              <h3 class="text-2xl font-light mb-2">MILA MILIĆ</h3>
+              <p class="text-gray-600 mb-2">
                 Naša kuma je osmeh upakovan u šareno! Zrači pozitivnošču i uvek
                 donosi dobro raspoloženje.
               </p>
-              <p class="text-gray-300">PS Slobodna je ;)</p>
+              <p class="text-gray-600">PS Slobodna je ;)</p>
             </div>
           </div>
-          <div class="space-y-6">
-            <img src="/assets/images/demo1/couple1.jpg" alt="Filip Filipović"
-              class="w-64 h-64 object-cover rounded-full mx-auto" />
-            <div>
-              <h3 class="text-2xl font-light">FILIP FILIPOVIĆ</h3>
-              <p class="text-gray-300">
+
+          <h2 class="text-5xl font-light mb-20 text-center">BOG NA NEBU,<br>KUM NA ZEMLJI.</h2>
+          <!-- Filip's Card -->
+          <div class="self-start border border-gray-400">
+            <img src="/assets/images/demo2/bm1.png" alt="Filip Filipović"
+              class="w-full aspect-[4/3] object-cover mb-4" />
+            <div class="p-3">
+              <h3 class="text-2xl font-light mb-2">FILIP FILIPOVIĆ</h3>
+              <p class="text-gray-600 mb-2">
                 Fin dečko džentlmen, ljubi ruke i te stvari.
               </p>
-              <p class="text-gray-300">PS Žao nam je, al je zauzet. :/</p>
+              <p class="text-gray-600">PS Žao nam je, al je zauzet. :/</p>
             </div>
           </div>
         </div>
@@ -210,7 +221,7 @@
     </section>
 
     <!-- RSVP Form -->
-    <section class="py-20">
+    <section class="py-20 bg-black text-white">
       <div class="container mx-auto px-4 max-w-2xl">
         <h2 class="text-4xl font-light text-center mb-16">POTVRDA PRISUSTVA</h2>
         <p class="text-center mb-12">
@@ -267,7 +278,7 @@ const timeLeft = ref({
 })
 
 onMounted(() => {
-  const weddingDate = new Date("2023-09-15")
+  const weddingDate = new Date("2025-09-15")
 
   const timer = setInterval(() => {
     const now = new Date()
