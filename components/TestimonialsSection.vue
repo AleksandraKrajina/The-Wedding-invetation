@@ -33,13 +33,13 @@ const testimonials = [
     name: "Emily & Michael",
     date: "May 2024",
     text: "The RSVP system saved us so much time. Our guests loved how easy it was to navigate and find all the information.",
-    image: '/assets/images/demo1/couple1.jpg'
+    image: '/assets/images/demo1/Hero.jpg'
   },
   {
     name: "Lisa & David",
     date: "April 2024",
     text: "Professional, responsive, and creative. They turned our vision into reality and exceeded our expectations!",
-    image: '/assets/images/demo1/couple1.jpg'
+    image: '/assets/images/demo1/couple2.jpeg'
   }
 ]
 </script>

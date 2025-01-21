@@ -15,8 +15,8 @@
           <a v-for="item in navItems" 
              :key="item" 
              class="text-gray-800 hover:opacity-75 transition-opacity" 
-             href="#">
-            {{ item }}
+             :href="item.link">
+            {{ item.name }}
           </a>
         </div>
       </div>
@@ -39,6 +39,6 @@
  </template>
  
  <script lang="ts" setup>
- const navItems = ['Home', 'Services', 'Portfolio', 'Pricing', 'Contact']
+ const navItems = [{'name':'Home', 'link': '#'}, {'name':'Services', 'link':'#process'}, {'name':'Portfolio', 'link':'#work'}, {'name':'Pricing', 'link':'#price'}, {'name':'Contact', 'link':'#contact'}]
  const isOpen = ref(false)
  </script>

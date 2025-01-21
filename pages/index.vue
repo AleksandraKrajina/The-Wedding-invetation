@@ -24,7 +24,7 @@
         </section>
 
         <!-- About Section -->
-        <section class="py-20 opacity-0 transition-opacity duration-700" data-observe>
+        <section class="py-20 opacity-0 transition-opacity duration-700" id="work" data-observe>
             <div class="container mx-auto px-4">
                 <div class="max-w-3xl mx-auto text-center space-y-8">
                     <h2 class="text-4xl font-light mb-4">We do all the work for you, <br> you focus only on the wedding!
@@ -47,7 +47,7 @@
         </section>
 
 
-        <ProcessSection />
+        <ProcessSection id="process"/>
 
         <!-- Portfolio Preview -->
         <!-- <section class="py-20 opacity-0 transition-opacity duration-700" data-observe>
@@ -67,11 +67,11 @@
             </div>
         </section> -->
         <!-- Pricing -->
-        <Pricing />
+        <Pricing id="price" />
 
         <TestimonialsSection class="py-20 opacity-0 transition-opacity duration-700" data-observe />
         <!-- Contact Section -->
-        <Contact />
+        <Contact id="contact"/>
     </div>
     <GeneralFooter />
 </template>
