@@ -1,77 +1,22 @@
 <template>
-    <div class="container mx-auto">
+    <div class=" mx-auto">
         <!-- Navigation -->
         <GeneralNavigation />
 
         <!-- Hero Section -->
-        <section
-            class="relative min-h-screen flex items-center justify-center opacity-0 transition-opacity duration-700"
-            data-observe>
-            <img src="../assets/images/hero/hero.png"
-                class="absolute inset-0 w-full h-full object-cover filter brightness-50 px-8 py-40 md:px-4 md:py-44"
-                alt="Wedding Hero">
-            <div class="container mx-auto px-4 text-center relative z-10 text-white">
-                <div class="container mx-auto px-4 text-center">
-                    <h1 class="text-5xl md:text-7xl font-light mb-6 animate-fade-up">
-                        Creating Your Perfect Day</h1>
-                    <p class="text-xl text-gray-100 mb-8 animate-fade-up animation-delay-300">Beautiful websites for
-                        your beautiful moments</p>
-                    <button class="bg-[#C8A898] p-2 text-gray-900 font-bold">
-                        book a consultation, now
-                    </button>
-                </div>
-            </div>
-        </section>
+        <LandingHero />
 
-        <!-- About Section -->
-        <section class="py-20 opacity-0 transition-opacity duration-700" id="work" data-observe>
-            <div class="container mx-auto px-4">
-                <div class="max-w-3xl mx-auto text-center space-y-8">
-                    <h2 class="text-4xl font-light mb-4">We do all the work for you, <br> you focus only on the wedding!
-                    </h2>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        Tell your guests all they need to know about the big day on your customized wedding website -
-                        add all your events, photos and videos! All in one of our beautifully designed themes.
-                    </p>
-                    <NuxtLink to="/demo1" target="_blank">
-                        <button class="bg-[#C8A898] p-2 text-gray-900 font-bold mt-4">
-                            see it in action
-                        </button>
-                    </NuxtLink>
-                </div>
-                <div class="mt-2 flex justify-center items-center flex-col ">
-                    <img src="/public/assets/images/mockup.png" class="w-full max-w-4xl mx-auto rounded-lg"
-                        alt="Wedding Website Demo">
-                </div>
-            </div>
-        </section>
+        <LandingFeaturesSection />
 
+        <LandingHowItWorksSection />
 
-        <ProcessSection id="process"/>
+        <LandingTestemonialsSection />
 
-        <!-- Portfolio Preview -->
-        <!-- <section class="py-20 opacity-0 transition-opacity duration-700" data-observe>
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-light text-center mb-16">Recent Work</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <div v-for="work in portfolio" :key="work.title"
-                        class="relative group overflow-hidden bg-black drop-shadow-lg mx-12">
-                        <img :src="work.image" :alt="work.title"
-                            class="w-full aspect-square object-cover transition-transform group-hover:scale-105 opacity-75">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 
-                          transition-opacity flex items-center justify-center">
-                            <span class="text-white text-lg">{{ work.title }}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <!-- Pricing -->
-        <Pricing id="price" />
+        <LandingPricingSection />
 
-        <TestimonialsSection class="py-20 opacity-0 transition-opacity duration-700" data-observe />
-        <!-- Contact Section -->
-        <Contact id="contact"/>
+        <LandingFaqSection />
+
+        <LandingContactSection />
     </div>
     <GeneralFooter />
 </template>
