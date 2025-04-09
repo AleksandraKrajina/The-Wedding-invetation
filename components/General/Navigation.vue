@@ -79,7 +79,7 @@
               class="ml-4 px-6 py-2 rounded-full font-medium transition-all duration-300 border border-amber-50 border-opacity-30 hover:border-opacity-50"
               :class="[scrolled ? 'bg-amber-50 text-stone-800 hover:bg-amber-100' : 'bg-transparent text-white hover:bg-white hover:bg-opacity-10']"
             >
-              {{ t('bookNow') }}
+              {{ $t('bookNow') }}
             </button>
           </div>
 
@@ -128,7 +128,7 @@
         <div class="flex flex-col space-y-8 text-center">
           <a
             v-for="item in navItems"
-            :key="item.link"
+            :key="item.link" 
             class="text-xl text-white text-opacity-90 font-medium hover:text-amber-50 transition-all"
             :href="item.link"
             @click="closeMobileMenu"
@@ -142,7 +142,7 @@
           @click="closeMobileMenu"
           class="w-full max-w-xs px-8 py-3 mt-16 bg-amber-50 text-stone-800 rounded-full font-medium hover:bg-amber-100 transition-all shadow-md"
         >
-          {{ t('bookNow') }}
+          {{ $t('bookNow') }}
         </button>
 
         <!-- Mobile Language Switcher -->
@@ -170,26 +170,71 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue'
-import { useNuxtApp } from '#app'
-import { saveLocalePreference } from '~/utils/geoDetection'
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
+import { getSavedLocale, saveLocalePreference } from '~/utils/geoDetection'
 
-const nuxtApp = useNuxtApp()
-const currentLocale = ref('en')
+// Use the automatically provided useI18n composable
+const { $t, $locale, $switchLocale } = useI18n()
+
+// UI state
 const isOpen = ref(false)
 const scrolled = ref(false)
 const isLangMenuOpen = ref(false)
 const scrollPosition = ref(0)
 
-onMounted(() => {
-  if (nuxtApp.$i18n) {
-    currentLocale.value = nuxtApp.$i18n.locale || 'en'
-  }
+// Create a separate reactive reference for the current locale
+// This ensures we have proper reactivity for the UI
+const currentLocale = ref($locale || getSavedLocale() || 'en')
 
+// Navigation items - will update reactively when locale changes
+const navItems = computed(() => [
+  { name: $t('home'), link: '#' },
+  { name: $t('services'), link: '#process' },
+  { name: $t('portfolio'), link: '#work' },
+  { name: $t('pricing'), link: '#price' },
+  { name: $t('contact'), link: '#contact' }
+])
+
+// Set up watcher for locale changes
+watch(() => $locale, (newLocale) => {
+  console.log(`Navigation detected locale change to: ${newLocale}`)
+  currentLocale.value = newLocale
+}, { immediate: true })
+
+// Function to handle forced locale updates from LocaleDetector
+const handleForceLocaleUpdate = async (event) => {
+  const { locale } = event.detail || {}
+  if (locale) {
+    console.log(`Navigation: Received force locale update to ${locale}`)
+    currentLocale.value = locale
+    
+    // Force a nextTick to update the UI
+    await nextTick()
+  }
+}
+
+// Set up scroll event listener
+onMounted(async () => {
   if (process.client) {
+    // Set up event listeners
     window.addEventListener('scroll', handleScroll)
     window.addEventListener('resize', handleResize)
+    window.addEventListener('force-locale-update', handleForceLocaleUpdate)
+    
+    // Initial scroll check
     handleScroll()
+    
+    // Check saved preference to ensure we're in sync
+    const savedLocale = getSavedLocale()
+    if (savedLocale && savedLocale !== currentLocale.value) {
+      console.log(`Navigation: Saved locale (${savedLocale}) doesn't match current (${currentLocale.value}), updating`)
+      currentLocale.value = savedLocale
+      // Wait a tick for UI to update
+      await nextTick()
+    }
+    
+    // Debug
+    console.log('Navigation mounted, current locale:', currentLocale.value, 'system locale:', $locale)
   }
 })
 
@@ -197,6 +242,7 @@ onUnmounted(() => {
   if (process.client) {
     window.removeEventListener('scroll', handleScroll)
     window.removeEventListener('resize', handleResize)
+    window.removeEventListener('force-locale-update', handleForceLocaleUpdate)
     document.removeEventListener('click', closeLanguageMenu)
 
     // Restore scroll if menu was open
@@ -208,27 +254,6 @@ onUnmounted(() => {
     }
   }
 })
-
-// Sync locale on changes
-watch(
-  () => nuxtApp.$i18n?.locale,
-  (newLocale) => {
-    if (newLocale) {
-      currentLocale.value = newLocale
-    }
-  },
-  { immediate: true }
-)
-
-const t = (key) => {
-  if (!nuxtApp.$i18n) return key
-  try {
-    return nuxtApp.$i18n.t(key) || key
-  } catch (error) {
-    console.error(`Translation error for key "${key}":`, error)
-    return key
-  }
-}
 
 const toggleMobileMenu = () => {
   if (!isOpen.value) {
@@ -279,42 +304,34 @@ const closeLanguageMenu = () => {
 }
 
 const changeLanguage = async (lang) => {
-  if (lang === currentLocale.value) {
-    isLangMenuOpen.value = false
-    return
-  }
-
+  if (lang === currentLocale.value) return
+  
+  console.log(`Changing language to ${lang}`)
+  
   try {
+    // Update our local reference immediately to ensure UI updates
+    currentLocale.value = lang
+    
+    // Use the built-in function to switch locale
+    await $switchLocale(lang)
+    
+    // Save preference
     saveLocalePreference(lang)
-
-    if (nuxtApp.$i18n) {
-      if (typeof nuxtApp.$i18n.setLocale === 'function') {
-        await nuxtApp.$i18n.setLocale(lang)
-      } else {
-        nuxtApp.$i18n.locale = lang
-      }
-
-      currentLocale.value = nuxtApp.$i18n.locale
-    }
-
-    isLangMenuOpen.value = false
+    
+    // Force a nextTick to update the UI
     await nextTick()
-    window.dispatchEvent(new Event('locale-changed'))
+    
+    console.log(`Language changed to ${lang} successfully`)
   } catch (error) {
-    console.error('Error changing language:', error)
+    console.error(`Failed to change language to ${lang}:`, error)
   }
+  
+  // Close language menu
+  isLangMenuOpen.value = false
 }
 
 const changeLanguageAndCloseMobile = (lang) => {
   changeLanguage(lang)
   closeMobileMenu()
 }
-
-const navItems = computed(() => [
-  { name: t('home'), link: '#' },
-  { name: t('services'), link: '#process' },
-  { name: t('portfolio'), link: '#work' },
-  { name: t('pricing'), link: '#price' },
-  { name: t('contact'), link: '#contact' }
-])
 </script>

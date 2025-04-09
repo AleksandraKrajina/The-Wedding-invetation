@@ -22,38 +22,38 @@
         
         <!-- Main heading with modern typography - improved mobile sizing -->
         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-4 sm:mb-6 text-center leading-tight tracking-tight">
-          <span class="font-thin">{{ t('heroTitleStart') }}</span> {{ t('heroTitleMiddle') }} 
+          <span class="font-thin">{{ $t('heroTitleStart') }}</span> {{ $t('heroTitleMiddle') }} 
           <span class="relative inline-block">
-            {{ t('heroTitleEnd') }}
+            {{ $t('heroTitleEnd') }}
             <span class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 bg-amber-200 opacity-40"></span>
           </span>
         </h1>
         
         <!-- Subheading with improved typography and mobile optimization -->
         <p class="text-lg sm:text-xl text-white opacity-90 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed text-center font-light px-2 sm:px-0">
-          {{ t('heroSubtitle') }}
+          {{ $t('heroSubtitle') }}
         </p>
         
         <!-- Neutral call to action buttons with better mobile spacing -->
         <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-5 w-full sm:w-auto">
           <button class="bg-amber-50 hover:bg-amber-100 text-stone-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
-            {{ t('getStarted') }}
+            {{ $t('getStarted') }}
           </button>
           <button class="bg-transparent backdrop-blur-sm bg-white bg-opacity-5 border border-amber-50 border-opacity-30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-opacity-10 transition-all duration-300 text-sm sm:text-base">
-            {{ t('bookConsultation') }}
+            {{ $t('bookConsultation') }}
           </button>
         </div>
         
         <!-- Social proof element - mobile optimized -->
         <div class="mt-10 sm:mt-16 flex items-center justify-center">
           <div class="px-4 sm:px-6 py-2 bg-stone-900 bg-opacity-20 backdrop-blur-sm rounded-full flex items-center space-x-2 text-xs sm:text-sm">
-            <span class="text-white text-opacity-80">{{ t('trustedBy') }}</span>
+            <span class="text-white text-opacity-80">{{ $t('trustedBy') }}</span>
             <div class="flex -space-x-2">
               <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-30 border border-amber-50 border-opacity-30"></div>
               <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-40 border border-amber-50 border-opacity-30"></div>
               <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-50 border border-amber-50 border-opacity-30"></div>
             </div>
-            <span class="text-white text-opacity-80">500+ {{ t('couples') }}</span>
+            <span class="text-white text-opacity-80">500+ {{ $t('couples') }}</span>
           </div>
         </div>
       </div>
@@ -62,26 +62,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
-import { useNuxtApp } from '#app'
+import { onMounted } from 'vue'
 
-// Get i18n from Nuxt app instance - proper way for nuxt-i18n-micro
-const nuxtApp = useNuxtApp()
-const $i18n = nuxtApp.$i18n
+// Get automatic i18n functions
+const { $t, $locale } = useI18n()
 
-// Create reactive references to i18n properties
-const locale = computed(() => $i18n.locale)
-
-// Translation function that wraps the i18n.t method
-const t = (key) => $i18n.t(key)
-
-// Force component update when locale changes - only on client
 onMounted(() => {
   if (process.client) {
-    // Force the component to re-render when locale changes
-    watch(() => locale.value, () => {
-      // You could do something here if needed
-    })
+    // Debug info
+    console.log('Hero component mounted, current locale:', $locale)
   }
 })
 </script>
