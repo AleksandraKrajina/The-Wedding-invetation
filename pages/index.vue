@@ -8,13 +8,16 @@
 
         <LandingFeaturesSection />
 
+        <LandingTestemonialsSection />
+
         <LandingHowItWorksSection />
 
-        <LandingTestemonialsSection />
+        <!-- <LandingCTA /> -->
+        <LandingTemplates />
 
         <LandingPricingSection />
 
-        <LandingFaqSection />
+        <!-- <LandingFaqSection /> -->
 
         <LandingContactSection />
     </div>

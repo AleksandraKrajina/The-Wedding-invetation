@@ -7,7 +7,7 @@
     
     <!-- Background image with modern blend mode -->
     <img
-      src="/assets/images/hero/hero.png"
+      src="/assets/images/hero/wallpaper2.jpg"
       class="absolute inset-0 w-full h-full object-cover mix-blend-soft-light opacity-70"
       alt="Elegant Wedding Setup"
     />

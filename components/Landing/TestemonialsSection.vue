@@ -1,17 +1,35 @@
 <template>
-  <section class="py-20 bg-white opacity-0 transition-opacity duration-700" data-observe>
-    <div class="container mx-auto px-6">
+  <section class="py-24 bg-neutral-50 relative overflow-hidden">
+    <!-- Subtle background elements -->
+    <div class="absolute inset-0 bg-gradient-to-br from-neutral-50 to-stone-100"></div>
+    <!-- <div class="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8cGF0aCBkPSJNMzAgNDVMMTUgMjBoMzB6IiBzdHJva2U9IiM5MDkwOTAiIHN0cm9rZS13aWR0aD0iMC41IiBmaWxsPSJub25lIj48L3BhdGg+Cjwvc3ZnPg==')]"></div> -->
+    
+    <!-- Decorative circles -->
+    <div class="absolute -left-24 -top-24 w-64 h-64 rounded-full bg-stone-200 opacity-20 blur-3xl"></div>
+    <div class="absolute -right-32 bottom-32 w-80 h-80 rounded-full bg-neutral-200 opacity-30 blur-3xl"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-serif font-light text-center mb-16">
-          What Our Clients Say About Us
-        </h2>
+        <!-- Section heading with modern typography -->
+        <div class="mb-20 text-center">
+          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Testimonials</span>
+          <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
+            <span class="relative inline-block">
+              What Our Clients Say
+              <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
+            </span>
+          </h2>
+          <p class="text-neutral-600 max-w-lg mx-auto mt-4">
+            Real stories from couples who trusted us with their special day
+          </p>
+        </div>
         
         <!-- Testimonial Carousel -->
         <div class="relative">
-          <!-- Navigation Buttons -->
+          <!-- Navigation Buttons - More minimal and elegant -->
           <button 
             @click="prevSlide" 
-            class="absolute left-0 top-1/2 -translate-y-1/2 z-10 lg:-left-5 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-gray-600 hover:text-[#FFC0CB] transition-colors"
+            class="absolute left-0 top-1/2 -translate-y-1/2 z-10 lg:-left-10 w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-neutral-400 hover:text-neutral-800 transition-colors"
             aria-label="Previous testimonial"
           >
             <i class="pi pi-chevron-left"></i>
@@ -19,7 +37,7 @@
           
           <button 
             @click="nextSlide" 
-            class="absolute right-0 top-1/2 -translate-y-1/2 z-10 lg:-right-5 w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center text-gray-600 hover:text-[#FFC0CB] transition-colors"
+            class="absolute right-0 top-1/2 -translate-y-1/2 z-10 lg:-right-10 w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-neutral-400 hover:text-neutral-800 transition-colors"
             aria-label="Next testimonial"
           >
             <i class="pi pi-chevron-right"></i>
@@ -31,31 +49,34 @@
               class="flex transition-transform duration-500 ease-in-out"
               :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
             >
-              <!-- Testimonial 1 -->
+              <!-- Testimonial 1 - More minimal and elegant design -->
               <div class="w-full flex-shrink-0 px-4 md:px-8">
-                <div class="bg-white rounded-lg border border-gray-100 shadow-sm p-8 md:p-10">
-                  <!-- Quote Icon -->
-                  <div class="flex justify-center mb-6">
-                    <i class="pi pi-quote-right text-4xl text-[#FFC0CB] opacity-30"></i>
-                  </div>
-                  
-                  <!-- Testimonial Quote -->
-                  <blockquote class="text-lg md:text-xl text-gray-700 text-center italic mb-8">
-                    "Our wedding website was absolutely perfect! The team captured our style perfectly and made the whole process so easy."
-                  </blockquote>
-                  
-                  <!-- Author Info -->
-                  <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-[#FFC0CB]">
-                      <img 
-                        src="/assets/images/demo1/couple1.jpg" 
-                        alt="Happy couple" 
-                        class="w-full h-full object-cover"
-                      />
+                <div class="bg-white rounded-lg shadow-sm p-10 md:p-12">
+                  <div class="flex flex-col md:flex-row md:items-center gap-8">
+                    <!-- Author Image -->
+                    <div class="flex-shrink-0 mx-auto md:mx-0">
+                      <div class="w-20 h-20 rounded-full overflow-hidden border border-stone-200">
+                        <img 
+                          src="/assets/images/demo1/couple1.jpg" 
+                          alt="Sarah & Michael" 
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
-                    <div class="text-center">
-                      <p class="font-medium text-lg">Sarah & Michael</p>
-                      <p class="text-gray-500">June 2024</p>
+                    
+                    <!-- Content -->
+                    <div class="flex-1">
+                      <!-- Quote -->
+                      <blockquote class="text-lg md:text-xl text-neutral-700 mb-6 relative">
+                        <span class="absolute -top-6 -left-2 text-5xl text-stone-200">"</span>
+                        <p class="relative z-10">Our wedding website was absolutely perfect! The team captured our style perfectly and made the whole process so easy.</p>
+                      </blockquote>
+                      
+                      <!-- Author Info -->
+                      <div>
+                        <p class="font-medium text-neutral-800">Sarah & Michael</p>
+                        <p class="text-stone-500 text-sm">June 2024</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -63,29 +84,32 @@
               
               <!-- Testimonial 2 -->
               <div class="w-full flex-shrink-0 px-4 md:px-8">
-                <div class="bg-white rounded-lg border border-gray-100 shadow-sm p-8 md:p-10">
-                  <!-- Quote Icon -->
-                  <div class="flex justify-center mb-6">
-                    <i class="pi pi-quote-right text-4xl text-[#FFC0CB] opacity-30"></i>
-                  </div>
-                  
-                  <!-- Testimonial Quote -->
-                  <blockquote class="text-lg md:text-xl text-gray-700 text-center italic mb-8">
-                    "The RSVP system saved us so much time. Our guests loved how easy it was to navigate and find all the information."
-                  </blockquote>
-                  
-                  <!-- Author Info -->
-                  <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-[#FFC0CB]">
-                      <img 
-                        src="/assets/images/demo1/couple1.jpg" 
-                        alt="Happy couple" 
-                        class="w-full h-full object-cover"
-                      />
+                <div class="bg-white rounded-lg shadow-sm p-10 md:p-12">
+                  <div class="flex flex-col md:flex-row md:items-center gap-8">
+                    <!-- Author Image -->
+                    <div class="flex-shrink-0 mx-auto md:mx-0">
+                      <div class="w-20 h-20 rounded-full overflow-hidden border border-stone-200">
+                        <img 
+                          src="/assets/images/demo1/couple1.jpg" 
+                          alt="Emily & John" 
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
-                    <div class="text-center">
-                      <p class="font-medium text-lg">Emily & John</p>
-                      <p class="text-gray-500">May 2024</p>
+                    
+                    <!-- Content -->
+                    <div class="flex-1">
+                      <!-- Quote -->
+                      <blockquote class="text-lg md:text-xl text-neutral-700 mb-6 relative">
+                        <span class="absolute -top-6 -left-2 text-5xl text-stone-200">"</span>
+                        <p class="relative z-10">The RSVP system saved us so much time. Our guests loved how easy it was to navigate and find all the information.</p>
+                      </blockquote>
+                      
+                      <!-- Author Info -->
+                      <div>
+                        <p class="font-medium text-neutral-800">Emily & John</p>
+                        <p class="text-stone-500 text-sm">May 2024</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -93,29 +117,32 @@
               
               <!-- Testimonial 3 -->
               <div class="w-full flex-shrink-0 px-4 md:px-8">
-                <div class="bg-white rounded-lg border border-gray-100 shadow-sm p-8 md:p-10">
-                  <!-- Quote Icon -->
-                  <div class="flex justify-center mb-6">
-                    <i class="pi pi-quote-right text-4xl text-[#FFC0CB] opacity-30"></i>
-                  </div>
-                  
-                  <!-- Testimonial Quote -->
-                  <blockquote class="text-lg md:text-xl text-gray-700 text-center italic mb-8">
-                    "Professional, responsive, and creative. They turned our vision into reality and exceeded our expectations!"
-                  </blockquote>
-                  
-                  <!-- Author Info -->
-                  <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-[#FFC0CB]">
-                      <img 
-                        src="/assets/images/demo1/couple1.jpg" 
-                        alt="Happy couple" 
-                        class="w-full h-full object-cover"
-                      />
+                <div class="bg-white rounded-lg shadow-sm p-10 md:p-12">
+                  <div class="flex flex-col md:flex-row md:items-center gap-8">
+                    <!-- Author Image -->
+                    <div class="flex-shrink-0 mx-auto md:mx-0">
+                      <div class="w-20 h-20 rounded-full overflow-hidden border border-stone-200">
+                        <img 
+                          src="/assets/images/demo1/couple1.jpg" 
+                          alt="Lisa & David" 
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
-                    <div class="text-center">
-                      <p class="font-medium text-lg">Lisa & David</p>
-                      <p class="text-gray-500">April 2024</p>
+                    
+                    <!-- Content -->
+                    <div class="flex-1">
+                      <!-- Quote -->
+                      <blockquote class="text-lg md:text-xl text-neutral-700 mb-6 relative">
+                        <span class="absolute -top-6 -left-2 text-5xl text-stone-200">"</span>
+                        <p class="relative z-10">Professional, responsive, and creative. They turned our vision into reality and exceeded our expectations!</p>
+                      </blockquote>
+                      
+                      <!-- Author Info -->
+                      <div>
+                        <p class="font-medium text-neutral-800">Lisa & David</p>
+                        <p class="text-stone-500 text-sm">April 2024</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -124,14 +151,14 @@
           </div>
         </div>
         
-        <!-- Carousel Indicators -->
+        <!-- Modern Carousel Indicators -->
         <div class="flex justify-center mt-10 gap-3">
           <button 
             v-for="(_, index) in 3" 
             :key="index"
             @click="currentIndex = index"
-            class="w-3 h-3 rounded-full transition-all duration-300"
-            :class="currentIndex === index ? 'bg-[#FFC0CB]' : 'bg-gray-300'"
+            class="w-8 h-1 rounded-sm transition-all duration-300"
+            :class="currentIndex === index ? 'bg-neutral-800' : 'bg-neutral-300'"
             :aria-label="`Go to testimonial ${index + 1}`"
           ></button>
         </div>
@@ -179,8 +206,13 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Add custom font styling */
-.font-serif {
-  font-family: 'Playfair Display', serif;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Apply gentle reveal animations when section comes into view */
+section {
+  animation: fadeIn 1s ease-out forwards;
 }
 </style>
