@@ -12,15 +12,15 @@
       <div class="max-w-6xl mx-auto">
         <!-- Section heading with modern typography -->
         <div class="mb-20 text-center">
-          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Our Promise</span>
+          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">{{ $t('ourPromise') }}</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              Why Choose Vow Perfect?
+              {{ $t('whyChooseUs') }}
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            We create beautiful, functional wedding websites that make your special day even more memorable.
+            {{ $t('featureSubtitle') }}
           </p>
         </div>
         
@@ -33,8 +33,8 @@
                 <i class="pi pi-heart text-stone-600 text-2xl"></i>
               </div>
             </div>
-            <h3 class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">Personalized Design</h3>
-            <p class="text-neutral-600 text-center">We tailor every website to match your vision, style, and unique love story.</p>
+            <h3 class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">{{ $t('personalizedDesign') }}</h3>
+            <p class="text-neutral-600 text-center">{{ $t('personalizedDesc') }}</p>
           </div>
           
           <!-- Feature 2: RSVP System -->
@@ -45,8 +45,8 @@
                 <i class="pi pi-envelope text-stone-600 text-2xl"></i>
               </div>
             </div>
-            <h3 class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">RSVP System</h3>
-            <p class="text-neutral-600 text-center">Streamline guest management with our easy-to-use RSVP functionality.</p>
+            <h3 class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">{{ $t('rsvpSystem') }}</h3>
+            <p class="text-neutral-600 text-center">{{ $t('rsvpDesc') }}</p>
           </div>
           
           <!-- Feature 3: Full Support -->
@@ -57,8 +57,8 @@
                 <i class="pi pi-users text-stone-600 text-2xl"></i>
               </div>
             </div>
-            <h3 class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">Full Support</h3>
-            <p class="text-neutral-600 text-center">From creation to launch, we're here to guide you every step of the way.</p>
+            <h3 class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">{{ $t('fullSupport') }}</h3>
+            <p class="text-neutral-600 text-center">{{ $t('fullSupportDesc') }}</p>
           </div>
           
           <!-- Feature 4: Attention to Detail -->
@@ -69,15 +69,15 @@
                 <i class="pi pi-check-circle text-stone-600 text-2xl"></i>
               </div>
             </div>
-            <h3 class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">Attention to Detail</h3>
-            <p class="text-neutral-600 text-center">Every element is crafted with care to ensure your website is perfect.</p>
+            <h3 class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">{{ $t('attentionToDetail') }}</h3>
+            <p class="text-neutral-600 text-center">{{ $t('attentionDesc') }}</p>
           </div>
         </div>
         
         <!-- Call-to-action -->
         <div class="mt-16 text-center">
           <a href="#" class="inline-flex items-center justify-center bg-neutral-800 hover:bg-stone-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 group shadow-sm">
-            <span>Explore Our Features</span>
+            <span>{{ $t('exploreFeatures') }}</span>
             <i class="pi pi-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
           </a>
         </div>
@@ -87,7 +87,8 @@
 </template>
 
 <script setup>
-// Component logic can be added here if needed
+// Get automatic i18n functions
+const { $t } = useI18n()
 </script>
 
 <style scoped>

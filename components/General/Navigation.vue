@@ -12,7 +12,7 @@
           <div class="relative z-10">
             <img 
               src="/assets/images/logo/4.png" 
-              class="w-20 transition-all duration-300" 
+              class="h-8 transition-all duration-300" 
               alt="Vow Perfect Logo" 
             />
           </div>
@@ -173,6 +173,9 @@
 import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { getSavedLocale, saveLocalePreference } from '~/utils/geoDetection'
 
+// Helper to ensure we're in browser
+const isBrowser = typeof window !== 'undefined';
+
 // Use the automatically provided useI18n composable
 const { $t, $locale, $switchLocale } = useI18n()
 
@@ -183,8 +186,8 @@ const isLangMenuOpen = ref(false)
 const scrollPosition = ref(0)
 
 // Create a separate reactive reference for the current locale
-// This ensures we have proper reactivity for the UI
-const currentLocale = ref($locale || getSavedLocale() || 'en')
+// This ensures we have proper reactivity for the UI - default to current i18n locale
+const currentLocale = ref($locale || 'en')
 
 // Navigation items - will update reactively when locale changes
 const navItems = computed(() => [
@@ -195,11 +198,15 @@ const navItems = computed(() => [
   { name: $t('contact'), link: '#contact' }
 ])
 
-// Set up watcher for locale changes
-watch(() => $locale, (newLocale) => {
-  console.log(`Navigation detected locale change to: ${newLocale}`)
-  currentLocale.value = newLocale
-}, { immediate: true })
+// Set up watcher for locale changes - only in browser
+if (isBrowser) {
+  watch(() => $locale, (newLocale) => {
+    if (newLocale) {
+      console.log(`Navigation detected locale change to: ${newLocale}`)
+      currentLocale.value = newLocale
+    }
+  }, { immediate: true })
+}
 
 // Function to handle forced locale updates from LocaleDetector
 const handleForceLocaleUpdate = async (event) => {
@@ -213,9 +220,9 @@ const handleForceLocaleUpdate = async (event) => {
   }
 }
 
-// Set up scroll event listener
+// Set up scroll event listener - only in browser
 onMounted(async () => {
-  if (process.client) {
+  if (isBrowser) {
     // Set up event listeners
     window.addEventListener('scroll', handleScroll)
     window.addEventListener('resize', handleResize)
@@ -224,13 +231,19 @@ onMounted(async () => {
     // Initial scroll check
     handleScroll()
     
-    // Check saved preference to ensure we're in sync
+    // Try to get saved locale (client-side only)
     const savedLocale = getSavedLocale()
+    
+    // Update if we have a saved locale that differs from current
     if (savedLocale && savedLocale !== currentLocale.value) {
       console.log(`Navigation: Saved locale (${savedLocale}) doesn't match current (${currentLocale.value}), updating`)
       currentLocale.value = savedLocale
-      // Wait a tick for UI to update
-      await nextTick()
+      // Try to sync with i18n
+      try {
+        await $switchLocale(savedLocale)
+      } catch (error) {
+        console.warn('Failed to sync locale on mount:', error)
+      }
     }
     
     // Debug
@@ -239,7 +252,7 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
-  if (process.client) {
+  if (isBrowser) {
     window.removeEventListener('scroll', handleScroll)
     window.removeEventListener('resize', handleResize)
     window.removeEventListener('force-locale-update', handleForceLocaleUpdate)
@@ -315,8 +328,10 @@ const changeLanguage = async (lang) => {
     // Use the built-in function to switch locale
     await $switchLocale(lang)
     
-    // Save preference
-    saveLocalePreference(lang)
+    // Save preference (client-side only)
+    if (isBrowser) {
+      saveLocalePreference(lang)
+    }
     
     // Force a nextTick to update the UI
     await nextTick()

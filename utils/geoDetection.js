@@ -13,10 +13,13 @@ const BALKAN_COUNTRIES = [
   'XK'  // Kosovo
 ];
 
+// Helper function to safely check if we're in browser environment
+const isBrowser = () => typeof window !== 'undefined';
+
 // Function to detect user's country using IP geolocation
 // Only runs on client-side
 const detectUserCountry = async () => {
-  if (typeof window === 'undefined') return null;
+  if (!isBrowser()) return null;
 
   // First attempt - use ipapi.co
   try {
@@ -56,12 +59,11 @@ const detectUserCountry = async () => {
   }
 };
 
-
 // Determine if the user is in a Balkan country
 // Only runs on client-side
 export const isInBalkanRegion = async () => {
   // Make sure we're on the client side
-  if (typeof window === 'undefined') return false;
+  if (!isBrowser()) return false;
   
   try {
     // Check if we already detected and cached the region
@@ -96,6 +98,8 @@ export const isInBalkanRegion = async () => {
 // Save the user's language preference
 // Only runs on client-side
 export const saveLocalePreference = (locale) => {
+  if (!isBrowser()) return;
+  
   try {
     localStorage.setItem('preferred-locale', locale);
     console.log('Locale preference saved:', locale);
@@ -105,6 +109,8 @@ export const saveLocalePreference = (locale) => {
 };
 
 export const getSavedLocale = () => {
+  if (!isBrowser()) return null;
+  
   try {
     return localStorage.getItem('preferred-locale') || null;
   } catch (error) {
@@ -115,6 +121,8 @@ export const getSavedLocale = () => {
 
 // Explicitly clear cached geolocation data
 export const clearGeolocationCache = () => {
+  if (!isBrowser()) return false;
+  
   try {
     localStorage.removeItem('is-balkan-region');
     localStorage.removeItem('balkan-detection-timestamp');

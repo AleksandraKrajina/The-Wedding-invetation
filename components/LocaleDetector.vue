@@ -7,6 +7,9 @@
 import { onMounted, ref, nextTick } from 'vue'
 import { isInBalkanRegion, getSavedLocale, saveLocalePreference } from '~/utils/geoDetection'
 
+// Helper to ensure we're in browser
+const isBrowser = typeof window !== 'undefined';
+
 // Get i18n functions from nuxt-i18n-micro
 const { $locale, $switchLocale } = useI18n()
 
@@ -15,11 +18,9 @@ const initialized = ref(false)
 
 // Run locale detection on client-side
 onMounted(async () => {
-  if (initialized.value) return
+  if (initialized.value || !isBrowser) return
   
   try {
-    if (!process.client) return
-
     console.log('LocaleDetector: Beginning locale detection')
     console.log('LocaleDetector: Initial locale is:', $locale)
     
@@ -27,19 +28,23 @@ onMounted(async () => {
     const savedLocale = getSavedLocale()
     if (savedLocale) {
       console.log('LocaleDetector: Using saved locale preference:', savedLocale)
-      await $switchLocale(savedLocale)
-      
-      // Ensure HTML lang is updated
-      document.documentElement.setAttribute('lang', savedLocale)
-      
-      // Force a reload if the locale and document state don't match
-      if (savedLocale !== $locale) {
-        console.log('LocaleDetector: Locale mismatch, forcing update')
-        await forceLocaleRefresh(savedLocale)
+      try {
+        await $switchLocale(savedLocale)
+        
+        // Ensure HTML lang is updated
+        document.documentElement.setAttribute('lang', savedLocale)
+        
+        // Force a reload if the locale and document state don't match
+        if (savedLocale !== $locale) {
+          console.log('LocaleDetector: Locale mismatch, forcing update')
+          await forceLocaleRefresh(savedLocale)
+        }
+        
+        initialized.value = true
+        return
+      } catch (error) {
+        console.error('LocaleDetector: Error switching to saved locale:', error)
       }
-      
-      initialized.value = true
-      return
     }
     
     // Step 2: Check browser language
@@ -55,19 +60,25 @@ onMounted(async () => {
     }
     
     // Step 3: Check geolocation
-    const inBalkanRegion = await isInBalkanRegion()
-    if (inBalkanRegion) {
-      console.log('LocaleDetector: User detected in Balkan region, setting Serbian')
-      await $switchLocale('sr')
-      saveLocalePreference('sr')
-      document.documentElement.setAttribute('lang', 'sr')
-      await forceLocaleRefresh('sr')
-    } else {
-      console.log('LocaleDetector: Using default locale (English)')
+    try {
+      const inBalkanRegion = await isInBalkanRegion()
+      if (inBalkanRegion) {
+        console.log('LocaleDetector: User detected in Balkan region, setting Serbian')
+        await $switchLocale('sr')
+        saveLocalePreference('sr')
+        document.documentElement.setAttribute('lang', 'sr')
+        await forceLocaleRefresh('sr')
+      } else {
+        console.log('LocaleDetector: Using default locale (English)')
+        await $switchLocale('en')
+        saveLocalePreference('en')
+        document.documentElement.setAttribute('lang', 'en')
+        await forceLocaleRefresh('en')
+      }
+    } catch (geoError) {
+      console.error('Error during geolocation check:', geoError)
+      // Fall back to default locale
       await $switchLocale('en')
-      saveLocalePreference('en')
-      document.documentElement.setAttribute('lang', 'en')
-      await forceLocaleRefresh('en')
     }
     
     initialized.value = true
@@ -79,6 +90,8 @@ onMounted(async () => {
 
 // Helper function to force a locale refresh
 async function forceLocaleRefresh(locale) {
+  if (!isBrowser) return false;
+  
   try {
     // Wait for the next tick to ensure Vue has updated
     await nextTick()
