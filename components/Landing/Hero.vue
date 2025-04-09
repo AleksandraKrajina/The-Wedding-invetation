@@ -13,50 +13,47 @@
     />
     
     <!-- Content container with modern layout -->
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="container mx-auto px-4 sm:px-6 relative z-10">
       <div class="max-w-5xl mx-auto flex flex-col items-center">
         <!-- Logo/brand element -->
-        <div class="mb-8 text-amber-50 text-opacity-80">
-          <!-- <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M25 12.5C18.75 12.5 12.5 18.75 12.5 25C12.5 31.25 18.75 37.5 25 37.5C31.25 37.5 37.5 31.25 37.5 25C37.5 18.75 31.25 12.5 25 12.5ZM25 17.5C26.38 17.5 27.5 18.62 27.5 20C27.5 21.38 26.38 22.5 25 22.5C23.62 22.5 22.5 21.38 22.5 20C22.5 18.62 23.62 17.5 25 17.5Z" fill="currentColor" fill-opacity="0.9"/>
-            <path d="M25 5C13.95 5 5 13.95 5 25C5 36.05 13.95 45 25 45C36.05 45 45 36.05 45 25C45 13.95 36.05 5 25 5ZM25 40C16.72 40 10 33.28 10 25C10 16.72 16.72 10 25 10C33.28 10 40 16.72 40 25C40 33.28 33.28 40 25 40Z" fill="currentColor" fill-opacity="0.5"/>
-          </svg> -->
+        <div class="mb-4 sm:mb-8 text-amber-50 text-opacity-80">
+          <!-- Logo can go here if needed -->
         </div>
         
-        <!-- Main heading with modern typography -->
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 text-center leading-tight tracking-tight">
+        <!-- Main heading with modern typography - improved mobile sizing -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-4 sm:mb-6 text-center leading-tight tracking-tight">
           <span class="font-thin">Beautiful Websites</span> for Your 
           <span class="relative inline-block">
             Beautiful Moments
-            <span class="absolute -bottom-2 left-0 w-full h-1 bg-amber-200 opacity-40"></span>
+            <span class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 bg-amber-200 opacity-40"></span>
           </span>
         </h1>
         
-        <!-- Subheading with improved typography -->
-        <p class="text-xl text-white opacity-90 mb-12 max-w-2xl mx-auto leading-relaxed text-center font-light">
+        <!-- Subheading with improved typography and mobile optimization -->
+        <p class="text-lg sm:text-xl text-white opacity-90 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed text-center font-light px-2 sm:px-0">
           Professional wedding website designs that tell your unique story and create a seamless experience for you and your guests.
         </p>
         
-        <!-- Neutral call to action buttons -->
-        <div class="flex flex-col sm:flex-row justify-center gap-5">
-          <button class="bg-amber-50 hover:bg-amber-100 text-stone-800 px-8 py-4 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+        <!-- Neutral call to action buttons with better mobile spacing -->
+        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-5 w-full sm:w-auto">
+          <button class="bg-amber-50 hover:bg-amber-100 text-stone-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
             Get Started Today
           </button>
-          <button class="bg-transparent backdrop-blur-sm bg-white bg-opacity-5 border border-amber-50 border-opacity-30 text-white px-8 py-4 rounded-full font-medium hover:bg-opacity-10 transition-all duration-300">
+          <button class="bg-transparent backdrop-blur-sm bg-white bg-opacity-5 border border-amber-50 border-opacity-30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-opacity-10 transition-all duration-300 text-sm sm:text-base">
             Book a Consultation
           </button>
         </div>
         
-        <!-- Social proof element -->
-        <div class="mt-16 flex items-center justify-center">
-          <div class="px-6 py-2 bg-stone-900 bg-opacity-20 backdrop-blur-sm rounded-full flex items-center space-x-2">
-            <span class="text-white text-opacity-80 text-sm">Trusted by</span>
+        <!-- Social proof element - mobile optimized -->
+        <div class="mt-10 sm:mt-16 flex items-center justify-center">
+          <div class="px-4 sm:px-6 py-2 bg-stone-900 bg-opacity-20 backdrop-blur-sm rounded-full flex items-center space-x-2 text-xs sm:text-sm">
+            <span class="text-white text-opacity-80">Trusted by</span>
             <div class="flex -space-x-2">
-              <div class="w-8 h-8 rounded-full bg-amber-50 bg-opacity-30 border border-amber-50 border-opacity-30"></div>
-              <div class="w-8 h-8 rounded-full bg-amber-50 bg-opacity-40 border border-amber-50 border-opacity-30"></div>
-              <div class="w-8 h-8 rounded-full bg-amber-50 bg-opacity-50 border border-amber-50 border-opacity-30"></div>
+              <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-30 border border-amber-50 border-opacity-30"></div>
+              <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-40 border border-amber-50 border-opacity-30"></div>
+              <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-50 border border-amber-50 border-opacity-30"></div>
             </div>
-            <span class="text-white text-opacity-80 text-sm">500+ couples</span>
+            <span class="text-white text-opacity-80">500+ couples</span>
           </div>
         </div>
       </div>
@@ -108,6 +105,27 @@ div > button:last-child {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Optimize for smaller screens with additional breakpoints */
+@media (max-height: 700px) {
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mt-10 {
+    margin-top: 1.5rem;
   }
 }
 </style>
