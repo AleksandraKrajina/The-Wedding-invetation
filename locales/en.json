@@ -125,5 +125,14 @@
   "languages": {
     "en": "English",
     "sr": "Serbian"
-  }
+  },
+
+  "limitedTimeOffer": "Limited Time Offer",
+  "ctaGetText": "Get",
+  "ctaOffText": "Off",
+  "ctaWebsiteText": "Your Wedding Website",
+  "ctaDescription": "Book your consultation before May 30th and receive a special discount on any package.",
+  "learnMore": "Learn More",
+  "offerEndsIn": "Offer ends in",
+  "days": "days"
 }

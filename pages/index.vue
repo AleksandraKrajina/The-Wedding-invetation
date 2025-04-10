@@ -10,9 +10,10 @@
 
         <LandingTestemonialsSection />
 
+        <LandingCTA />
+        
         <LandingHowItWorksSection />
 
-        <!-- <LandingCTA /> -->
         <LandingTemplates />
 
         <LandingPricingSection />
