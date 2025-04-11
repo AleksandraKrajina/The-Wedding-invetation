@@ -111,7 +111,7 @@
     </div>
 
     <!-- Shared BookingModal component -->
-    <BookingModal 
+    <GeneralBookingModal 
       v-model="showModal" 
       theme="default" 
       :google-calendar-url="googleCalendarUrl" 
@@ -121,7 +121,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import BookingModal from '/components/general/BookingModal.vue'
 
 const googleCalendarUrl = 'https://calendar.app.google/sZ4ZFaiQuwhHcbMP8'
 

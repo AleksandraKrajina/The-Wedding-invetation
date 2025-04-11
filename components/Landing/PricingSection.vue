@@ -191,7 +191,7 @@
     </div>
     
     <!-- Package Selection Modal -->
-    <PackageSelectionModal 
+    <GeneralPackageSelectionModal 
       v-model="showPackageModal"
       :selected-package="selectedPackage"
       @form-submitted="handleFormSubmitted"
@@ -203,7 +203,6 @@
 <script setup>
 import { ref } from 'vue'
 import { useNuxtApp } from '#app'
-import PackageSelectionModal from '/components/general/PackageSelectionModal.vue'
 
 // Get i18n from Nuxt app instance
 const nuxtApp = useNuxtApp()

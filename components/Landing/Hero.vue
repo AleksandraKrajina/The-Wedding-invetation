@@ -66,7 +66,7 @@
     </div>
     
     <!-- Shared BookingModal component -->
-    <BookingModal 
+    <GeneralBookingModal 
       v-model="showModal" 
       theme="neutral" 
       :google-calendar-url="googleCalendarUrl" 
@@ -76,7 +76,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import BookingModal from '/components/general/BookingModal.vue'
 
 // Get automatic i18n functions
 const { $t, $locale } = useI18n()

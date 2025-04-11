@@ -35,7 +35,7 @@
     <GeneralFooter />
 
     <!-- Booking Modal -->
-    <BookingModal 
+    <GeneralBookingModal 
         v-if="showBookingModal"
         v-model="showBookingModal" 
         theme="neutral" 

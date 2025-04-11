@@ -60,7 +60,7 @@
     </div>
     
     <!-- Shared BookingModal component -->
-    <BookingModal 
+    <GeneralBookingModal 
       v-model="showModal" 
       theme="amber" 
       :google-calendar-url="googleCalendarUrl" 
@@ -71,7 +71,6 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useNuxtApp } from '#app'
-import BookingModal from '/components/general/BookingModal.vue'
 
 // Get i18n from Nuxt app instance
 const nuxtApp = useNuxtApp()
