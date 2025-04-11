@@ -36,10 +36,16 @@
         
         <!-- Neutral call to action buttons with better mobile spacing -->
         <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-5 w-full sm:w-auto">
-          <button class="bg-amber-50 hover:bg-amber-100 text-stone-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
+          <button 
+            @click="scrollToPricing" 
+            class="bg-amber-50 hover:bg-amber-100 text-stone-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base" 
+          >
             {{ $t('getStarted') }}
           </button>
-          <button class="bg-transparent backdrop-blur-sm bg-white bg-opacity-5 border border-amber-50 border-opacity-30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-opacity-10 transition-all duration-300 text-sm sm:text-base">
+          <button 
+            @click="showModal = true" 
+            class="bg-transparent backdrop-blur-sm bg-white bg-opacity-5 border border-amber-50 border-opacity-30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-opacity-10 transition-all duration-300 text-sm sm:text-base"
+          >
             {{ $t('bookConsultation') }}
           </button>
         </div>
@@ -58,14 +64,41 @@
         </div>
       </div>
     </div>
+    
+    <!-- Shared BookingModal component -->
+    <BookingModal 
+      v-model="showModal" 
+      theme="neutral" 
+      :google-calendar-url="googleCalendarUrl" 
+    />
   </section>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+import BookingModal from '/components/general/BookingModal.vue'
 
 // Get automatic i18n functions
 const { $t, $locale } = useI18n()
+
+// Google Calendar booking URL - Replace with your actual calendar scheduling link
+const googleCalendarUrl = 'https://calendar.app.google/sZ4ZFaiQuwhHcbMP8'
+
+// State for modal visibility
+const showModal = ref(false)
+
+// Function to scroll to the pricing section
+const scrollToPricing = () => {
+  const pricingSection = document.getElementById('price')
+  if (pricingSection) {
+    pricingSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  } else {
+    console.warn('Pricing section with id "price" not found')
+  }
+}
 
 onMounted(() => {
   if (process.client) {

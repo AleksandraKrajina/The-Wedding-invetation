@@ -88,7 +88,10 @@
                 </li>
               </ul>
               
-              <button class="w-full py-3.5 px-6 border border-neutral-300 text-neutral-800 font-medium rounded-full transition-all duration-300 hover:bg-neutral-800 hover:text-white hover:border-neutral-800 group-hover:border-neutral-800">
+              <button 
+                @click="openPackageModal('basic')"
+                class="w-full py-3.5 px-6 border border-neutral-300 text-neutral-800 font-medium rounded-full transition-all duration-300 hover:bg-neutral-800 hover:text-white hover:border-neutral-800 group-hover:border-neutral-800"
+              >
                 {{ $t('chooseBasic') }}
               </button>
             </div>
@@ -162,7 +165,10 @@
                 </li>
               </ul>
               
-              <button class="w-full py-3.5 px-6 bg-neutral-800 text-white font-medium rounded-full transition-all duration-300 hover:bg-neutral-700">
+              <button 
+                @click="openPackageModal('premium')"
+                class="w-full py-3.5 px-6 bg-neutral-800 text-white font-medium rounded-full transition-all duration-300 hover:bg-neutral-700"
+              >
                 {{ $t('choosePremium') }}
               </button>
             </div>
@@ -183,17 +189,53 @@
         </p>
       </div>
     </div>
+    
+    <!-- Package Selection Modal -->
+    <PackageSelectionModal 
+      v-model="showPackageModal"
+      :selected-package="selectedPackage"
+      @form-submitted="handleFormSubmitted"
+      @book-consultation="handleBookConsultation"
+    />
   </section>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useNuxtApp } from '#app'
+import PackageSelectionModal from '/components/general/PackageSelectionModal.vue'
 
 // Get i18n from Nuxt app instance
 const nuxtApp = useNuxtApp()
 
+// Package selection state
+const showPackageModal = ref(false)
+const selectedPackage = ref('')
+
+// Open package modal with specified package
+const openPackageModal = (packageType) => {
+  selectedPackage.value = packageType
+  showPackageModal.value = true
+}
+
+// Handle form submission
+const handleFormSubmitted = (formData) => {
+  console.log('Package selection form submitted:', formData)
+  // Here you would typically send this data to your backend
+  // You could also store this in your state management if needed
+}
+
+// Handle book consultation click
+const handleBookConsultation = () => {
+  // Navigate to contact section or trigger a global event to open the booking modal
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })
+  
+  // Alternative: emit an event to open the booking modal from a parent component
+  // e.g., emits('open-booking-modal')
+}
+
 // Translation function that wraps the i18n.t method
-const t = (key) => {
+const $t = (key) => {
   if (!nuxtApp.$i18n) return key
   try {
     return nuxtApp.$i18n.t(key) || key

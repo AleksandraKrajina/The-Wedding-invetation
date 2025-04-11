@@ -1,42 +1,131 @@
 <template>
-    <div class=" mx-auto">
-        <!-- Navigation -->
-        <GeneralNavigation />
+    <div class="mx-auto">
+        <!-- Navigation with booking modal event handler -->
+        <GeneralNavigation @open-booking-modal="openBookingModal" />
 
         <!-- Hero Section -->
         <LandingHero />
 
-        <LandingFeaturesSection />
+        <!-- Features Section with ID for scrolling -->
+        <div id="process">
+            <LandingFeaturesSection />
+        </div>
 
-        <LandingTestemonialsSection />
+        <!-- Portfolio Section with ID for scrolling -->
+        <div id="work">
+            <LandingTestemonialsSection />
+        </div>
 
         <LandingCTA />
         
-        <LandingHowItWorksSection />
+        <!-- How It Works Section with package modal event handler -->
+        <div>
+            <LandingHowItWorksSection @open-package-modal="openPackageModal" />
+        </div>
 
         <LandingTemplates />
 
-        <LandingPricingSection />
+        <!-- Pricing Section with ID for scrolling -->
+        <div id="pricing">
+            <LandingPricingSection
+                :show-package-modal="showPackageModal"
+                :selected-package="selectedPackage"
+                @form-submitted="handlePackageFormSubmitted"
+                @book-consultation="openBookingModal"
+                @update:show-package-modal="showPackageModal = $event"
+            />
+        </div>
 
-        <!-- <LandingFaqSection /> -->
-
-        <LandingContactSection />
+        <!-- Contact Section with ID for scrolling -->
+        <div id="contact">
+            <LandingContactSection />
+        </div>
     </div>
     <GeneralFooter />
+
+    <!-- Booking Modal -->
+    <BookingModal 
+        v-if="showBookingModal"
+        v-model="showBookingModal" 
+        theme="neutral" 
+        :google-calendar-url="googleCalendarUrl" 
+    />
+    
+    <!-- Package Selection Modal -->
+    <PackageSelectionModal 
+        v-model="showPackageModal"
+        :selected-package="selectedPackage"
+        @form-submitted="handlePackageFormSubmitted"
+        @book-consultation="openBookingModal"
+    />
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
 import Button from 'primevue/button';
 
-const scrolled = ref(false)
+// State for smooth scrolling and modals
+const scrolled = ref(false);
+const showBookingModal = ref(false);
+const showPackageModal = ref(false);
+const selectedPackage = ref('');
+const googleCalendarUrl = ref('https://calendar.app.google/booking');
+
+// Function to handle opening the booking modal
+const openBookingModal = () => {
+    showBookingModal.value = true;
+};
+
+// Function to open the package modal (without preselected package)
+const openPackageModal = () => {
+    selectedPackage.value = ''; // Reset package selection
+    showPackageModal.value = true;
+};
+
+// Function to handle package form submission
+const handlePackageFormSubmitted = (formData) => {
+    console.log('Package form submitted:', formData);
+    // Here you would typically send this data to your backend API
+};
 
 onMounted(() => {
+    // Track scrolling for animation effects
     window.addEventListener('scroll', () => {
-        scrolled.value = window.scrollY > 50
-    })
-})
+        scrolled.value = window.scrollY > 50;
+    });
 
+    // Set up intersection observer for section animations
+    const sections = document.querySelectorAll('[data-observe]');
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'animate-fadeIn');
+                    observer.unobserve(entry.target); // Stop observing after animation triggers
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
 
+    sections.forEach((section) => observer.observe(section));
+
+    // Handle direct links with hash in URL (for deep linking to sections)
+    if (window.location.hash) {
+        // Wait for all components to mount
+        setTimeout(() => {
+            const targetSection = document.querySelector(window.location.hash);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, 500);
+    }
+});
+
+// Sample data
 const services = [
     {
         title: 'Custom Design',
@@ -53,7 +142,7 @@ const services = [
         icon: 'pi pi-images',
         description: 'Beautiful galleries to share your memories'
     }
-]
+];
 
 const portfolio = [
     {
@@ -68,25 +157,7 @@ const portfolio = [
         title: 'Lisa & David',
         image: '/assets/images/demo1/hero.png'
     }
-]
-
-onMounted(() => {
-    const sections = document.querySelectorAll('[data-observe]');
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'animate-fadeIn');
-                    observer.unobserve(entry.target); // Stop observing after animation triggers
-                }
-            });
-        },
-        { threshold: 0.1 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-});
+];
 </script>
 
 <style scoped>

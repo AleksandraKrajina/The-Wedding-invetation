@@ -75,12 +75,12 @@
         </div>
         
         <!-- Call-to-action -->
-        <div class="mt-16 text-center">
+        <!-- <div class="mt-16 text-center">
           <a href="#" class="inline-flex items-center justify-center bg-neutral-800 hover:bg-stone-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 group shadow-sm">
             <span>{{ $t('exploreFeatures') }}</span>
             <i class="pi pi-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>

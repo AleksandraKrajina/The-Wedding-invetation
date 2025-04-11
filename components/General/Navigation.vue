@@ -1,73 +1,54 @@
 <template>
   <div>
     <!-- Regular Navigation -->
-    <nav 
-      v-show="!isOpen" 
-      class="fixed w-full z-40 transition-all duration-300" 
-      :class="[scrolled ? 'bg-amber-50 bg-opacity-90 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4']"
-    >
+    <nav v-show="!isOpen" class="fixed w-full z-40 transition-all duration-300"
+      :class="[scrolled ? 'bg-amber-50 bg-opacity-90 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4']">
       <div class="container mx-auto px-6">
         <div class="flex justify-between items-center">
           <!-- Logo -->
           <div class="relative z-10">
-            <img 
-              src="/assets/images/logo/4.png" 
-              class="h-8 transition-all duration-300" 
-              alt="Vow Perfect Logo" 
-            />
+            <img src="/assets/images/logo/4.png" class="h-8 transition-all duration-300" alt="Vow Perfect Logo" />
           </div>
 
           <!-- Desktop Menu -->
           <div class="hidden md:flex gap-6 items-center">
-            <a
-              v-for="item in navItems"
-              :key="item.link"
-              class="font-medium transition-all duration-200"
-              :href="item.link"
-              :class="[scrolled ? 'text-black text-opacity-90 hover:text-amber-200' : 'bg-transparent text-white hover:bg-white hover:bg-opacity-10']"
-            >
+            <a v-for="item in navItems" :key="item.link" class="font-medium transition-all duration-200 cursor-pointer"
+              @click="scrollToSection(item.link)"
+              :class="[scrolled ? 'text-black text-opacity-90 hover:text-amber-200' : 'bg-transparent text-white hover:bg-white hover:bg-opacity-10']">
               {{ item.name }}
             </a>
 
             <!-- Language Switcher -->
             <div class="relative ml-4">
-              <button 
-                @click.stop="toggleLanguageMenu"
+              <button @click.stop="toggleLanguageMenu"
                 class="flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-200 border focus:outline-none"
                 :class="[
-                  scrolled 
-                    ? 'bg-white bg-opacity-70 text-stone-800 border-amber-200 hover:bg-amber-50' 
+                  scrolled
+                    ? 'bg-white bg-opacity-70 text-stone-800 border-amber-200 hover:bg-amber-50'
                     : 'bg-white bg-opacity-10 text-white border-white border-opacity-30 hover:bg-opacity-20'
-                ]"
-              >
+                ]">
                 <span class="w-5 h-5 flex-shrink-0 overflow-hidden rounded-full">
-                  <img v-if="currentLocale === 'en'" src="/assets/images/flags/en.svg" alt="English" class="w-full h-full object-cover" />
-                  <img v-else-if="currentLocale === 'sr'" src="/assets/images/flags/sr.svg" alt="Serbian" class="w-full h-full object-cover" />
+                  <img v-if="currentLocale === 'en'" src="/assets/images/flags/en.svg" alt="English"
+                    class="w-full h-full object-cover" />
+                  <img v-else-if="currentLocale === 'sr'" src="/assets/images/flags/sr.svg" alt="Serbian"
+                    class="w-full h-full object-cover" />
                 </span>
                 <span class="text-sm font-medium">{{ currentLocale === 'en' ? 'EN' : 'SR' }}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              
+
               <!-- Language Dropdown -->
-              <div 
-                v-if="isLangMenuOpen" 
-                class="absolute right-0 mt-2 py-2 w-36 bg-white rounded-lg shadow-lg overflow-hidden z-50 border border-amber-100"
-              >
-                <button
-                  v-for="loc in ['en', 'sr']"
-                  :key="loc"
-                  @click.stop="changeLanguage(loc)"
+              <div v-if="isLangMenuOpen"
+                class="absolute right-0 mt-2 py-2 w-36 bg-white rounded-lg shadow-lg overflow-hidden z-50 border border-amber-100">
+                <button v-for="loc in ['en', 'sr']" :key="loc" @click.stop="changeLanguage(loc)"
                   class="flex items-center gap-3 w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-amber-50 transition-colors"
-                  :class="{ 'bg-amber-50': currentLocale === loc }"
-                >
+                  :class="{ 'bg-amber-50': currentLocale === loc }">
                   <span class="w-5 h-5 flex-shrink-0 overflow-hidden rounded-full">
-                    <img 
-                      :src="`/assets/images/flags/${loc}.svg`" 
-                      :alt="loc === 'en' ? 'English' : 'Serbian'"
-                      class="w-full h-full object-cover" 
-                    />
+                    <img :src="`/assets/images/flags/${loc}.svg`" :alt="loc === 'en' ? 'English' : 'Serbian'"
+                      class="w-full h-full object-cover" />
                   </span>
                   <span>{{ loc === 'en' ? 'English' : 'Serbian' }}</span>
                 </button>
@@ -75,25 +56,21 @@
             </div>
 
             <!-- CTA Button -->
-            <button
+            <button @click="openBookingModal"
               class="ml-4 px-6 py-2 rounded-full font-medium transition-all duration-300 border border-amber-50 border-opacity-30 hover:border-opacity-50"
-              :class="[scrolled ? 'bg-amber-50 text-stone-800 hover:bg-amber-100' : 'bg-transparent text-white hover:bg-white hover:bg-opacity-10']"
-            >
+              :class="[scrolled ? 'bg-amber-50 text-stone-800 hover:bg-amber-100' : 'bg-transparent text-white hover:bg-white hover:bg-opacity-10']">
               {{ $t('bookNow') }}
             </button>
           </div>
 
           <!-- Mobile Menu Button -->
-          <button 
-            @click="toggleMobileMenu" 
-            class="md:hidden relative z-50"
-            :class="[
-              scrolled 
-                ? 'text-stone-800' 
-                : 'text-white'
-            ]"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button @click="toggleMobileMenu" class="md:hidden relative z-50" :class="[
+            scrolled
+              ? 'text-stone-800'
+              : 'text-white'
+          ]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -102,64 +79,44 @@
     </nav>
 
     <!-- Full Screen Mobile Menu Overlay -->
-    <div 
-      v-if="isOpen" 
-      class="fixed inset-0 z-50 md:hidden"
-    >
+    <div v-if="isOpen" class="fixed inset-0 z-50 md:hidden">
       <!-- Overlay background -->
       <div class="absolute inset-0 bg-gradient-to-br from-gray-800 via-stone-700 to-neutral-700 opacity-98"></div>
-      
+
       <!-- Mobile Header with Close Button -->
       <div class="absolute top-0 left-0 right-0 flex justify-end p-6 z-50">
-        <button 
-          @click="closeMobileMenu" 
-          class="text-white opacity-70 hover:opacity-100"
-          aria-label="Close menu"
-        >
+        <button @click="closeMobileMenu" class="text-white opacity-70 hover:opacity-100" aria-label="Close menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-      
+
       <!-- Menu content -->
       <div class="flex flex-col min-h-screen justify-center items-center py-16 px-6 relative z-10 overflow-y-auto">
         <!-- Nav links -->
         <div class="flex flex-col space-y-8 text-center">
-          <a
-            v-for="item in navItems"
-            :key="item.link" 
-            class="text-xl text-white text-opacity-90 font-medium hover:text-amber-50 transition-all"
-            :href="item.link"
-            @click="closeMobileMenu"
-          >
+          <a v-for="item in navItems" :key="item.link"
+            class="text-xl text-white text-opacity-90 font-medium hover:text-amber-50 transition-all cursor-pointer"
+            @click="scrollToSectionAndCloseMobile(item.link)">
             {{ item.name }}
           </a>
         </div>
 
         <!-- Mobile CTA Button -->
-        <button
-          @click="closeMobileMenu"
-          class="w-full max-w-xs px-8 py-3 mt-16 bg-amber-50 text-stone-800 rounded-full font-medium hover:bg-amber-100 transition-all shadow-md"
-        >
+        <button @click="openBookingModal"
+          class="w-full max-w-xs px-8 py-3 mt-16 bg-amber-50 text-stone-800 rounded-full font-medium hover:bg-amber-100 transition-all shadow-md">
           {{ $t('bookNow') }}
         </button>
 
         <!-- Mobile Language Switcher -->
         <div class="flex gap-4 mt-10">
-          <button
-            v-for="loc in ['en', 'sr']"
-            :key="loc"
-            @click="changeLanguageAndCloseMobile(loc)"
+          <button v-for="loc in ['en', 'sr']" :key="loc" @click="changeLanguageAndCloseMobile(loc)"
             class="flex items-center gap-2 px-4 py-2 rounded-lg border border-white border-opacity-30 transition-all"
-            :class="currentLocale === loc ? 'bg-white bg-opacity-10 text-amber-50' : 'text-white text-opacity-90 hover:bg-white hover:bg-opacity-5'"
-          >
+            :class="currentLocale === loc ? 'bg-white bg-opacity-10 text-amber-50' : 'text-white text-opacity-90 hover:bg-white hover:bg-opacity-5'">
             <span class="w-5 h-5 flex-shrink-0 overflow-hidden rounded-full">
-              <img 
-                :src="`/assets/images/flags/${loc}.svg`" 
-                :alt="loc === 'en' ? 'English' : 'Serbian'"
-                class="w-full h-full object-cover" 
-              />
+              <img :src="`/assets/images/flags/${loc}.svg`" :alt="loc === 'en' ? 'English' : 'Serbian'"
+                class="w-full h-full object-cover" />
             </span>
             <span>{{ loc === 'en' ? 'English' : 'Serbian' }}</span>
           </button>
@@ -179,6 +136,9 @@ const isBrowser = typeof window !== 'undefined';
 // Use the automatically provided useI18n composable
 const { $t, $locale, $switchLocale } = useI18n()
 
+// Emit events for parent components
+const emit = defineEmits(['open-booking-modal'])
+
 // UI state
 const isOpen = ref(false)
 const scrolled = ref(false)
@@ -194,7 +154,7 @@ const navItems = computed(() => [
   { name: $t('home'), link: '#' },
   { name: $t('services'), link: '#process' },
   { name: $t('portfolio'), link: '#work' },
-  { name: $t('pricing'), link: '#price' },
+  { name: $t('pricing'), link: '#pricing' }, // Updated to match the ID in index page
   { name: $t('contact'), link: '#contact' }
 ])
 
@@ -214,7 +174,7 @@ const handleForceLocaleUpdate = async (event) => {
   if (locale) {
     console.log(`Navigation: Received force locale update to ${locale}`)
     currentLocale.value = locale
-    
+
     // Force a nextTick to update the UI
     await nextTick()
   }
@@ -227,13 +187,13 @@ onMounted(async () => {
     window.addEventListener('scroll', handleScroll)
     window.addEventListener('resize', handleResize)
     window.addEventListener('force-locale-update', handleForceLocaleUpdate)
-    
+
     // Initial scroll check
     handleScroll()
-    
+
     // Try to get saved locale (client-side only)
     const savedLocale = getSavedLocale()
-    
+
     // Update if we have a saved locale that differs from current
     if (savedLocale && savedLocale !== currentLocale.value) {
       console.log(`Navigation: Saved locale (${savedLocale}) doesn't match current (${currentLocale.value}), updating`)
@@ -245,7 +205,7 @@ onMounted(async () => {
         console.warn('Failed to sync locale on mount:', error)
       }
     }
-    
+
     // Debug
     console.log('Navigation mounted, current locale:', currentLocale.value, 'system locale:', $locale)
   }
@@ -318,29 +278,29 @@ const closeLanguageMenu = () => {
 
 const changeLanguage = async (lang) => {
   if (lang === currentLocale.value) return
-  
+
   console.log(`Changing language to ${lang}`)
-  
+
   try {
     // Update our local reference immediately to ensure UI updates
     currentLocale.value = lang
-    
+
     // Use the built-in function to switch locale
     await $switchLocale(lang)
-    
+
     // Save preference (client-side only)
     if (isBrowser) {
       saveLocalePreference(lang)
     }
-    
+
     // Force a nextTick to update the UI
     await nextTick()
-    
+
     console.log(`Language changed to ${lang} successfully`)
   } catch (error) {
     console.error(`Failed to change language to ${lang}:`, error)
   }
-  
+
   // Close language menu
   isLangMenuOpen.value = false
 }
@@ -348,5 +308,45 @@ const changeLanguage = async (lang) => {
 const changeLanguageAndCloseMobile = (lang) => {
   changeLanguage(lang)
   closeMobileMenu()
+}
+
+// Smooth scroll to section function
+const scrollToSection = (sectionId) => {
+  if (!sectionId || sectionId === '#') {
+    // Scroll to top for home
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+    return
+  }
+
+  const section = document.querySelector(sectionId)
+  if (section) {
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  } else {
+    console.warn(`Section with ID ${sectionId} not found`)
+  }
+}
+
+// Smooth scroll + close mobile menu
+const scrollToSectionAndCloseMobile = (sectionId) => {
+  closeMobileMenu()
+
+  // Small delay to ensure menu is closed before scrolling
+  setTimeout(() => {
+    scrollToSection(sectionId)
+  }, 150)
+}
+
+// Handle booking modal
+const openBookingModal = () => {
+  emit('open-booking-modal')
+  if (isOpen.value) {
+    closeMobileMenu()
+  }
 }
 </script>

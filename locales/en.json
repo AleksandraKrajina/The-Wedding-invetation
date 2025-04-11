@@ -14,6 +14,30 @@
   "bookConsultation": "Book a Consultation",
   "trustedBy": "Trusted by",
   "couples": "couples",
+  "loadingCalendar": "Loading calendar...",
+  "closeModal": "Close",
+  
+  "selectPackage": "Select a Package",
+  "chooseYourPackage": "Choose the package that best fits your needs",
+  "yourDetails": "Your Details",
+  "confirmation": "Confirmation",
+  "packageSelected": "Package Selected",
+  "continueWithSelectedPackage": "Continue with Selected Package",
+  "selectBasicPlan": "Select Basic Plan",
+  "selectPremiumPlan": "Select Premium Plan",
+  "packageFormIntro": "Please provide your details to get started with your selected package. Our team will be in touch shortly.",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "email": "Email",
+  "weddingDate": "Wedding Date",
+  "additionalNotes": "Additional Notes (optional)",
+  "back": "Back",
+  "submitting": "Submitting...",
+  "continueText": "Continue",
+  "thankYou": "Thank You",
+  "packageRequestReceived": "We've received your request! Our team will contact you shortly to discuss next steps for your wedding website.",
+  "selectedPackage": "Selected Package",
+  "close": "Close",
   
   "ourPromise": "Our Promise",
   "whyChooseUs": "Why Choose Vow Perfect?",
@@ -135,4 +159,5 @@
   "learnMore": "Learn More",
   "offerEndsIn": "Offer ends in",
   "days": "days"
+
 }

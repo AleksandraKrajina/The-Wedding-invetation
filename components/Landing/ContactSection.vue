@@ -85,9 +85,10 @@
             <i class="pi pi-arrow-right text-neutral-300 group-hover:text-neutral-800 transition-all duration-300 transform group-hover:translate-x-1"></i>
           </a>
           
-          <!-- Schedule Meeting -->
-          <a href="https://calendar.app.google/booking" target="_blank"
-            class="flex items-center justify-between p-5 rounded-lg border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-sm transition-all duration-300 group">
+          <!-- Schedule Meeting - Now opens the modal instead of linking directly -->
+          <div
+            @click="showModal = true"
+            class="flex items-center justify-between p-5 rounded-lg border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-sm transition-all duration-300 group cursor-pointer">
             <div class="flex items-center gap-5">
               <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center group-hover:bg-neutral-200 transition-all duration-300">
                 <i class="pi pi-calendar text-xl text-neutral-600"></i>
@@ -98,7 +99,7 @@
               </div>
             </div>
             <i class="pi pi-arrow-right text-neutral-300 group-hover:text-neutral-800 transition-all duration-300 transform group-hover:translate-x-1"></i>
-          </a>
+          </div>
         </div>
         
         <div class="mt-12 p-4 bg-white border border-neutral-200 rounded-lg text-center">
@@ -108,12 +109,27 @@
         </div>
       </div>
     </div>
+
+    <!-- Shared BookingModal component -->
+    <BookingModal 
+      v-model="showModal" 
+      theme="default" 
+      :google-calendar-url="googleCalendarUrl" 
+    />
   </section>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import BookingModal from '/components/general/BookingModal.vue'
+
+const googleCalendarUrl = 'https://calendar.app.google/sZ4ZFaiQuwhHcbMP8'
+
 // Get automatic i18n functions
 const { $t } = useI18n()
+
+// State for modal visibility
+const showModal = ref(false)
 </script>
 
 <style scoped>
@@ -125,5 +141,11 @@ const { $t } = useI18n()
 /* Apply gentle reveal animations when section comes into view */
 section {
   animation: fadeIn 1s ease-out forwards;
+}
+
+/* Add hover effect for the booking item to make it feel clickable */
+.cursor-pointer:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
 }
 </style>

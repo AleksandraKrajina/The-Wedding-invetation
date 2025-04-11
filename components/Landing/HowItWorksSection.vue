@@ -105,7 +105,10 @@
         
         <!-- Call to action -->
         <div class="text-center">
-          <button class="bg-neutral-800 hover:bg-stone-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-sm inline-flex items-center">
+          <button 
+            @click="openPackageModal" 
+            class="bg-neutral-800 hover:bg-stone-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-sm inline-flex items-center"
+          >
             <span>{{ $t('startJourney') }}</span>
             <i class="pi pi-arrow-right ml-2"></i>
           </button>
@@ -118,6 +121,14 @@
 <script setup>
 // Get automatic i18n functions
 const { $t } = useI18n()
+
+// Emit event for opening package modal
+const emit = defineEmits(['open-package-modal'])
+
+// Function to open the package modal
+const openPackageModal = () => {
+  emit('open-package-modal')
+}
 </script>
 
 <style scoped>

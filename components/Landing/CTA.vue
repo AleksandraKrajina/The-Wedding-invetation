@@ -40,7 +40,10 @@
         
         <!-- CTA buttons with enhanced styling -->
         <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
-          <button class="bg-gradient-to-r from-amber-50 to-amber-100 text-stone-800 px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 hover:scale-105">
+          <button 
+            @click="showModal = true"
+            class="bg-gradient-to-r from-amber-50 to-amber-100 text-stone-800 px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 hover:scale-105"
+          >
             {{ t('bookNow') }}
           </button>
           <!-- <button class="bg-transparent backdrop-blur-sm bg-white bg-opacity-5 border border-amber-50 border-opacity-30 text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-10 transition-all duration-300 transform hover:-translate-y-1">
@@ -55,15 +58,29 @@
         </div>
       </div>
     </div>
+    
+    <!-- Shared BookingModal component -->
+    <BookingModal 
+      v-model="showModal" 
+      theme="amber" 
+      :google-calendar-url="googleCalendarUrl" 
+    />
   </section>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useNuxtApp } from '#app'
+import BookingModal from '/components/general/BookingModal.vue'
 
 // Get i18n from Nuxt app instance
 const nuxtApp = useNuxtApp()
+
+// Google Calendar booking URL - Replace with your actual calendar scheduling link
+const googleCalendarUrl = 'https://calendar.app.google/sZ4ZFaiQuwhHcbMP8'
+
+// State for modal visibility
+const showModal = ref(false)
 
 // Translation function that wraps the i18n.t method
 const t = (key) => {
