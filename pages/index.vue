@@ -1,6 +1,6 @@
 <template>
     <div class="mx-auto">
-        <!-- Navigation with booking modal event handler -->
+        <!-- Navigation -->
         <GeneralNavigation @open-booking-modal="openBookingModal" />
 
         <!-- Hero Section -->
@@ -18,22 +18,13 @@
 
         <LandingCTA />
         
-        <!-- How It Works Section with package modal event handler -->
-        <div>
-            <LandingHowItWorksSection @open-package-modal="openPackageModal" />
-        </div>
+        <LandingHowItWorksSection />
 
         <LandingTemplates />
 
         <!-- Pricing Section with ID for scrolling -->
         <div id="pricing">
-            <LandingPricingSection
-                :show-package-modal="showPackageModal"
-                :selected-package="selectedPackage"
-                @form-submitted="handlePackageFormSubmitted"
-                @book-consultation="openBookingModal"
-                @update:show-package-modal="showPackageModal = $event"
-            />
+            <LandingPricingSection />
         </div>
 
         <!-- Contact Section with ID for scrolling -->
@@ -50,14 +41,6 @@
         theme="neutral" 
         :google-calendar-url="googleCalendarUrl" 
     />
-    
-    <!-- Package Selection Modal -->
-    <PackageSelectionModal 
-        v-model="showPackageModal"
-        :selected-package="selectedPackage"
-        @form-submitted="handlePackageFormSubmitted"
-        @book-consultation="openBookingModal"
-    />
 </template>
 
 <script setup>
@@ -67,25 +50,11 @@ import Button from 'primevue/button';
 // State for smooth scrolling and modals
 const scrolled = ref(false);
 const showBookingModal = ref(false);
-const showPackageModal = ref(false);
-const selectedPackage = ref('');
 const googleCalendarUrl = ref('https://calendar.app.google/booking');
 
 // Function to handle opening the booking modal
 const openBookingModal = () => {
     showBookingModal.value = true;
-};
-
-// Function to open the package modal (without preselected package)
-const openPackageModal = () => {
-    selectedPackage.value = ''; // Reset package selection
-    showPackageModal.value = true;
-};
-
-// Function to handle package form submission
-const handlePackageFormSubmitted = (formData) => {
-    console.log('Package form submitted:', formData);
-    // Here you would typically send this data to your backend API
 };
 
 onMounted(() => {
