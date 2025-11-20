@@ -10,7 +10,19 @@ export default defineNuxtConfig({
     },
   },
   css: ["~/assets/css/main.css"],
-  modules: ["@primevue/nuxt-module"],
+  
+  modules: ["@primevue/nuxt-module", "@nuxtjs/i18n"],
+  
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'sr', name: 'Srpski', file: 'sr.json' },
+    ],
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    langDir: 'locales',
+  },
+  
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -18,6 +30,4 @@ export default defineNuxtConfig({
     },
   },
   compatibilityDate: "2024-12-27",
-  vite: {
-  }
 });

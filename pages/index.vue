@@ -1,26 +1,19 @@
 <template>
     <div class="mx-auto">
         <GeneralNavigation @open-booking-modal="openBookingModal" />
-
         <LandingHero />
-
         <div id="process">
             <LandingFeaturesSection />
         </div>
-
         <div id="work">
             <LandingTestimonialsSection />
         </div>
-
         <LandingCTA />
-        
         <LandingHowItWorksSection />
-
         <LandingTemplates />
         <div id="pricing">
             <LandingPricingSection />
         </div>
-
         <div id="contact">
             <LandingContactSection />
         </div>
@@ -37,7 +30,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import Button from 'primevue/button';
 
 // State for smooth scrolling and modals
 const scrolled = ref(false);
