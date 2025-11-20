@@ -1,19 +1,15 @@
 <template>
     <div class="mx-auto">
-        <!-- Navigation -->
         <GeneralNavigation @open-booking-modal="openBookingModal" />
 
-        <!-- Hero Section -->
         <LandingHero />
 
-        <!-- Features Section with ID for scrolling -->
         <div id="process">
             <LandingFeaturesSection />
         </div>
 
-        <!-- Portfolio Section with ID for scrolling -->
         <div id="work">
-            <LandingTestemonialsSection />
+            <LandingTestimonialsSection />
         </div>
 
         <LandingCTA />
@@ -21,20 +17,16 @@
         <LandingHowItWorksSection />
 
         <LandingTemplates />
-
-        <!-- Pricing Section with ID for scrolling -->
         <div id="pricing">
             <LandingPricingSection />
         </div>
 
-        <!-- Contact Section with ID for scrolling -->
         <div id="contact">
             <LandingContactSection />
         </div>
     </div>
     <GeneralFooter />
 
-    <!-- Booking Modal -->
     <GeneralBookingModal 
         v-if="showBookingModal"
         v-model="showBookingModal" 
