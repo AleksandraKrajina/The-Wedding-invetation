@@ -70,7 +70,7 @@ onMounted(() => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('opacity-100', 'animate-fadeIn');
-                    observer.unobserve(entry.target); // Stop observing after animation triggers
+                    observer.unobserve(entry.target);
                 }
             });
         },
@@ -79,9 +79,8 @@ onMounted(() => {
 
     sections.forEach((section) => observer.observe(section));
 
-    // Handle direct links with hash in URL (for deep linking to sections)
+    // Handle direct links with hash in URL
     if (window.location.hash) {
-        // Wait for all components to mount
         setTimeout(() => {
             const targetSection = document.querySelector(window.location.hash);
             if (targetSection) {
@@ -93,40 +92,6 @@ onMounted(() => {
         }, 500);
     }
 });
-
-// Sample data
-const services = [
-    {
-        title: 'Custom Design',
-        icon: 'pi pi-palette',
-        description: 'Unique website designs that reflect your love story'
-    },
-    {
-        title: 'RSVP Management',
-        icon: 'pi pi-check-circle',
-        description: 'Easy guest list and response management'
-    },
-    {
-        title: 'Photo Gallery',
-        icon: 'pi pi-images',
-        description: 'Beautiful galleries to share your memories'
-    }
-];
-
-const portfolio = [
-    {
-        title: 'Sarah & James',
-        image: '/assets/images/demo1/couple1.jpg'
-    },
-    {
-        title: 'Emma & Michael',
-        image: '/assets/images/demo1/Hero.jpg'
-    },
-    {
-        title: 'Lisa & David',
-        image: '/assets/images/demo1/hero.png'
-    }
-];
 </script>
 
 <style scoped>

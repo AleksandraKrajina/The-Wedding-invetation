@@ -111,7 +111,6 @@ const toggleFaq = (index) => {
 </script>
 
 <style scoped>
-/* Add custom font styling */
 .font-serif {
   font-family: 'Playfair Display', serif;
 }

@@ -12,15 +12,15 @@
       <div class="max-w-6xl mx-auto">
         <!-- Section heading with modern typography -->
         <div class="mb-20 text-center">
-          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">{{ $t('ourTemplates') }}</span>
+          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Our Templates</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              {{ $t('findPerfectDesign') }}
+              Find Your Perfect Design
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            {{ $t('browseTemplates') }}
+            Browse our curated collection of wedding website templates, each designed to reflect your unique style.
           </p>
         </div>
         
@@ -32,22 +32,22 @@
               <!-- Template Preview Image -->
               <img 
                 src="/assets/images/template1.jpg" 
-                :alt="$t('elegantTemplate')"
+                alt="Elegant Template"
                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
               />
               
               <!-- Overlay with View button -->
               <div class="absolute inset-0 bg-neutral-900 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <button class="bg-white text-neutral-800 px-6 py-2 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  {{ $t('previewTemplate') }}
+                  Preview Template
                 </button>
               </div>
             </div>
             
             <!-- Template Info -->
             <div class="text-center">
-              <h3 class="text-xl font-medium text-neutral-800 mb-2">{{ $t('elegant') }}</h3>
-              <p class="text-neutral-600">{{ $t('elegantDesc') }}</p>
+              <h3 class="text-xl font-medium text-neutral-800 mb-2">Elegant</h3>
+              <p class="text-neutral-600">A timeless design with refined typography and subtle accents.</p>
             </div>
           </div>
           
@@ -57,22 +57,22 @@
               <!-- Template Preview Image -->
               <img 
                 src="/assets/images/template3.jpg" 
-                :alt="$t('modernTemplate')"
+                alt="Modern Template"
                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
               />
               
               <!-- Overlay with View button -->
               <div class="absolute inset-0 bg-neutral-900 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <button class="bg-white text-neutral-800 px-6 py-2 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  {{ $t('previewTemplate') }}
+                  Preview Template
                 </button>
               </div>
             </div>
             
             <!-- Template Info -->
             <div class="text-center">
-              <h3 class="text-xl font-medium text-neutral-800 mb-2">{{ $t('modern') }}</h3>
-              <p class="text-neutral-600">{{ $t('modernDesc') }}</p>
+              <h3 class="text-xl font-medium text-neutral-800 mb-2">Modern</h3>
+              <p class="text-neutral-600">Clean lines and minimalist design for the contemporary couple.</p>
             </div>
           </div>
           
@@ -82,22 +82,22 @@
               <!-- Template Preview Image -->
               <img 
                 src="/assets/images/template2.jpg" 
-                :alt="$t('romanticTemplate')"
+                alt="Romantic Template"
                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
               />
               
               <!-- Overlay with View button -->
               <div class="absolute inset-0 bg-neutral-900 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                 <button class="bg-white text-neutral-800 px-6 py-2 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  {{ $t('previewTemplate') }}
+                  Preview Template
                 </button>
               </div>
             </div>
             
             <!-- Template Info -->
             <div class="text-center">
-              <h3 class="text-xl font-medium text-neutral-800 mb-2">{{ $t('romantic') }}</h3>
-              <p class="text-neutral-600">{{ $t('romanticDesc') }}</p>
+              <h3 class="text-xl font-medium text-neutral-800 mb-2">Romantic</h3>
+              <p class="text-neutral-600">Soft curves and delicate details for a dreamy, romantic feel.</p>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@
         <!-- View All Templates Button -->
         <div class="mt-16 text-center">
           <button class="bg-neutral-800 hover:bg-neutral-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-sm inline-flex items-center">
-            <span>{{ $t('viewAllTemplates') }}</span>
+            <span>View All Templates</span>
             <i class="pi pi-arrow-right ml-2"></i>
           </button>
         </div>
@@ -115,8 +115,6 @@
 </template>
 
 <script setup>
-// Get automatic i18n functions
-const { $t } = useI18n()
 </script>
 
 <style scoped>
@@ -125,7 +123,6 @@ const { $t } = useI18n()
   to { opacity: 1; }
 }
 
-/* Apply gentle reveal animations when section comes into view */
 section {
   animation: fadeIn 1s ease-out forwards;
 }

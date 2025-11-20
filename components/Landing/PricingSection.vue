@@ -10,15 +10,15 @@
       <div class="max-w-6xl mx-auto">
         <!-- Section heading -->
         <div class="mb-16 text-center">
-          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">{{ $t('pricing') }}</span>
+          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Pricing</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              {{ $t('pricingTitle') }}
+              Simple Pricing for Your Perfect Day
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            {{ $t('pricingSubtitle') }}
+            Choose the package that best fits your needs. All plans include dedicated support throughout your journey.
           </p>
         </div>
         
@@ -26,7 +26,7 @@
         <div class="flex justify-center mb-12">
           <div class="inline-flex items-center py-3 px-6 bg-gradient-to-r from-amber-50 to-amber-100 border border-amber-200 rounded-lg shadow-sm">
             <i class="pi pi-tag text-amber-600 mr-3 text-lg"></i>
-            <span class="text-neutral-800 font-medium">{{ $t('limitedTimeOffer') }}: <span class="text-amber-600 font-semibold">15% {{ $t('ctaOffText') }}</span></span>
+            <span class="text-neutral-800 font-medium">Limited Time Offer: <span class="text-amber-600 font-semibold">15% Off</span></span>
           </div>
         </div>
         
@@ -35,9 +35,9 @@
           <div class="group bg-white rounded-lg border border-neutral-200 shadow-sm transition-all duration-300 hover:shadow-md hover:border-neutral-300 overflow-hidden">
             <div class="p-4 bg-neutral-50 border-b border-neutral-100">
               <div class="text-center">
-                <h3 class="text-2xl font-medium text-neutral-800 mb-4">{{ $t('basicPlan') }}</h3>
+                <h3 class="text-2xl font-medium text-neutral-800 mb-4">Basic Plan</h3>
                 
-                <!-- Price Display - Improved Version -->
+                <!-- Price Display -->
                 <div class="mt-2 relative flex flex-col items-center">
                   <!-- Original price with strike through -->
                   <div class="original-price flex items-center justify-center mb-1">
@@ -66,25 +66,25 @@
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('basicFeature1') }}</span>
+                  <span class="text-neutral-700">Personalized design</span>
                 </li>
                 <li class="flex items-start">
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('basicFeature2') }}</span>
+                  <span class="text-neutral-700">RSVP system</span>
                 </li>
                 <li class="flex items-start">
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('basicFeature3') }}</span>
+                  <span class="text-neutral-700">Basic support</span>
                 </li>
                 <li class="flex items-start">
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('basicFeature4') }}</span>
+                  <span class="text-neutral-700">Mobile-friendly design</span>
                 </li>
               </ul>
               
@@ -92,7 +92,7 @@
                 @click="openPackageModal('basic')"
                 class="w-full py-3.5 px-6 border border-neutral-300 text-neutral-800 font-medium rounded-full transition-all duration-300 hover:bg-neutral-800 hover:text-white hover:border-neutral-800 group-hover:border-neutral-800"
               >
-                {{ $t('chooseBasic') }}
+                Choose Basic
               </button>
             </div>
           </div>
@@ -101,14 +101,14 @@
           <div class="group bg-white rounded-lg border border-neutral-300 shadow-md overflow-hidden relative transition-all duration-300 hover:shadow-lg scale-100 hover:scale-[1.02] origin-center">
             <!-- Popular badge -->
             <div class="absolute top-0 right-0 bg-neutral-800 text-white py-1 px-4 text-sm font-medium">
-              {{ $t('mostPopular') }}
+              MOST POPULAR
             </div>
             
             <div class="p-4 bg-neutral-50 border-b border-neutral-100">
               <div class="text-center">
-                <h3 class="text-2xl font-medium text-neutral-800 mb-4">{{ $t('premiumPlan') }}</h3>
+                <h3 class="text-2xl font-medium text-neutral-800 mb-4">Premium Plan</h3>
                 
-                <!-- Price Display - Improved Version -->
+                <!-- Price Display -->
                 <div class="mt-2 relative flex flex-col items-center">
                   <!-- Original price with strike through -->
                   <div class="original-price flex items-center justify-center mb-1">
@@ -137,31 +137,31 @@
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('premiumFeature1') }}</span>
+                  <span class="text-neutral-700">Advanced design customization</span>
                 </li>
                 <li class="flex items-start">
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('premiumFeature2') }}</span>
+                  <span class="text-neutral-700">RSVP system with meal preferences</span>
                 </li>
                 <li class="flex items-start">
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('premiumFeature3') }}</span>
+                  <span class="text-neutral-700">Priority support</span>
                 </li>
                 <li class="flex items-start">
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('premiumFeature4') }}</span>
+                  <span class="text-neutral-700">Custom domain name</span>
                 </li>
                 <li class="flex items-start">
                   <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">{{ $t('premiumFeature5') }}</span>
+                  <span class="text-neutral-700">Photo gallery with unlimited images</span>
                 </li>
               </ul>
               
@@ -169,23 +169,23 @@
                 @click="openPackageModal('premium')"
                 class="w-full py-3.5 px-6 bg-neutral-800 text-white font-medium rounded-full transition-all duration-300 hover:bg-neutral-700"
               >
-                {{ $t('choosePremium') }}
+                Choose Premium
               </button>
             </div>
           </div>
         </div>
         
-        <!-- Timer with nicer styling -->
+        <!-- Timer -->
         <div class="flex justify-center mt-12">
           <div class="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-lg shadow-sm border border-neutral-200">
             <i class="pi pi-clock text-amber-500"></i>
-            <span class="text-neutral-700">{{ $t('offerEndsIn') }} <span class="font-semibold text-neutral-800">14</span> {{ $t('days') }}</span>
+            <span class="text-neutral-700">Offer ends in <span class="font-semibold text-neutral-800">14</span> days</span>
           </div>
         </div>
         
         <!-- Additional note -->
         <p class="text-center text-neutral-500 mt-6 max-w-xl mx-auto text-sm">
-          {{ $t('pricingNote') }} <a href="#contact" class="text-neutral-800 underline hover:no-underline">{{ $t('contactUs') }}</a> {{ $t('forFreeConsultation') }}
+          All plans include a 14-day satisfaction guarantee. Not sure which plan is right for you? <a href="#contact" class="text-neutral-800 underline hover:no-underline">Contact us</a> for a free consultation.
         </p>
       </div>
     </div>
@@ -202,10 +202,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useNuxtApp } from '#app'
-
-// Get i18n from Nuxt app instance
-const nuxtApp = useNuxtApp()
 
 // Package selection state
 const showPackageModal = ref(false)
@@ -220,28 +216,11 @@ const openPackageModal = (packageType) => {
 // Handle form submission
 const handleFormSubmitted = (formData) => {
   console.log('Package selection form submitted:', formData)
-  // Here you would typically send this data to your backend
-  // You could also store this in your state management if needed
 }
 
 // Handle book consultation click
 const handleBookConsultation = () => {
-  // Navigate to contact section or trigger a global event to open the booking modal
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })
-  
-  // Alternative: emit an event to open the booking modal from a parent component
-  // e.g., emits('open-booking-modal')
-}
-
-// Translation function that wraps the i18n.t method
-const $t = (key) => {
-  if (!nuxtApp.$i18n) return key
-  try {
-    return nuxtApp.$i18n.t(key) || key
-  } catch (error) {
-    console.error(`Translation error for key "${key}":`, error)
-    return key
-  }
 }
 </script>
 
@@ -251,12 +230,10 @@ const $t = (key) => {
   to { opacity: 1; }
 }
 
-/* Apply gentle reveal animations when section comes into view */
 section {
   animation: fadeIn 1s ease-out forwards;
 }
 
-/* Improve the strikethrough for original prices */
 .original-price {
   position: relative;
   margin-bottom: 0.25rem;

@@ -11,21 +11,21 @@
       <div class="max-w-6xl mx-auto">
         <!-- Section heading with modern typography -->
         <div class="mb-20 text-center">
-          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">{{ $t('testimonials') }}</span>
+          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Testimonials</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              {{ $t('clientsSay') }}
+              What Our Clients Say
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            {{ $t('testimonialsSubtitle') }}
+            Real stories from couples who trusted us with their special day
           </p>
         </div>
         
         <!-- Testimonial Carousel -->
         <div class="relative">
-          <!-- Navigation Buttons - More minimal and elegant -->
+          <!-- Navigation Buttons -->
           <button 
             @click="prevSlide" 
             class="absolute left-0 top-1/2 -translate-y-1/2 z-10 lg:-left-10 w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-neutral-400 hover:text-neutral-800 transition-colors"
@@ -48,7 +48,7 @@
               class="flex transition-transform duration-500 ease-in-out"
               :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
             >
-              <!-- Testimonial 1 - More minimal and elegant design -->
+              <!-- Testimonial 1 -->
               <div class="w-full flex-shrink-0 px-4 md:px-8">
                 <div class="bg-white rounded-lg shadow-sm p-10 md:p-12">
                   <div class="flex flex-col md:flex-row md:items-center gap-8">
@@ -68,13 +68,13 @@
                       <!-- Quote -->
                       <blockquote class="text-lg md:text-xl text-neutral-700 mb-6 relative">
                         <span class="absolute -top-6 -left-2 text-5xl text-stone-200">"</span>
-                        <p class="relative z-10">{{ $t('testimonial1') }}</p>
+                        <p class="relative z-10">Our wedding website was absolutely perfect! The team captured our style perfectly and made the whole process so easy.</p>
                       </blockquote>
                       
                       <!-- Author Info -->
                       <div>
-                        <p class="font-medium text-neutral-800">{{ $t('couple1') }}</p>
-                        <p class="text-stone-500 text-sm">{{ $t('date1') }}</p>
+                        <p class="font-medium text-neutral-800">Sarah & Michael</p>
+                        <p class="text-stone-500 text-sm">June 2024</p>
                       </div>
                     </div>
                   </div>
@@ -101,13 +101,13 @@
                       <!-- Quote -->
                       <blockquote class="text-lg md:text-xl text-neutral-700 mb-6 relative">
                         <span class="absolute -top-6 -left-2 text-5xl text-stone-200">"</span>
-                        <p class="relative z-10">{{ $t('testimonial2') }}</p>
+                        <p class="relative z-10">The RSVP system saved us so much time. Our guests loved how easy it was to navigate and find all the information.</p>
                       </blockquote>
                       
                       <!-- Author Info -->
                       <div>
-                        <p class="font-medium text-neutral-800">{{ $t('couple2') }}</p>
-                        <p class="text-stone-500 text-sm">{{ $t('date2') }}</p>
+                        <p class="font-medium text-neutral-800">Emily & John</p>
+                        <p class="text-stone-500 text-sm">May 2024</p>
                       </div>
                     </div>
                   </div>
@@ -134,13 +134,13 @@
                       <!-- Quote -->
                       <blockquote class="text-lg md:text-xl text-neutral-700 mb-6 relative">
                         <span class="absolute -top-6 -left-2 text-5xl text-stone-200">"</span>
-                        <p class="relative z-10">{{ $t('testimonial3') }}</p>
+                        <p class="relative z-10">Professional, responsive, and creative. They turned our vision into reality and exceeded our expectations!</p>
                       </blockquote>
                       
                       <!-- Author Info -->
                       <div>
-                        <p class="font-medium text-neutral-800">{{ $t('couple3') }}</p>
-                        <p class="text-stone-500 text-sm">{{ $t('date3') }}</p>
+                        <p class="font-medium text-neutral-800">Lisa & David</p>
+                        <p class="text-stone-500 text-sm">April 2024</p>
                       </div>
                     </div>
                   </div>
@@ -168,9 +168,6 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-
-// Get automatic i18n functions
-const { $t } = useI18n()
 
 const currentIndex = ref(0)
 const slideCount = 3
@@ -213,7 +210,6 @@ onUnmounted(() => {
   to { opacity: 1; }
 }
 
-/* Apply gentle reveal animations when section comes into view */
 section {
   animation: fadeIn 1s ease-out forwards;
 }

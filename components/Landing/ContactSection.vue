@@ -12,15 +12,15 @@
       <div class="max-w-3xl mx-auto">
         <!-- Section heading with modern typography -->
         <div class="mb-16 text-center">
-          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">{{ $t('contact') }}</span>
+          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Contact</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              {{ $t('haveQuestions') }} <br>{{ $t('wereHereToHelp') }}
+              Have Questions? <br>We're Here to Help
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            {{ $t('contactSubtitle') }}
+            Choose your preferred way to connect with us. We're ready to answer any questions about our wedding website services.
           </p>
         </div>
 
@@ -33,7 +33,7 @@
                 <i class="pi pi-envelope text-xl text-neutral-600"></i>
               </div>
               <div>
-                <h3 class="font-medium text-lg text-neutral-800">{{ $t('email') }}</h3>
+                <h3 class="font-medium text-lg text-neutral-800">Email</h3>
                 <p class="text-neutral-600">hello@vowperfect.com</p>
               </div>
             </div>
@@ -48,7 +48,7 @@
                 <i class="pi pi-phone text-xl text-neutral-600"></i>
               </div>
               <div>
-                <h3 class="font-medium text-lg text-neutral-800">{{ $t('callUs') }}</h3>
+                <h3 class="font-medium text-lg text-neutral-800">Call Us</h3>
                 <p class="text-neutral-600">(123) 456-7890</p>
               </div>
             </div>
@@ -64,7 +64,7 @@
               </div>
               <div>
                 <h3 class="font-medium text-lg text-neutral-800">WhatsApp</h3>
-                <p class="text-neutral-600">{{ $t('messageWhatsApp') }}</p>
+                <p class="text-neutral-600">Message us on WhatsApp</p>
               </div>
             </div>
             <i class="pi pi-arrow-right text-neutral-300 group-hover:text-neutral-800 transition-all duration-300 transform group-hover:translate-x-1"></i>
@@ -79,13 +79,13 @@
               </div>
               <div>
                 <h3 class="font-medium text-lg text-neutral-800">Messenger</h3>
-                <p class="text-neutral-600">{{ $t('connectMessenger') }}</p>
+                <p class="text-neutral-600">Connect on Facebook Messenger</p>
               </div>
             </div>
             <i class="pi pi-arrow-right text-neutral-300 group-hover:text-neutral-800 transition-all duration-300 transform group-hover:translate-x-1"></i>
           </a>
           
-          <!-- Schedule Meeting - Now opens the modal instead of linking directly -->
+          <!-- Schedule Meeting -->
           <div
             @click="showModal = true"
             class="flex items-center justify-between p-5 rounded-lg border border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-sm transition-all duration-300 group cursor-pointer">
@@ -94,8 +94,8 @@
                 <i class="pi pi-calendar text-xl text-neutral-600"></i>
               </div>
               <div>
-                <h3 class="font-medium text-lg text-neutral-800">{{ $t('bookFreeConsultation') }}</h3>
-                <p class="text-neutral-600">{{ $t('scheduleCall') }}</p>
+                <h3 class="font-medium text-lg text-neutral-800">Book a Free Consultation</h3>
+                <p class="text-neutral-600">Schedule a 30-minute call with us</p>
               </div>
             </div>
             <i class="pi pi-arrow-right text-neutral-300 group-hover:text-neutral-800 transition-all duration-300 transform group-hover:translate-x-1"></i>
@@ -104,7 +104,7 @@
         
         <div class="mt-12 p-4 bg-white border border-neutral-200 rounded-lg text-center">
           <p class="text-neutral-600">
-            <span class="font-medium">{{ $t('businessHours') }}:</span> {{ $t('availableHours') }}
+            <span class="font-medium">Business Hours:</span> Monday through Friday, 9:00 AM - 6:00 PM EST
           </p>
         </div>
       </div>
@@ -123,11 +123,6 @@
 import { ref } from 'vue'
 
 const googleCalendarUrl = 'https://calendar.app.google/sZ4ZFaiQuwhHcbMP8'
-
-// Get automatic i18n functions
-const { $t } = useI18n()
-
-// State for modal visibility
 const showModal = ref(false)
 </script>
 
@@ -137,12 +132,10 @@ const showModal = ref(false)
   to { opacity: 1; }
 }
 
-/* Apply gentle reveal animations when section comes into view */
 section {
   animation: fadeIn 1s ease-out forwards;
 }
 
-/* Add hover effect for the booking item to make it feel clickable */
 .cursor-pointer:hover {
   transform: translateY(-2px);
   transition: transform 0.3s ease;

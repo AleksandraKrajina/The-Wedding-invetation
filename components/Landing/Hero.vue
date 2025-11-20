@@ -22,16 +22,16 @@
         
         <!-- Main heading with modern typography - improved mobile sizing -->
         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-4 sm:mb-6 text-center leading-tight tracking-tight">
-          <span class="font-thin">{{ $t('heroTitleStart') }}</span> {{ $t('heroTitleMiddle') }} 
+          <span class="font-thin">Beautiful Websites</span> for Your 
           <span class="relative inline-block">
-            {{ $t('heroTitleEnd') }}
+            Beautiful Moments
             <span class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 bg-amber-200 opacity-40"></span>
           </span>
         </h1>
         
         <!-- Subheading with improved typography and mobile optimization -->
         <p class="text-lg sm:text-xl text-white opacity-90 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed text-center font-light px-2 sm:px-0">
-          {{ $t('heroSubtitle') }}
+          Professional wedding website designs that tell your unique story and create a seamless experience for you and your guests.
         </p>
         
         <!-- Neutral call to action buttons with better mobile spacing -->
@@ -40,26 +40,26 @@
             @click="scrollToPricing" 
             class="bg-amber-50 hover:bg-amber-100 text-stone-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base" 
           >
-            {{ $t('getStarted') }}
+            Get Started Today
           </button>
           <button 
             @click="showModal = true" 
             class="bg-transparent backdrop-blur-sm bg-white bg-opacity-5 border border-amber-50 border-opacity-30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-opacity-10 transition-all duration-300 text-sm sm:text-base"
           >
-            {{ $t('bookConsultation') }}
+            Book a Consultation
           </button>
         </div>
         
         <!-- Social proof element - mobile optimized -->
         <div class="mt-10 sm:mt-16 flex items-center justify-center">
           <div class="px-4 sm:px-6 py-2 bg-stone-900 bg-opacity-20 backdrop-blur-sm rounded-full flex items-center space-x-2 text-xs sm:text-sm">
-            <span class="text-white text-opacity-80">{{ $t('trustedBy') }}</span>
+            <span class="text-white text-opacity-80">Trusted by</span>
             <div class="flex -space-x-2">
               <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-30 border border-amber-50 border-opacity-30"></div>
               <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-40 border border-amber-50 border-opacity-30"></div>
               <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-50 bg-opacity-50 border border-amber-50 border-opacity-30"></div>
             </div>
-            <span class="text-white text-opacity-80">500+ {{ $t('couples') }}</span>
+            <span class="text-white text-opacity-80">500+ couples</span>
           </div>
         </div>
       </div>
@@ -75,12 +75,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
-// Get automatic i18n functions
-const { $t, $locale } = useI18n()
-
-// Google Calendar booking URL - Replace with your actual calendar scheduling link
+// Google Calendar booking URL
 const googleCalendarUrl = 'https://calendar.app.google/sZ4ZFaiQuwhHcbMP8'
 
 // State for modal visibility
@@ -98,13 +95,6 @@ const scrollToPricing = () => {
     console.warn('Pricing section with id "price" not found')
   }
 }
-
-onMounted(() => {
-  if (process.client) {
-    // Debug info
-    console.log('Hero component mounted, current locale:', $locale)
-  }
-})
 </script>
 
 <style scoped>
