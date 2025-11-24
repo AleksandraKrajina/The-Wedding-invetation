@@ -18,11 +18,14 @@
               {{ item.name }}
             </a>
 
+            <!-- Language Switcher -->
+            <LanguageSwitcher :variant="scrolled ? 'light' : 'dark'" class="ml-2" />
+
             <!-- CTA Button -->
             <button @click="openBookingModal"
               class="ml-4 px-6 py-2 rounded-full font-medium transition-all duration-300 border border-amber-50 border-opacity-30 hover:border-opacity-50"
               :class="[scrolled ? 'bg-amber-50 text-stone-800 hover:bg-amber-100' : 'bg-transparent text-white hover:bg-white hover:bg-opacity-10']">
-              Book Now
+              {{ $t('bookNow') }}
             </button>
           </div>
 
@@ -69,32 +72,40 @@
         <!-- Mobile CTA Button -->
         <button @click="openBookingModal"
           class="w-full max-w-xs px-8 py-3 mt-16 bg-amber-50 text-stone-800 rounded-full font-medium hover:bg-amber-100 transition-all shadow-md">
-          Book Now
+          {{ $t('bookNow') }}
         </button>
+
+        <!-- Mobile Language Switcher -->
+        <div class="mt-10">
+          <LanguageSwitcher variant="dark" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 // Emit events for parent components
 const emit = defineEmits(['open-booking-modal'])
+
+// i18n
+const { t: $t } = useI18n()
 
 // UI state
 const isOpen = ref(false)
 const scrolled = ref(false)
 const scrollPosition = ref(0)
 
-// Navigation items - hardcoded in English
-const navItems = [
-  { name: 'Home', link: '#' },
-  { name: 'Services', link: '#process' },
-  { name: 'Portfolio', link: '#work' },
-  { name: 'Pricing', link: '#pricing' },
-  { name: 'Contact', link: '#contact' }
-]
+// Navigation items - using i18n
+const navItems = computed(() => [
+  { name: $t('home'), link: '#' },
+  { name: $t('services'), link: '#process' },
+  { name: $t('portfolio'), link: '#work' },
+  { name: $t('pricing'), link: '#pricing' },
+  { name: $t('contact'), link: '#contact' }
+])
 
 // Set up scroll event listener
 onMounted(() => {

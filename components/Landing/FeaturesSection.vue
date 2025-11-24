@@ -15,7 +15,8 @@
           <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Our Promise</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              Why Choose Vow Perfect?
+              Why Choose Vow Perfect
+
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
