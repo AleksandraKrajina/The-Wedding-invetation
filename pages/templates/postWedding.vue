@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Countdown from '~/components/Countdown.vue';
+import Countdown from '~/components/templates/Countdown.vue';
 import Gallery from '~/components/templates/elegant/Gallery.vue';
 import Rsvp from '~/components/templates/elegant/Rsvp.vue';
 import Hero from '~/components/templates/postWedding/Hero.vue';

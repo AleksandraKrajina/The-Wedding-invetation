@@ -1,3 +1,49 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Countdown from '~/components/templates/Countdown.vue'
+
+if (import.meta.client) {
+  gsap.registerPlugin(ScrollTrigger)
+}
+
+const section = ref<HTMLElement | null>(null)
+const title = ref<HTMLElement | null>(null)
+const cards = ref<HTMLDivElement | null>(null)
+
+onMounted(() => {
+  if (!import.meta.client || !section.value) return
+
+  gsap.from(title.value, {
+    y: 60,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: section.value,
+      start: "top 80%",
+      toggleActions: "play none play reverse"
+    }
+  })
+
+  if (!cards.value) return
+
+  gsap.from(cards.value.children, {
+    y: 60,
+    opacity: 0,
+    duration: 1.5,
+    ease: "power3.out",
+    stagger: 0.5,
+    scrollTrigger: {
+      trigger: section.value,
+      start: "top 80%"
+    }
+  })
+})
+</script>
+
+
 <template>
   <section id="on-the-day" ref="section"
     class=" bg-transparent border-b container mx-auto justify-center items-center ">
@@ -14,23 +60,23 @@
         <div class="bg-gray-50 p-8 rounded-md md:mr-5 text-[color:var(--text-color)]">
           <h3 class="text-xl  mb-4 font-bold">Info</h3>
           <p class="text-gray-600">
-            {{ t('onTheDayInfo') }}
+            {{ $t('onTheDayInfo') }}
           </p>
         </div>
 
         <!-- Gifts Card -->
         <div class="bg-gray-50 p-8 rounded-md md:mr-5 text-[color:var(--text-color)]">
-          <h3 class="text-xl  mb-4 font-bold">{{ t('gifts') }}</h3>
+          <h3 class="text-xl  mb-4 font-bold">{{ $t('gifts') }}</h3>
           <p class="text-gray-600">
-            {{ t('onTheDayGifts') }}
+            {{ $t('onTheDayGifts') }}
           </p>
         </div>
 
         <!-- Night Card -->
         <div class="bg-gray-50 p-8 rounded-md text-[color:var(--text-color)]">
-          <h3 class="text-xl mb-4 font-bold">{{ t('night') }}</h3>
+          <h3 class="text-xl mb-4 font-bold">{{ $t('night') }}</h3>
           <p class="text-gray-600">
-            {{ t('onTheDayNight') }}
+            {{ $t('onTheDayNight') }}
           </p>
         </div>
       </div>
@@ -40,44 +86,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-import { ref, onMounted } from "vue"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Countdown from "~/components/Countdown.vue"
-
-
-gsap.registerPlugin(ScrollTrigger)
-
-const section = ref(null)
-const title = ref(null)
-const cards = ref(null)
-
-onMounted(() => {
-
-  gsap.from(title.value, {
-    y: 60,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: section.value,
-      start: "top 80%",
-      toggleActions: "play none play reverse"
-    }
-  })
-
-  gsap.from(cards.value.children, {
-    y: 60,
-    opacity: 0,
-    duration: 1.5,
-    ease: "power3.out",
-    stagger: 0.5,
-    scrollTrigger: {
-      trigger: section.value,
-      start: "top 80%"
-    }
-  })
-})
-</script>

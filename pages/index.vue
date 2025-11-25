@@ -1,33 +1,3 @@
-<template>
-    <div class="mx-auto">
-        <GeneralNavigation @open-booking-modal="openBookingModal" />
-        <LandingHero />
-        <div id="process">
-            <LandingFeaturesSection />
-        </div>
-        <div id="work">
-            <LandingTestimonialsSection />
-        </div>
-        <LandingCTA />
-        <LandingHowItWorksSection />
-        <LandingTemplates />
-        <div id="pricing">
-            <LandingPricingSection />
-        </div>
-        <div id="contact">
-            <LandingContactSection />
-        </div>
-    </div>
-    <GeneralFooter />
-
-    <GeneralBookingModal 
-        v-if="showBookingModal"
-        v-model="showBookingModal" 
-        theme="neutral" 
-        :google-calendar-url="googleCalendarUrl" 
-    />
-</template>
-
 <script setup>
 import { ref, onMounted } from 'vue';
 
@@ -118,3 +88,30 @@ onMounted(() => {
     }
 }
 </style>
+
+
+<template>
+    <div class="mx-auto">
+        <GeneralNavigation @open-booking-modal="openBookingModal" />
+        <LandingHero />
+        <div id="process">
+            <LandingFeaturesSection />
+        </div>
+        <div id="work">
+            <LandingTestimonialsSection />
+        </div>
+        <LandingCTA />
+        <LandingHowItWorksSection />
+        <LandingTemplates />
+        <div id="pricing">
+            <LandingPricingSection />
+        </div>
+        <div id="contact">
+            <LandingContactSection />
+        </div>
+    </div>
+    <GeneralFooter />
+
+    <GeneralBookingModal v-if="showBookingModal" v-model="showBookingModal" theme="neutral"
+        :google-calendar-url="googleCalendarUrl" />
+</template>

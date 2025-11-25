@@ -7,7 +7,7 @@
     class="relative w-full h-auto bg-cover bg-center flex p-0 m-0 bg-[url('~/assets/images/templates/party.png')]">
 
     <div class="relative container mx-auto z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
-      <p class=" p-4  text-[color:var(--text-color)] text-lg justify-center mt-7"> {{ t('mapAndLocation') }}</p>
+      <p class=" p-4  text-[color:var(--text-color)] text-lg justify-center mt-7"> {{ $t('mapAndLocation') }}</p>
 
       <div class="flex justify-center flex-col space-y-1 bg-blue-50">
 

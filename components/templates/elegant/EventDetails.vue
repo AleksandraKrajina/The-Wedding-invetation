@@ -9,7 +9,8 @@
         <!-- Church Ceremony -->
         <div>
           <div class="relative">
-            <img src="/assets/images/demo2/when3.png" alt="Church Ceremony" class="w-full aspect-[4/3] object-cover" />
+            <img src="/public/assets/images/demo1/hero.png" alt="Church Ceremony"
+              class="w-full aspect-[4/3] object-cover" />
             <div class="border border-gray-200 p-6">
               <div class="space-y-1">
                 <p class="text-sm">13H</p>
@@ -27,7 +28,8 @@
         <!-- Civil Ceremony -->
         <div>
           <div class="relative">
-            <img src="/assets/images/demo2/when2.png" alt="Civil Ceremony" class="w-full aspect-[4/3] object-cover" />
+            <img src="/public/assets/images/demo1/hero.png" alt="Civil Ceremony"
+              class="w-full aspect-[4/3] object-cover" />
             <div class="border border-gray-200 p-6">
               <div class="space-y-1">
                 <p class="text-sm">16H30</p>
@@ -46,7 +48,7 @@
         <!-- Reception -->
         <div>
           <div class="relative">
-            <img src="/assets/images/demo2/when1.png" alt="Reception" class="w-full aspect-[4/3] object-cover" />
+            <img src="/public/assets/images/demo1/hero.png" alt="Reception" class="w-full aspect-[4/3] object-cover" />
             <div class="border border-gray-200 p-6">
               <div class="space-y-1">
                 <p class="text-sm">NAKON GRAĐANSKOG VENČANJA I</p>

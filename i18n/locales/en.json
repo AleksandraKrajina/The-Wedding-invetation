@@ -5,5 +5,22 @@
   "portfolio": "Portfolio",
   "pricing": "Pricing",
   "contact": "Contact",
-  "bookNow": "Book Now"
+  "brideParagraph": "The bride filled with warmth, creativity, and joy. She is the heart and soul of our day, caring and endlessly devoted to the people she loves.",
+  "bride": "Bride",
+  "bookNow": "Book now",
+  "mapAndLocation": "Map & Location",
+  "rsvp": "RSVP",
+  "nameSurname": "Full name",
+  "emailPhone": "Email or phone number",
+  "numberOfPerson": "Number of guests",
+  "chooseNumber": "Choose a number",
+  "comingOn": "Attending",
+  "fullEvent": "Full event",
+  "reception": "Reception",
+  "church": "Church ceremony",
+  "onTheDayInfo": "On the day – information",
+  "onTheDayGifts": "Gifts",
+  "onTheDayNight": "Wedding night",
+  "dropSomeCoolImages": "Drop some cool images",
+  "dropSomeCoolImagesParagraph": "It would be awesome if you could share some pictures with us before or during the wedding. You can send them via email or use our image sharing platform."
 }

@@ -6,7 +6,7 @@ import Timing from '~/components/templates/modern/Timing.vue'
 import Faq from '~/components/templates/modern/Faq.vue'
 import WhenWhere from '~/components/templates/modern/WhenWhere.vue'
 import Header from '~/components/templates/modern/Header.vue'
-import Navigation from '~/components/Navigation.vue'
+import Navigation from '~/components/templates/Navigation.vue'
 
 
 </script>

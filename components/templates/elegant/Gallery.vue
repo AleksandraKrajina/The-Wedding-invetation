@@ -1,35 +1,45 @@
-<script setup>
-import { ref, onMounted } from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 
-import bg from '/assets/images/templates/hero.jpg'
-import bride from '/assets/images/templates/bride.jpg'
-import party from '/assets/images/templates/hero_3.jpg'
+const initialImages = [
+  '/assets/images/templates/bride.jpg',
+  '/assets/images/templates/groom.jpg',
+  '/assets/images/templates/groom&bride.jpg'
+]
 
-const images = ref([bg, bride, party])
-const fileInputs = ref([])
+const images = ref([...initialImages])
+const fileInputs = ref<HTMLInputElement[]>([])
 
+const setFileInput = (el: HTMLInputElement | null, index: number) => {
+  if (el) {
+    fileInputs.value[index] = el
+  }
+}
 
+const triggerFileInput = (index: number) => {
+  if (!import.meta.client) return
+  fileInputs.value[index]?.click()
+}
 
-if (process.client) {
-  function triggerFileInput(index) {
-    if (fileInputs.value[index]) {
-      fileInputs.value[index].click()
+const handleFileChange = (event: Event, index: number) => {
+  if (!import.meta.client) return
+
+  const target = event.target as HTMLInputElement
+  const file = target?.files?.[0]
+
+  if (!file) return
+
+  const reader = new FileReader()
+  reader.onload = (e) => {
+    const result = e.target?.result
+    if (typeof result === 'string') {
+      images.value[index] = result
     }
   }
-
-  function handleFileChange(event, index) {
-    const file = event.target.files[0]
-    if (file) {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        images.value[index] = e.target.result
-      }
-      reader.readAsDataURL(file)
-    }
-  }
-
-  Object.assign(window, { triggerFileInput, handleFileChange })
+  reader.readAsDataURL(file)
 }
 </script>
 
@@ -39,7 +49,7 @@ if (process.client) {
 
     <div class="container mx-auto px-1">
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <img v-for="i in 6" :key="i" src="/assets/images/demo2/when1.png" :alt="`Gallery image ${i}`"
+        <img v-for="i in 6" :key="i" src="/assets/images/demo1/hero.png" :alt="`Gallery image ${i}`"
           class="w-full aspect-square object-cover hover:opacity-75 transition-opacity" />
       </div>
     </div>
@@ -65,7 +75,8 @@ if (process.client) {
       </div>
     </div>
 
-    <input v-for="(image, index) in images" :key="'file-' + index" :ref="el => fileInputs[index] = el" type="file"
+    <input v-for="(image, index) in images" :key="'file-' + index"
+      :ref="el => setFileInput(el as HTMLInputElement | null, index)" type="file"
       accept="image/*" class="hidden" @change="handleFileChange($event, index)">
   </section>
 </template>

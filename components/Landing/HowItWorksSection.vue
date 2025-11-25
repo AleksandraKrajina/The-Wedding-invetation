@@ -1,3 +1,12 @@
+<script setup>
+</script>
+
+<style scoped>
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+</style>
+
 <template>
   <section class="py-24 bg-neutral-50 opacity-0 transition-opacity duration-700" data-observe>
     <div class="container mx-auto px-6">
@@ -15,7 +24,7 @@
             Our streamlined approach ensures your wedding website is beautiful, personalized, and ready on time.
           </p>
         </div>
-        
+
         <!-- Simplified Process Steps -->
         <div class="grid md:grid-cols-3 gap-10">
           <!-- Step 1 -->
@@ -44,7 +53,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Step 2 -->
           <div class="flex flex-col">
             <div class="flex items-center mb-5">
@@ -71,7 +80,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Step 3 -->
           <div class="flex flex-col">
             <div class="flex items-center mb-5">
@@ -99,13 +108,14 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Optional divider -->
         <div class="w-full max-w-xs mx-auto h-px bg-stone-200 my-16"></div>
-        
+
         <!-- Call to action -->
         <div class="text-center">
-          <button class="bg-neutral-800 hover:bg-stone-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-sm inline-flex items-center">
+          <button
+            class="bg-neutral-800 hover:bg-stone-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-sm inline-flex items-center">
             <span>Start Your Journey Today</span>
             <i class="pi pi-arrow-right ml-2"></i>
           </button>
@@ -114,12 +124,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-</script>
-
-<style scoped>
-.font-serif {
-  font-family: 'Playfair Display', serif;
-}
-</style>

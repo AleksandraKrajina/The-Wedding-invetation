@@ -1,7 +1,8 @@
 <template>
   <section id="home" class="min-h-screen relative flex items-center">
     <div class="absolute inset-0">
-      <img src="/assets/images/demo2/hero2.png" alt="Wedding Hero" class="w-full h-full object-cover brightness-95" />
+      <img src="/public/assets/images/demo1/hero.png" alt="Wedding Hero"
+        class="w-full h-full object-cover brightness-95" />
     </div>
     <div class="relative z-10 w-full">
       <div class="absolute top-[-200px] left-0 right-0 p-6 container mx-auto">

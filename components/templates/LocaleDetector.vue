@@ -5,8 +5,6 @@ import { isInBalkanRegion, getSavedLocale, saveLocalePreference } from '~/utils/
 // Helper to ensure we're in browser
 const isBrowser = typeof window !== 'undefined';
 
-// Get i18n functions from nuxt-i18n-micro
-//const { $locale, $switchLocale } = useI18n()
 
 // Create a ref to track initialization
 const initialized = ref(false)

@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/css/main.css"],
   
-  modules: ["@primevue/nuxt-module", "@nuxtjs/i18n"],
+  modules: ["@primevue/nuxt-module", "@nuxtjs/i18n", '@nuxt/image'],
   
   i18n: {
     locales: [

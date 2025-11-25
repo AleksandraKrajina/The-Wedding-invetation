@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import Countdown from '~/components/Countdown.vue'
+import Countdown from '~/components/templates/Countdown.vue'
 import Hero from '~/components/templates/elegant/Hero.vue'
 import WlcomeMessage from '~/components/templates/elegant/WelcomeMessage.vue'
 import EventDetails from '~/components/templates/elegant/EventDetails.vue'
 import OurStory from '~/components/templates/elegant/OurStory.vue'
 import Rsvp from '~/components/templates/elegant/Rsvp.vue'
 import Gallery from '~/components/templates/elegant/Gallery.vue'
-import BestMan from '~/components/BestMan.vue'
+import BestMan from '~/components/templates/BestMan.vue'
 
 </script>
 
