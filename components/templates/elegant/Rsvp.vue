@@ -1,23 +1,5 @@
-<style>
-.text-babyblue {
-  color: #4B7DBD;
-}
-
-.babyblue-opacity {
-  color: #4B7DBD80;
-}
-
-.bg-babyblue {
-  background-color: #4B7DBD;
-}
-
-.focus\:ring-babyblue:focus {
-  --tw-ring-color: #4B7DBD;
-}
-</style>
-
 <template>
-  <section id="rsvp" class="w-full container mx-auto py-12 px-8 flex items-center justify-center bg-blue-50">
+  <section id="rsvp" class="w-full container mx-auto py-12 px-8 flex items-center justify-center ">
     <div class="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-8">
       <h2 class="text-5xl font-bold text-center  text-[color:var(--text-color)] mb-8">RSVP</h2>
       <p class=" text-[color:var(--text-color)]/50 text-center mb-5">{{ $t('rsvp') }}</p>
