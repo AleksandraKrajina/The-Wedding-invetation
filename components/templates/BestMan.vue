@@ -1,6 +1,6 @@
 <template>
-  <section class="p-10">
-    <div class="container mx-auto px-4">
+  <section class="md:p-10">
+    <div class="container mx-auto px-1 my-3">
       <div class="grid md:grid-cols-3 gap-16 items-center mx-auto">
         <!-- Mila's Card -->
         <div class="self-start border border-gray-400 rounded-md">
@@ -16,7 +16,7 @@
           </div>
         </div>
 
-        <h2 class="text-5xl font-light mb-20 text-center">BOG NA NEBU,<br>KUM NA ZEMLJI.</h2>
+        <h2 class="text-5xl font-light my-10 text-center">BOG NA NEBU,<br>KUM NA ZEMLJI.</h2>
         <!-- Filip's Card -->
         <div class="self-start border border-gray-400 rounded-md">
           <img src="/public/assets/images/demo1/couple2.jpeg" alt="Filip Filipović"

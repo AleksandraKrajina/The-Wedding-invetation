@@ -45,7 +45,7 @@ const handleFileChange = (event: Event, index: number) => {
 
 
 <template>
-  <section id="gallery" class="w-full container mx-auto p-10 ">
+  <section id="gallery" class="w-full container mx-auto md:p-10 ">
 
     <div class="container mx-auto px-1">
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -54,10 +54,12 @@ const handleFileChange = (event: Event, index: number) => {
       </div>
     </div>
 
+
+    <!--
     <div class="w-full mb-8 flex ">
-      <h1 class="text-8xl   text-[color:var(--text-color)] w-1/2 px-10 mx-6 flex justify-center ">{{
+      <h1 class="md:text-8xl text-3xl text-[color:var(--text-color)] w-1/2 px-10 mx-6 flex justify-center ">{{
         t('dropSomeCoolImages') }}</h1>
-      <p class="mt-32 px-2 text-lg italic text-[color:var(--text-color)] w-1/3  flex justify-center">
+      <p class="mt-32 p-2 text-lg italic text-[color:var(--text-color)] md:w-1/3 w-full  flex justify-center">
         {{ t('dropSomeCoolImagesParagraph') }}
       </p>
     </div>
@@ -78,5 +80,6 @@ const handleFileChange = (event: Event, index: number) => {
     <input v-for="(image, index) in images" :key="'file-' + index"
       :ref="el => setFileInput(el as HTMLInputElement | null, index)" type="file" accept="image/*" class="hidden"
       @change="handleFileChange($event, index)">
+    -->
   </section>
 </template>
