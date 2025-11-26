@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <section class="py-20 bg-[url('@/assets/images/demo2/our-story.png')] bg-cover bg-center text-white">
+  <section class="py-20 bg-[url('@/assets/images/demo1/hero.vue')] bg-cover bg-center text-white">
     <div class="container mx-auto px-4 text-center space-y-8">
       <h2 class="text-4xl font-light">NAŠA PRIČA</h2>
       <p class="max-w-2xl mx-auto">

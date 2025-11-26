@@ -5,8 +5,8 @@ const heroSrc = '/assets/images/templates/cuple.png'
 <template>
   <header class="max-w-6xl mx-auto px-4 pt-6 pb-4">
     <div class="text-center">
-      <p class="text-xs">Special Edition</p>
       <h1 class="mt-2 h-serif text-4xl sm:text-5xl tracking-wide">The Wedding Post</h1>
+      <p class="text-xs">Special Edition</p>
       <div class="border-t-4 border-black mb-1"></div>
       <div class="border-t border-black"></div>
       <div class="border-b border-black mt-1"></div>
