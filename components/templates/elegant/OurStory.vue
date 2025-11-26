@@ -1,26 +1,53 @@
 <script setup lang="ts">
-</script>
+import { ref } from 'vue'
 
+const isVideoOpen = ref(false)
+
+function openVideo() {
+  isVideoOpen.value = true
+}
+
+function closeVideo() {
+  isVideoOpen.value = false
+}
+</script>
 <template>
-  <section class="py-20 bg-[url('@/assets/images/demo1/hero.vue')] bg-cover bg-center text-white">
-    <div class="container mx-auto px-4 text-center space-y-8">
-      <h2 class="text-4xl font-light">NAŠA PRIČA</h2>
-      <p class="max-w-2xl mx-auto">
-        Sreli su se pogledi, dogodilo se "S tobom i na kraj sveta"
-        rodila se ljubav iskrena i lepa.
-      </p>
-      <button class="text-white border border-white px-8 py-3 hover:bg-white hover:text-black transition-colors">
+  <section class="relative w-full h-[70vh] overflow-hidden">
+
+    <div class="absolute inset-0">
+      <iframe class="w-full h-full object-cover pointer-events-none"
+        src="https://www.youtube.com/embed/r_I1UOVP6Uc?autoplay=1&mute=1&loop=1&playlist=r_I1UOVP6Uc"
+        title="Background Video" allow="autoplay; encrypted-media"></iframe>
+
+      <div class="absolute inset-0 bg-black/60"></div>
+    </div>
+
+    <div class="relative z-10 flex flex-col justify-center items-center text-center h-full text-white space-y-8 px-4">
+      <h2 class="text-6xl font-light">NAŠA PRIČA</h2>
+
+      <button @click="openVideo"
+        class="text-white border border-white px-8 py-3 hover:bg-white hover:text-black transition-colors">
         PUSTI VIDEO
       </button>
     </div>
   </section>
 
   <section>
-    <div class="container mx-auto px-4 text-center space-y-8 min-h-[30svh] flex justify-center items-center">
-      <p class="max-w-2xl mx-4 text-2xl md:text-3xl font-light">
+    <div class="container mx-auto p-6 text-center space-y-8  min-h-[30svh] flex justify-center items-center">
+      <p class="max-w-2xl p-4 text-2xl md:text-2xl font-light ">
         Sreli su se pogledi, dogodilo se "S tobom i na kraj sveta"
         rodila se ljubav iskrena i lepa.
       </p>
     </div>
   </section>
+
+  <div v-if="isVideoOpen" class="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4">
+
+    <button @click="closeVideo" class="absolute top-6 right-6 text-white text-3xl hover:scale-110 transition">
+      ✕
+    </button>
+
+    <iframe class="w-full max-w-4xl h-[60vh] md:h-[70vh]" src="https://www.youtube.com/embed/r_I1UOVP6Uc?autoplay=1"
+      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
 </template>

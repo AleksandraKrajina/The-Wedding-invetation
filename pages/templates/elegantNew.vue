@@ -24,10 +24,10 @@ import BestMan from '~/components/templates/BestMan.vue'
       <Hero />
     </section>
     <section>
-      <Countdown targetDate="2026-07-29T17:00:00" />
+      <WlcomeMessage />
     </section>
     <section>
-      <WlcomeMessage />
+      <Countdown targetDate="2026-10-29T17:00:00" />
     </section>
     <section>
       <EventDetails />

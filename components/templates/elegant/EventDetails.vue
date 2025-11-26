@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-white mx-10">
     <div class="container mx-auto px-4">
       <h2 class="text-6xl font-light text-left mb-16">KAD I GDE</h2>
       <div class="grid md:grid-cols-3 gap-8">

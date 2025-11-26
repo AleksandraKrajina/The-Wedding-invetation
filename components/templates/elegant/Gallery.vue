@@ -45,7 +45,7 @@ const handleFileChange = (event: Event, index: number) => {
 
 
 <template>
-  <section id="gallery" class="w-full container mx-auto py-10 px-2">
+  <section id="gallery" class="w-full container mx-auto p-10 ">
 
     <div class="container mx-auto px-1">
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -76,7 +76,7 @@ const handleFileChange = (event: Event, index: number) => {
     </div>
 
     <input v-for="(image, index) in images" :key="'file-' + index"
-      :ref="el => setFileInput(el as HTMLInputElement | null, index)" type="file"
-      accept="image/*" class="hidden" @change="handleFileChange($event, index)">
+      :ref="el => setFileInput(el as HTMLInputElement | null, index)" type="file" accept="image/*" class="hidden"
+      @change="handleFileChange($event, index)">
   </section>
 </template>

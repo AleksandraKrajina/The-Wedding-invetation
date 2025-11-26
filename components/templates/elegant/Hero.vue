@@ -5,7 +5,8 @@
         class="w-full h-full object-cover brightness-95" />
     </div>
     <div class="relative z-10 w-full">
-      <div class="absolute top-[-200px] left-0 right-0 p-6 container mx-auto">
+      <div class="border border-white"></div>
+      <div class="absolute left-0 right-0 p-6 container mx-auto">
         <div class="flex justify-between flex-col md:flex-row items-center text-white text-lg md:text-xl">
           <div>15.09.2025.</div>
           <div>VENČANJE</div>

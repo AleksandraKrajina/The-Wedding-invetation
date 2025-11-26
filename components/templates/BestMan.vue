@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20">
+  <section class="p-10">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-16 items-center mx-auto">
         <!-- Mila's Card -->
