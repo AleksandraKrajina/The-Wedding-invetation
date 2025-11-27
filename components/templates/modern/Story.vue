@@ -12,7 +12,7 @@ const title = ref<HTMLElement | null>(null)
 const content = ref<HTMLElement | null>(null)
 
 const images = [
-  '/assets/images/templates/hero_3.jpg',
+  '/assets/images/templates/groom&bride.jpg',
   '/assets/images/templates/bride.jpg',
   '/assets/images/templates/groom.jpg'
 ]
@@ -31,7 +31,7 @@ onMounted(() => {
     gsap.from(title.value, {
       y: 60,
       opacity: 0,
-      duration: 1,
+      duration: 0.6,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: section.value,
@@ -45,7 +45,7 @@ onMounted(() => {
     gsap.from(content.value.children, {
       y: 60,
       opacity: 0,
-      duration: 1,
+      duration: 0.6,
       ease: 'power3.out',
       stagger: 0.6,
       scrollTrigger: {

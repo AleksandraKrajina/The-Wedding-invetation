@@ -4,11 +4,11 @@ import { ref, computed } from 'vue'
 const galleryImages = ref<string[]>([
   '/assets/images/templates/bride.jpg',
   '/assets/images/templates/groom.jpg',
-  '/assets/images/templates/groom&bride.jpg',
-  '/assets/images/templates/bride.jpg',
-  '/assets/images/templates/groom.jpg',
-  '/assets/images/templates/groom&bride.jpg',
-  '/assets/images/templates/groom.jpg',
+  '/assets/images/templates/horizontal.jpg',
+  '/assets/images/templates/ceremony.jpg',
+  '/assets/images/templates/lunch.jpg',
+  '/assets/images/templates/bestman.jpg',
+  '/assets/images/templates/godmother.jpg',
 ])
 
 const topImages = computed(() => galleryImages.value.slice(0, 4))

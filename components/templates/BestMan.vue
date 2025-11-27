@@ -3,8 +3,8 @@
     <div class="container mx-auto px-1 my-3">
       <div class="grid md:grid-cols-3 gap-16 items-center mx-auto">
         <!-- Mila's Card -->
-        <div class="self-start border border-gray-400 rounded-md">
-          <img src="/public/assets/images/demo1/couple2.jpeg" alt="Mila Milić"
+        <div class="self-start border border-black rounded-md shadow-xl">
+          <img src="/public/assets/images/templates/godmother.jpg" alt="Mila Milić"
             class="w-full aspect-[4/3] object-cover mb-4" />
           <div class="p-3">
             <h3 class="text-2xl font-light mb-2">MILA MILIĆ</h3>
@@ -18,8 +18,8 @@
 
         <h2 class="text-5xl font-light my-10 text-center">BOG NA NEBU,<br>KUM NA ZEMLJI.</h2>
         <!-- Filip's Card -->
-        <div class="self-start border border-gray-400 rounded-md">
-          <img src="/public/assets/images/demo1/couple2.jpeg" alt="Filip Filipović"
+        <div class="self-start border-2 border-black rounded-md shadow-xl">
+          <img src="/public/assets/images/templates/man.jpg" alt="Filip Filipović"
             class="w-full aspect-[4/3] object-cover mb-4" />
           <div class="p-3">
             <h3 class="text-2xl font-light mb-2">FILIP FILIPOVIĆ</h3>

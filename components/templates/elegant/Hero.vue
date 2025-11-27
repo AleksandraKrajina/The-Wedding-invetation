@@ -1,11 +1,11 @@
 <template>
-  <section id="home" class="min-h-screen relative flex items-center">
+  <section id="home" class="h-3/4 relative flex items-center">
     <div class="absolute inset-0">
       <img src="/public/assets/images/demo1/hero.png" alt="Wedding Hero"
         class="w-full h-full object-cover brightness-95" />
     </div>
     <div class="relative z-10 w-full">
-      <div class="border border-white "></div>
+      <div class="border border-white mt-11"></div>
       <div class="fix left-0 right-0 md:p-6 container mx-auto">
 
         <div class="flex justify-between flex-col md:flex-row items-center text-white text-lg md:text-xl">

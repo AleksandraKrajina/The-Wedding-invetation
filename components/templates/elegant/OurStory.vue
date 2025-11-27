@@ -12,12 +12,11 @@ function closeVideo() {
 }
 </script>
 <template>
-  <section class="relative w-full h-[70vh] overflow-hidden">
+  <section class="relative w-full h-[75vh] overflow-hidden">
 
     <div class="absolute inset-0">
-      <iframe class="w-full h-full object-cover pointer-events-none"
-        src="https://www.youtube.com/embed/r_I1UOVP6Uc?autoplay=1&mute=1&loop=1&playlist=r_I1UOVP6Uc"
-        title="Background Video" allow="autoplay; encrypted-media"></iframe>
+      <iframe class="w-full  h-full " src="https://www.youtube.com/embed/r_I1UOVP6Uc?autoplay=0&rel=0&modestbranding=1"
+        title="Wedding video" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
 
       <div class="absolute inset-0 bg-black/60"></div>
     </div>
@@ -47,7 +46,7 @@ function closeVideo() {
       ✕
     </button>
 
-    <iframe class="w-full max-w-4xl h-[60vh] md:h-[70vh]" src="https://www.youtube.com/embed/r_I1UOVP6Uc?autoplay=1"
+    <iframe class="w-full max-w-4xl h-[60vh] md:h-[70vh]" src="https://www.youtube.com/r_I1UOVP6Uc?autoplay=1"
       allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </template>

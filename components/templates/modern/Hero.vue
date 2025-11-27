@@ -62,7 +62,7 @@ onMounted(() => {
 
 
     <div class="mt-3 relative w-full z-0">
-      <img ref="photo" src="/assets/images/templates/groom&bride.jpg" alt="Nikola & Maja"
+      <img ref="photo" src="/assets/images/templates/ceremony.jpg" alt="Nikola & Maja"
         class="object-cover w-full h-[400px] ">
     </div>
   </section>

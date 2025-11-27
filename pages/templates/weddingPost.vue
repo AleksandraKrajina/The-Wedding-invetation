@@ -8,7 +8,7 @@ import WhenAndWhere from '~/components/templates/WeddingPost/WhenAndWhere.vue'
 import OurStory from '~/components/templates/WeddingPost/OurStory.vue'
 import WeddingParty from '~/components/templates/WeddingPost/WeddingParty.vue'
 import FooterSection from '~/components/templates/WeddingPost/FooterSection.vue'
-import Rsvp from '~/components/templates/elegant/Rsvp.vue'
+import Rsvp from '~/components/templates/General/Rsvp.vue'
 
 </script>
 
