@@ -49,7 +49,7 @@ section {
         <!-- Templates Container -->
         <div class="grid md:grid-cols-3 gap-12">
           <!-- Template 1: Elegant -->
-          <div class="group">
+          <NuxtLink to="/templates/elegant" class="group">
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
@@ -59,10 +59,10 @@ section {
               <!-- Overlay with View button -->
               <div
                 class="absolute inset-0 bg-neutral-900 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <button
+                <span
                   class="bg-white text-neutral-800 px-6 py-2 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   Preview Template
-                </button>
+                </span>
               </div>
             </div>
 
@@ -71,10 +71,10 @@ section {
               <h3 class="text-xl font-medium text-neutral-800 mb-2">Elegant</h3>
               <p class="text-neutral-600">A timeless design with refined typography and subtle accents.</p>
             </div>
-          </div>
+          </NuxtLink>
 
           <!-- Template 2: Modern -->
-          <div class="group">
+          <NuxtLink to="/templates/modern" class="group">
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
@@ -84,10 +84,10 @@ section {
               <!-- Overlay with View button -->
               <div
                 class="absolute inset-0 bg-neutral-900 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <button
+                <span
                   class="bg-white text-neutral-800 px-6 py-2 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   Preview Template
-                </button>
+                </span>
               </div>
             </div>
 
@@ -96,10 +96,10 @@ section {
               <h3 class="text-xl font-medium text-neutral-800 mb-2">Modern</h3>
               <p class="text-neutral-600">Clean lines and minimalist design for the contemporary couple.</p>
             </div>
-          </div>
+          </NuxtLink>
 
           <!-- Template 3: Romantic -->
-          <div class="group">
+          <NuxtLink to="/templates/weddingpost" class="group">
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
@@ -109,10 +109,10 @@ section {
               <!-- Overlay with View button -->
               <div
                 class="absolute inset-0 bg-neutral-900 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <button
+                <span
                   class="bg-white text-neutral-800 px-6 py-2 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   Preview Template
-                </button>
+                </span>
               </div>
             </div>
 
@@ -121,16 +121,7 @@ section {
               <h3 class="text-xl font-medium text-neutral-800 mb-2">Romantic</h3>
               <p class="text-neutral-600">Soft curves and delicate details for a dreamy, romantic feel.</p>
             </div>
-          </div>
-        </div>
-
-        <!-- View All Templates Button -->
-        <div class="mt-16 text-center">
-          <button
-            class="bg-neutral-800 hover:bg-neutral-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-sm inline-flex items-center">
-            <span>View All Templates</span>
-            <i class="pi pi-arrow-right ml-2"></i>
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </div>

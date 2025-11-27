@@ -5,7 +5,7 @@ import WlcomeMessage from '~/components/templates/elegant/WelcomeMessage.vue'
 import EventDetails from '~/components/templates/elegant/EventDetails.vue'
 import OurStory from '~/components/templates/elegant/OurStory.vue'
 import Rsvp from '~/components/templates/elegant/Rsvp.vue'
-import Gallery from '~/components/templates/elegant/Gallery.vue'
+import Gallery from '~/components/templates/General/Gallery.vue'
 import BestMan from '~/components/templates/BestMan.vue'
 
 </script>
