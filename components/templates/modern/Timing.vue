@@ -11,7 +11,6 @@ if (import.meta.client) {
 const { t } = useI18n()
 
 const section = ref<HTMLElement | null>(null)
-const cards = ref<HTMLDivElement | null>(null)
 const mobileCards = ref<HTMLDivElement | null>(null)
 
 const timesArray = ['05:00 pm', '06:00 pm', '07:00 pm', '08:30 pm']
@@ -23,29 +22,29 @@ const cardsArray = computed(() => [
 ])
 
 const currentTime = ref(timesArray[0])
+const activeIndex = ref(0)
 
 onMounted(async () => {
   if (!import.meta.client) return
   await nextTick()
 
-  if (cards.value && section.value) {
-    const cardEls = Array.from(cards.value.children || [])
+  if (section.value) {
     const timeEls = section.value.querySelectorAll<HTMLElement>('.time')
 
-    cardEls.forEach((card, i) => {
-      const timeEl = timeEls[i]
-      if (!timeEl) return
+    timeEls.forEach((timeEl, i) => {
+      const container = timeEl.parentElement
+      if (!container) return
 
       gsap.fromTo(
         timeEl,
-        { y: 100, opacity: 0 },
+        { y: 100, opacity: 0.3 },
         {
           y: 0,
           opacity: 1,
           duration: 0.5,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: card,
+            trigger: container,
             start: 'top center',
             end: 'bottom top',
             scrub: true
@@ -57,22 +56,22 @@ onMounted(async () => {
         opacity: 0.3,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: card,
+          trigger: container,
           start: 'center center',
           end: 'bottom top',
           scrub: true
         }
       })
 
-      gsap.from(card, {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 80%',
-          scrub: true
+      ScrollTrigger.create({
+        trigger: container,
+        start: 'top 80%',
+        end: 'bottom 80%',
+        onEnter: () => {
+          activeIndex.value = i
+        },
+        onEnterBack: () => {
+          activeIndex.value = i
         }
       })
     })
@@ -107,10 +106,9 @@ onMounted(async () => {
       Timing
     </h2>
 
-    <!-- MOBILE -->
     <div class="lg:hidden w-full h-full relative">
       <h2 ref="mobileTime"
-        class="sticky top-28 z-10 text-7xl border-b p-10 text-center bg-white text-[color:var(--text-color)]">
+        class="sticky top-24 z-10 text-7xl border-b p-10 text-center bg-white text-[color:var(--text-color)]">
         {{ currentTime }}
       </h2>
 
@@ -124,19 +122,17 @@ onMounted(async () => {
       </div>
     </div>
 
-
-    <!-- DESKTOP  -->
     <div class="hidden lg:flex w-1/2 flex-col border-r ">
       <div v-for="(time, i) in timesArray" :key="i" class="h-screen flex items-center justify-center">
         <h2 class="time text-7xl justify-center text-[color:var(--text-color)] opacity-0">{{ time }}</h2>
       </div>
     </div>
 
-    <div ref="cards" class="hidden lg:flex w-1/2 flex-col">
-      <div v-for="(card, i) in cardsArray" :key="i" class="h-screen flex justify-center items-center p-12 border-b">
-        <div class="bg-white p-10 rounded-lg shadow-sm">
-          <h3 class="text-3xl mb-6">{{ card.title }}</h3>
-          <p class="text-lg text-gray-700">{{ card.text }}</p>
+    <div class="hidden lg:flex w-1/2">
+      <div class="sticky top-0 h-screen flex justify-center items-center p-12">
+        <div class="bg-white p-10 rounded-lg shadow-sm max-w-xl">
+          <h3 class="text-3xl mb-6">{{ cardsArray[activeIndex].title }}</h3>
+          <p class="text-lg text-gray-700">{{ cardsArray[activeIndex].text }}</p>
         </div>
       </div>
     </div>

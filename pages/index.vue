@@ -93,7 +93,10 @@ onMounted(() => {
 <template>
     <div class="mx-auto">
         <GeneralNavigation @open-booking-modal="openBookingModal" />
-        <LandingHero />
+
+        <!-- <LandingHero /> -->
+
+        <LandingHeroVideo />
         <LandingTemplates />
         <div id="process">
             <LandingFeaturesSection />

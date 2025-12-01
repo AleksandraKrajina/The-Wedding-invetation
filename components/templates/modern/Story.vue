@@ -79,10 +79,10 @@ onBeforeUnmount(() => {
             currentImage === i ? 'opacity-100' : 'opacity-0'
           ]" alt="Story image">
 
-          <img src="/assets/images/templates/groom&bride.jpg"
-            class="absolute z-10 h-20 w-12 -rotate-12 opacity-60 left-0 -ml-4 -mt-6">
-          <img src="/assets/images/templates/groom&bride.jpg"
-            class="absolute z-10 h-20 w-12 rotate-12 bottom-0 right-0 opacity-60 -mb-6 -mr-6">
+          <img src="/assets/images/templates/tape_.png"
+            class="absolute z-10 h-32 w-24 -rotate-12 opacity-60 left-0 -ml-10 -mt-10">
+          <img src="/assets/images/templates/tape_.png"
+            class="absolute z-10 h-32 w-24 rotate-12 bottom-0 right-0 opacity-60 -mb-10 -mr-10">
         </div>
 
 

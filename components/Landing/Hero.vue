@@ -1,11 +1,36 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 // Google Calendar booking URL
 const googleCalendarUrl = 'https://calendar.app.google/sZ4ZFaiQuwhHcbMP8'
 
-// State for modal visibility
 const showModal = ref(false)
+
+
+const slides = [
+  '/assets/images/templates/horizontal.jpg',
+  '/assets/images/templates/groom&Bride.jpg',
+  '/assets/images/templates/ceremony.jpg',
+  '/assets/images/templates/lunch.jpg'
+]
+
+
+const activeSlide = ref(0)
+let intervalHandle: number | null = null
+
+const startSlideshow = () => {
+  if (!slides.length) return
+  intervalHandle = window.setInterval(() => {
+    activeSlide.value = (activeSlide.value + 1) % slides.length
+  }, 5000)
+}
+
+const stopSlideshow = () => {
+  if (intervalHandle) {
+    clearInterval(intervalHandle)
+    intervalHandle = null
+  }
+}
 
 // Function to scroll to the pricing section
 const scrollToPricing = () => {
@@ -19,12 +44,19 @@ const scrollToPricing = () => {
     console.warn('Pricing section with id "price" not found')
   }
 }
+
+onMounted(() => {
+  startSlideshow()
+})
+
+onBeforeUnmount(() => {
+  stopSlideshow()
+})
 </script>
 
 <style scoped>
-/* Custom animation for elements to appear with a fade-in effect */
 section {
-  animation: fadeIn 1s ease-out forwards;
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
 h1,
@@ -32,7 +64,7 @@ p,
 button,
 .social-proof {
   opacity: 0;
-  animation: slideUp 0.8s forwards;
+  animation: slideUp 0.5s forwards;
 }
 
 p {
@@ -73,7 +105,6 @@ div>button:last-child {
   }
 }
 
-/* Optimize for smaller screens with additional breakpoints */
 @media (max-height: 700px) {
   section {
     padding-top: 2rem;
@@ -100,9 +131,13 @@ div>button:last-child {
     <!-- Neutral gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br from-gray-800 via-stone-700 to-neutral-700"></div>
 
-    <!-- Background image with modern blend mode -->
-    <img src="/assets/images/hero/wallpaper2.jpg"
-      class="absolute inset-0 w-full h-full object-cover mix-blend-soft-light opacity-70" alt="Elegant Wedding Setup" />
+    <div class="absolute inset-0 overflow-hidden">
+      <div v-for="(slide, index) in slides" :key="slide"
+        class="absolute inset-0 transition-opacity duration-[2000ms] ease-in-out"
+        :class="index === activeSlide ? 'opacity-90' : 'opacity-0'">
+        <img :src="slide" class="w-full h-full object-cover mix-blend-soft-light" alt="Wedding slideshow" />
+      </div>
+    </div>
 
     <!-- Content container with modern layout -->
     <div class="container mx-auto px-4 sm:px-6 relative z-10">
