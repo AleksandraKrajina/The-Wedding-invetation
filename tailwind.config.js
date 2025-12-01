@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+
 module.exports = {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -11,7 +13,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'playfair': ['"Playfair Display"', 'serif']
+        'playfair': ['"Playfair Display"', 'serif'],
+        'newspaper': ['"Manufacturing Consent", system - ui']
       },
       keyframes: {
         fadeIn: {

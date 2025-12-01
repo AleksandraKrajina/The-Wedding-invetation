@@ -3,16 +3,18 @@ export default defineNuxtConfig({
     head: {
       link: [
         {
+
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Manufacturing+Consent&family=The+Nautigal:wght@400;700&display=swap"
+
         },
       ],
     },
   },
   css: ["~/assets/css/main.css"],
-  
+
   modules: ["@primevue/nuxt-module", "@nuxtjs/i18n", '@nuxt/image'],
-  
+
   i18n: {
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
@@ -22,7 +24,7 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     langDir: 'locales',
   },
-  
+
   postcss: {
     plugins: {
       tailwindcss: {},

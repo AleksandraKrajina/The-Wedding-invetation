@@ -46,7 +46,7 @@ function closeVideo() {
       ✕
     </button>
 
-    <iframe class="w-full max-w-4xl h-[60vh] md:h-[70vh]" src="https://www.youtube.com/r_I1UOVP6Uc?autoplay=1"
+    <iframe class="w-full max-w-4xl h-[60vh] md:h-[70vh]" src="https://www.youtube.com/embed/r_I1UOVP6Uc?autoplay=1"
       allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </template>

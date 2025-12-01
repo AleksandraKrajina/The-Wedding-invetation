@@ -9,11 +9,13 @@ import OurStory from '~/components/templates/WeddingPost/OurStory.vue'
 import WeddingParty from '~/components/templates/WeddingPost/WeddingParty.vue'
 import FooterSection from '~/components/templates/WeddingPost/FooterSection.vue'
 import Rsvp from '~/components/templates/General/Rsvp.vue'
+import Navigation from '~/components/templates/Navigation.vue'
 
 </script>
 
 <template>
-  <main class="page-bg min-h-screen text-neutral-900">
+  <Navigation />
+  <main class="page-bg min-h-screen text-neutral-900 pt-10">
     <Masthead />
     <Intro />
     <Countdown targetDate="2026-08-29T17:00:00" />

@@ -7,6 +7,7 @@ import OurStory from '~/components/templates/elegant/OurStory.vue'
 import Rsvp from '~/components/templates/General/Rsvp.vue'
 import Gallery from '~/components/templates/General/Gallery.vue'
 import BestMan from '~/components/templates/BestMan.vue'
+import Navigation from '~/components/templates/Navigation.vue'
 
 </script>
 
@@ -19,7 +20,7 @@ import BestMan from '~/components/templates/BestMan.vue'
 <template>
   <div class="min-h-screen bg-white">
 
-
+    <Navigation />
     <section id="home">
       <Hero />
     </section>

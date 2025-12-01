@@ -1,9 +1,10 @@
 <template>
   <section class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <blockquote class="h-serif italic text-3xl font-semibold">
+    <blockquote class="h-serif italic text-4xl font-semibold font-times">
+
       Everything is better when we are together.
     </blockquote>
-    <div class="text-md leading-7 space-y-4">
+    <div class="text-xl leading-7 space-y-4">
       <p>
         To our wonderful family and friends, thank you for
         being here to celebrate this day with us. Your love
