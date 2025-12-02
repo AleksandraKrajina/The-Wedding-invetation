@@ -8,10 +8,8 @@ const showModal = ref(false)
 
 
 const slides = [
-  '/assets/images/templates/horizontal.jpg',
-  '/assets/images/templates/groom&Bride.jpg',
-  '/assets/images/templates/ceremony.jpg',
-  '/assets/images/templates/lunch.jpg'
+  '/assets/images/hero/hero.png',
+  '/assets/images/hero/wallpaper2.jpg'
 ]
 
 
@@ -129,7 +127,7 @@ div>button:last-child {
 <template>
   <section class="relative min-h-screen flex items-center justify-center">
     <!-- Neutral gradient background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-800 via-stone-700 to-neutral-700"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-800 via-stone-700 to-neutral-700 z-10 opacity-70"></div>
 
     <div class="absolute inset-0 overflow-hidden">
       <div v-for="(slide, index) in slides" :key="slide"
