@@ -36,13 +36,13 @@ section {
           <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Our Promise</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              Why Choose Vow Perfect
+              {{ $t('whayChooseVowPerfect') }}
 
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            We create beautiful, functional wedding websites that make your special day even more memorable.
+            {{ $t('chooseVowPerfect') }}
           </p>
         </div>
 
@@ -61,9 +61,8 @@ section {
             </div>
             <h3
               class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">
-              Personalized Design</h3>
-            <p class="text-neutral-600 text-center">We tailor every website to match your vision, style, and unique love
-              story.</p>
+              {{ $t('personalizedDesing') }}</h3>
+            <p class="text-neutral-600 text-center">{{ $t('personalizedDesignDesc') }}</p>
           </div>
 
           <!-- Feature 2: RSVP System -->
@@ -80,8 +79,8 @@ section {
             </div>
             <h3
               class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">
-              RSVP System</h3>
-            <p class="text-neutral-600 text-center">Streamline guest management with our easy-to-use RSVP functionality.
+              {{ $t('rsvpSystem') }}</h3>
+            <p class="text-neutral-600 text-center">{{ $t('rsvpSystemDesc') }}
             </p>
           </div>
 
@@ -99,9 +98,8 @@ section {
             </div>
             <h3
               class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">
-              Full Support</h3>
-            <p class="text-neutral-600 text-center">From creation to launch, we're here to guide you every step of the
-              way.</p>
+              {{ $t('fullSupport') }}</h3>
+            <p class="text-neutral-600 text-center">{{ $t('fullSupportDesc') }}</p>
           </div>
 
           <!-- Feature 4: Attention to Detail -->
@@ -118,9 +116,8 @@ section {
             </div>
             <h3
               class="text-xl font-medium mb-3 text-neutral-800 text-center group-hover:text-stone-700 transition-colors duration-300">
-              Attention to Detail</h3>
-            <p class="text-neutral-600 text-center">Every element is crafted with care to ensure your website is
-              perfect.</p>
+              {{ $t('attentionToDetail') }}</h3>
+            <p class="text-neutral-600 text-center">{{ $t('attentionToDetailDesc') }}</p>
           </div>
         </div>
       </div>

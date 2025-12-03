@@ -37,13 +37,12 @@ section {
             Templates</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              Find Your Perfect Design
+              {{ $t('findYourPerfectDesign') }}
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            Browse our curated collection of wedding website templates, each designed to reflect your unique style.
-          </p>
+            {{ $t('findYourPerfectDesignDesc') }} </p>
         </div>
 
         <!-- Templates Container -->

@@ -45,13 +45,12 @@ section {
           <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Contact</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              Have Questions? <br>We're Here to Help
+              {{ $t('haveQuestions') }} <br> {{ $t('wereHereToHelp') }}
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            Choose your preferred way to connect with us. We're ready to answer any questions about our wedding website
-            services.
+            {{ $t('contactDesc') }}
           </p>
         </div>
 
@@ -100,7 +99,7 @@ section {
               </div>
               <div>
                 <h3 class="font-medium text-lg text-neutral-800">WhatsApp</h3>
-                <p class="text-neutral-600">Message us on WhatsApp</p>
+                <p class="text-neutral-600"> {{ $t('whatsappDesc') }}</p>
               </div>
             </div>
             <i
@@ -117,7 +116,7 @@ section {
               </div>
               <div>
                 <h3 class="font-medium text-lg text-neutral-800">Messenger</h3>
-                <p class="text-neutral-600">Connect on Facebook Messenger</p>
+                <p class="text-neutral-600">{{ $t('messengerDesc') }}</p>
               </div>
             </div>
             <i
@@ -133,8 +132,8 @@ section {
                 <i class="pi pi-calendar text-xl text-neutral-600"></i>
               </div>
               <div>
-                <h3 class="font-medium text-lg text-neutral-800">Book a Free Consultation</h3>
-                <p class="text-neutral-600">Schedule a 30-minute call with us</p>
+                <h3 class="font-medium text-lg text-neutral-800">{{ $t('bookConsultation') }}</h3>
+                <p class="text-neutral-600">{{ $t('bookConsultationDesc') }}</p>
               </div>
             </div>
             <i
@@ -144,7 +143,7 @@ section {
 
         <div class="mt-12 p-4 bg-white border border-neutral-200 rounded-lg text-center">
           <p class="text-neutral-600">
-            <span class="font-medium">Business Hours:</span> Monday through Friday, 9:00 AM - 6:00 PM EST
+            <span class="font-medium">{{ $t('businessHours') }}</span>
           </p>
         </div>
       </div>

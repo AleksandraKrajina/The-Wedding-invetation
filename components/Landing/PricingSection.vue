@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import BookingModal from './BookingModal.vue'
 
 // Package selection state
 const showPackageModal = ref(false)
@@ -63,12 +64,12 @@ section {
           <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Pricing</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              Simple Pricing for Your Perfect Day
+              {{ $t('simplePricing') }}
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            Choose the package that best fits your needs. All plans include dedicated support throughout your journey.
+            {{ $t('simplePricingDesc') }}
           </p>
         </div>
 
@@ -77,7 +78,7 @@ section {
           <div
             class="inline-flex items-center py-3 px-6 bg-gradient-to-r from-amber-50 to-amber-100 border border-amber-200 rounded-lg shadow-sm">
             <i class="pi pi-tag text-amber-600 mr-3 text-lg"></i>
-            <span class="text-neutral-800 font-medium">Limited Time Offer: <span
+            <span class="text-neutral-800 font-medium"> {{ $t('limitedTimeOffer') }} <span
                 class="text-amber-600 font-semibold">15% Off</span></span>
           </div>
         </div>
@@ -88,7 +89,7 @@ section {
             class="group bg-white rounded-lg border border-neutral-200 shadow-sm transition-all duration-300 hover:shadow-md hover:border-neutral-300 overflow-hidden">
             <div class="p-4 bg-neutral-50 border-b border-neutral-100">
               <div class="text-center">
-                <h3 class="text-2xl font-medium text-neutral-800 mb-4">Basic Plan</h3>
+                <h3 class="text-2xl font-medium text-neutral-800 mb-4">{{ $t('basicPlan') }}</h3>
 
                 <!-- Price Display -->
                 <div class="mt-2 relative flex flex-col items-center">
@@ -121,34 +122,34 @@ section {
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">Personalized design</span>
+                  <span class="text-neutral-700">{{ $t('personalizedDesign') }}</span>
                 </li>
                 <li class="flex items-start">
                   <div
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">RSVP system</span>
+                  <span class="text-neutral-700">{{ $t('rsvpSystem') }}</span>
                 </li>
                 <li class="flex items-start">
                   <div
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">Basic support</span>
+                  <span class="text-neutral-700">{{ $t('BasicSupport') }}</span>
                 </li>
                 <li class="flex items-start">
                   <div
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">Mobile-friendly design</span>
+                  <span class="text-neutral-700">{{ $t('MobileFrendly') }}</span>
                 </li>
               </ul>
 
               <button @click="openPackageModal('basic')"
                 class="w-full py-3.5 px-6 border border-neutral-300 text-neutral-800 font-medium rounded-full transition-all duration-300 hover:bg-neutral-800 hover:text-white hover:border-neutral-800 group-hover:border-neutral-800">
-                Choose Basic
+                {{ $t('chooseBasic') }}
               </button>
             </div>
           </div>
@@ -163,7 +164,7 @@ section {
 
             <div class="p-4 bg-neutral-50 border-b border-neutral-100">
               <div class="text-center">
-                <h3 class="text-2xl font-medium text-neutral-800 mb-4">Premium Plan</h3>
+                <h3 class="text-2xl font-medium text-neutral-800 mb-4">{{ $t('premiumPlan') }}</h3>
 
                 <!-- Price Display -->
                 <div class="mt-2 relative flex flex-col items-center">
@@ -196,41 +197,41 @@ section {
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">Advanced design customization</span>
+                  <span class="text-neutral-700"> {{ $t('premiumFeature1') }}</span>
                 </li>
                 <li class="flex items-start">
                   <div
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">RSVP system with meal preferences</span>
+                  <span class="text-neutral-700">{{ $t('premiumFeature2') }}</span>
                 </li>
                 <li class="flex items-start">
                   <div
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">Priority support</span>
+                  <span class="text-neutral-700">{{ $t('premiumFeature3') }}</span>
                 </li>
                 <li class="flex items-start">
                   <div
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">Custom domain name</span>
+                  <span class="text-neutral-700"> {{ $t('premiumFeature4') }}</span>
                 </li>
                 <li class="flex items-start">
                   <div
                     class="mt-1 mr-3 w-5 h-5 rounded-full bg-neutral-100 flex items-center justify-center flex-shrink-0">
                     <i class="pi pi-check text-neutral-600 text-xs"></i>
                   </div>
-                  <span class="text-neutral-700">Photo gallery with unlimited images</span>
+                  <span class="text-neutral-700">{{ $t('premiumFeature5') }}</span>
                 </li>
               </ul>
 
               <button @click="openPackageModal('premium')"
                 class="w-full py-3.5 px-6 bg-neutral-800 text-white font-medium rounded-full transition-all duration-300 hover:bg-neutral-700">
-                Choose Premium
+                {{ $t('choosePremium') }}
               </button>
             </div>
           </div>
@@ -240,21 +241,22 @@ section {
         <div class="flex justify-center mt-12">
           <div class="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-lg shadow-sm border border-neutral-200">
             <i class="pi pi-clock text-amber-500"></i>
-            <span class="text-neutral-700">Offer ends in <span class="font-semibold text-neutral-800">14</span>
+            <span class="text-neutral-700">{{ $t('offerEndsIn') }} <span
+                class="font-semibold text-neutral-800">14</span>
               days</span>
           </div>
         </div>
 
         <!-- Additional note -->
         <p class="text-center text-neutral-500 mt-6 max-w-xl mx-auto text-sm">
-          All plans include a 14-day satisfaction guarantee. Not sure which plan is right for you? <a href="#contact"
+          {{ $t('satisfactionGuarantee') }} <a href="#contact"
             class="text-neutral-800 underline hover:no-underline">Contact us</a> for a free consultation.
         </p>
       </div>
     </div>
 
     <!-- Package Selection Modal -->
-    <GeneralPackageSelectionModal v-model="showPackageModal" :selected-package="selectedPackage"
-      @form-submitted="handleFormSubmitted" @book-consultation="handleBookConsultation" />
+    <BookingModal v-model="showPackageModal" :selected-package="selectedPackage" @form-submitted="handleFormSubmitted"
+      @book-consultation="handleBookConsultation" />
   </section>
 </template>

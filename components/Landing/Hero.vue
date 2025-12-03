@@ -148,9 +148,9 @@ div>button:last-child {
         <!-- Main heading with modern typography - improved mobile sizing -->
         <h1
           class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-4 sm:mb-6 text-center leading-tight tracking-tight">
-          <span class="font-thin">Beautiful Websites</span> for Your
+          <span class="font-thin">{{ $t('beautifulWebsites') }}</span>
           <span class="relative inline-block">
-            Beautiful Moments
+            {{ $t('beautifulMoments') }}
             <span class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 bg-amber-200 opacity-40"></span>
           </span>
         </h1>
@@ -158,19 +158,18 @@ div>button:last-child {
         <!-- Subheading with improved typography and mobile optimization -->
         <p
           class="text-lg sm:text-xl text-white opacity-90 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed text-center font-light px-2 sm:px-0">
-          Professional wedding website designs that tell your unique story and create a seamless experience for you and
-          your guests.
+          {{ $t('beautifulWebsitesDesc') }}
         </p>
 
         <!-- Neutral call to action buttons with better mobile spacing -->
         <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-5 w-full sm:w-auto">
           <button @click="scrollToPricing"
             class="bg-amber-50 hover:bg-amber-100 text-stone-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
-            Get Started Today
+            {{ $t('getStarted') }}
           </button>
           <button @click="showModal = true"
             class="bg-transparent backdrop-blur-sm bg-white bg-opacity-5 border border-amber-50 border-opacity-30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:bg-opacity-10 transition-all duration-300 text-sm sm:text-base">
-            Book a Consultation
+            {{ $t('bookConsultation') }}
           </button>
         </div>
 

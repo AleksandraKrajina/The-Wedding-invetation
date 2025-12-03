@@ -69,12 +69,12 @@ section {
             class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Testimonials</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
-              What Our Clients Say
+              {{ $t('whatOurClientsSay') }}
               <span class="absolute -bottom-2 left-0 w-full h-1 bg-stone-300 opacity-50"></span>
             </span>
           </h2>
           <p class="text-neutral-600 max-w-lg mx-auto mt-4">
-            Real stories from couples who trusted us with their special day
+            {{ $t('testimonialsDesc') }}
           </p>
         </div>
 

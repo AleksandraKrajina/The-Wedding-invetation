@@ -86,18 +86,18 @@ div>button:first-child:hover {
 
         <!-- Main heading with modern typography and accent elements -->
         <h2 class="text-3xl sm:text-4xl md:text-4xl font-light text-white mb-6 text-center leading-tight">
-          <span class="font-thin">Get</span>
+          <span class="font-thin">{{ $t('get') }}</span>
           <span class="relative inline-block px-1">
-            <span class="relative z-10">15% Off</span>
+            <span class="relative z-10">15% Off </span>
             <span class="absolute bottom-2 left-0 w-full h-2 bg-amber-400 opacity-20 -skew-y-1"></span>
           </span>
-          <span class="font-thin">Your Wedding Website</span>
+          <span class="font-thin"> {{ $t('yourWeddingWebsite') }}</span>
         </h2>
 
         <!-- Subtext with improved readability -->
         <p
           class="text-lg md:text-xl text-white opacity-90 mb-10 max-w-2xl mx-auto leading-relaxed text-center font-light">
-          Book your consultation before May 30th and receive a special discount on any package.
+          {{ $t('promoMessage') }}
         </p>
 
         <!-- CTA buttons with enhanced styling -->
@@ -112,7 +112,7 @@ div>button:first-child:hover {
         <div
           class="mt-10 flex items-center gap-2 px-5 py-2 bg-stone-900 bg-opacity-60 backdrop-blur-sm rounded-full border border-white border-opacity-10">
           <i class="pi pi-clock text-amber-200"></i>
-          <span class="text-white text-opacity-90 text-sm">Offer ends in <span
+          <span class="text-white text-opacity-90 text-sm">{{ $t('offerEndsIn') }} <span
               class="font-medium text-amber-200">14</span> days</span>
         </div>
       </div>

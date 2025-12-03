@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import BookingModal from './BookingModal.vue'
 
 // Emit events for parent components
 const emit = defineEmits(['open-booking-modal'])
@@ -20,6 +21,8 @@ const navItems = computed(() => [
   { name: $t('pricing'), link: '#pricing' },
   { name: $t('contact'), link: '#contact' }
 ])
+
+
 
 // Set up scroll event listener
 onMounted(() => {
