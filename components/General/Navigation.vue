@@ -119,6 +119,7 @@ const openBookingModal = () => {
 </script>
 
 <template>
+
   <div>
     <!-- Regular Navigation -->
     <nav v-show="!isOpen" class="fixed w-full z-40 transition-all duration-300"

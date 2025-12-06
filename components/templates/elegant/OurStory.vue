@@ -33,9 +33,9 @@ function closeVideo() {
 
   <section>
     <div class="container mx-auto p-6 text-center space-y-8  min-h-[30svh] flex justify-center items-center">
-      <p class="max-w-2xl p-4 text-2xl md:text-2xl font-light ">
-        Sreli su se pogledi, dogodilo se "S tobom i na kraj sveta"
-        rodila se ljubav iskrena i lepa.
+      <p class="max-w-3xl p-4 text-3xl md:text-4xl font-light ">
+        {{ $t('ourStoryElegant') }}
+
       </p>
     </div>
   </section>

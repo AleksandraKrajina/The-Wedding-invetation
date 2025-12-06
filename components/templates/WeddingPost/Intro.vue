@@ -1,5 +1,5 @@
 <template>
-  <section class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <section class="mx-auto container  px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 bg-[#fffbf7]">
     <blockquote class="h-serif italic text-4xl font-semibold font-times">
 
       Everything is better when we are together.

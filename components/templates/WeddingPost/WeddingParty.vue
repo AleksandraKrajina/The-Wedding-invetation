@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const heroSrc_1 = '/assets/images/templates/weddingPost3.jpg'
-const heroSrc_2 = '/assets/images/templates/weddingPost4.jpg'
+const heroSrc_2 = '/assets/images/templates/man.jpg'
 </script>
 
 <template>
-  <section class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <aside class="space-y-4 border-r-2 p-2">
+  <section class="mx-auto container  px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-8 bg-[#fffbf7]">
+    <aside class="space-y-4 border-r-2 border-black p-2">
       <h4 class="h-serif text-4xl text-center bg-black text-white p-4 mb-10">THE WEDDING PARTY</h4>
       <ul class="text-xl space-y-8 text-center">
         <li><span class="font-semibold text-3xl">Parents of the Bride</span> <br /> Mr. &amp; Mrs. Sebastian Bennet</li>
@@ -34,13 +34,11 @@ const heroSrc_2 = '/assets/images/templates/weddingPost4.jpg'
       </div>
       <div class="justify-center">
         <p class="text-2xl md:text-3xl text-center p-1">
-          THEY'VE ALWAYS HAD OUR
-          <br />BACK, NOW WE NEED THEM
-          <br />AT THE FRONT WITH US.
+          {{ $t('weddingParty') }}
         </p>
       </div>
       <div class="text-center space-y-2 h-min">
-        <img :src="heroSrc_2" alt="Best man" class="w-full h-1/2 object-cover  rounded" />
+        <img :src="heroSrc_2" alt="Best man" class="w-full h-1/2 object-cover grayscale rounded" />
         <h5 class="h-serif text-2xl">BEST MAN</h5>
         <p class="text-3xl font-bold">Reese Miller</p>
       </div>

@@ -10,6 +10,7 @@ import WeddingParty from '~/components/templates/WeddingPost/WeddingParty.vue'
 import FooterSection from '~/components/templates/WeddingPost/FooterSection.vue'
 import Rsvp from '~/components/templates/General/Rsvp.vue'
 import Navigation from '~/components/templates/Navigation.vue'
+import Gallery from '~/components/templates/General/Gallery.vue'
 
 </script>
 
@@ -18,12 +19,18 @@ import Navigation from '~/components/templates/Navigation.vue'
   <main class="page-bg min-h-screen text-neutral-900 pt-10">
     <Masthead />
     <Intro />
-    <Countdown targetDate="2026-08-29T17:00:00" />
+    <Countdown targetDate="2026-08-29T17:00:00" class="bg-[#fffbf7] mx-auto container " />
     <WhenAndWhere />
     <OurStory />
+    <section class="container mx-auto bg-[#fffbf7] ">
+
+      <Gallery class="my-0 py-10 grayscale " />
+      <div class="border-t-4 border-black mb-1"></div>
+      <div class="border-t border-black"></div>
+    </section>
     <WeddingParty />
 
-    <section class="border-y border-black max-w-6xl mx-auto">
+    <section class="border-y border-black max-w-6xl mx-auto bg-[#fffbf7]">
       <p class="mt-1 text-xs w-full flex items-center justify-between p-3">
         <span class="text-left">Monday, June 29, 2026</span>
         <span class="text-right">Barcelona, Spain</span>

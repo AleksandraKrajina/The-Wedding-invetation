@@ -3,7 +3,7 @@ const heroSrc = '/assets/images/templates/proposal.jpg'
 </script>
 
 <template>
-  <header class="max-w-6xl mx-auto px-4 pt-6 pb-4">
+  <header class="mx-auto container  px-4 pt-6 pb-4 bg-[#fffbf7]">
     <div class="text-center">
       <h1 class="mt-2 h-serif text-4xl sm:text-5xl tracking-wide font-newspaper">The Wedding Post</h1>
       <p class="text-xs">Special Edition</p>
