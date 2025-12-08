@@ -2,23 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+.p-datatable-paginator-bottom {
+  margin-top: 10px;
+  border: none !important;
+}
 
-  .p-datatable-paginator-bottom {
-    margin-top: 10px;
-    border: none !important;
-  }
+.p-select-list {
+  background-color: white;
+  padding: 5px 2px !important;
+  border: 2px solid gray;
+}
+.p-select {
+  padding: 5px;
+}
+.p-select-label {
+  padding: 5px;
+}
+.p-select-option {
+  padding: 5px 10px !important;
+}
 
-  .p-select-list{
-    background-color: white;
-    padding: 5px 2px !important;
-    border: 2px solid gray;
-  }
-  .p-select {
-    padding: 5px;
-  }
-  .p-select-label {
-    padding: 5px;
-  }
-  .p-select-option{
-    padding: 5px 10px !important;
-  }
+
+@font-face {
+  font-family: 'EBGaramond-BoldItalic';
+  src: url('/fonts/EBGaramond-BoldItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'engravers-old-english';
+  src: url('/fonts/engravers-old-english-bt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+.EBGaramond-BoldItalic {
+  font-family: 'EBGaramond-BoldItalicc', serif;
+}
+
+.engravers-old-english {
+  font-family: 'engravers-old-english', serif;
+}
