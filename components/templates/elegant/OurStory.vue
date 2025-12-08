@@ -12,17 +12,18 @@ function closeVideo() {
 }
 </script>
 <template>
-  <section class="relative w-full h-[75vh] overflow-hidden">
+  <section class="relative w-full h-[75vh] overflow-hidden tanmoncheri">
 
     <div class="absolute inset-0">
-      <iframe class="w-full  h-full " src="https://www.youtube.com/embed/r_I1UOVP6Uc?autoplay=0&rel=0&modestbranding=1"
-        title="Wedding video" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <video class="w-full h-full" src="/assets/images/templates/video_demo.mp4" controls preload="metadata">
+      </video>
+
 
       <div class="absolute inset-0 bg-black/60"></div>
     </div>
 
-    <div class="relative z-10 flex flex-col justify-center items-center text-center h-full text-white space-y-8 px-4">
-      <h2 class="text-6xl font-light">NAŠA PRIČA</h2>
+    <div class="relative z-10 flex flex-col  justify-center items-center text-center h-full text-white space-y-8 px-4">
+      <h2 class="text-6xl ">NAŠA PRIČA</h2>
 
       <button @click="openVideo"
         class="text-white border border-white px-8 py-3 hover:bg-white hover:text-black transition-colors">
@@ -33,7 +34,7 @@ function closeVideo() {
 
   <section>
     <div class="container mx-auto p-6 text-center space-y-8  min-h-[30svh] flex justify-center items-center">
-      <p class="max-w-3xl p-4 text-3xl md:text-4xl font-light ">
+      <p class="max-w-3xl p-4 text-3xl md:text-4xl tanmoncheri ">
         {{ $t('ourStoryElegant') }}
 
       </p>

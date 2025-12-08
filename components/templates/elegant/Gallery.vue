@@ -45,10 +45,10 @@ const handleFileChange = (event: Event, index: number) => {
 
 
 <template>
-  <section id="gallery" class="w-full container mx-auto md:p-10 ">
+  <section id="gallery" class="w-full container mx-auto md:p-10 bg-black">
 
-    <div class="container mx-auto px-1">
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="container mx-auto px-1 bg-black">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 bg-black">
         <img v-for="i in 6" :key="i" src="/assets/images/demo1/hero.png" :alt="`Gallery image ${i}`"
           class="w-full aspect-square object-cover hover:opacity-75 transition-opacity" />
       </div>

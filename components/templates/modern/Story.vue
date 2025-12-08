@@ -12,9 +12,9 @@ const title = ref<HTMLElement | null>(null)
 const content = ref<HTMLElement | null>(null)
 
 const images = [
-  '/assets/images/templates/groom&bride.jpg',
-  '/assets/images/templates/bride.jpg',
-  '/assets/images/templates/groom.jpg'
+  '/assets/images/templates/19.jpg',
+  '/assets/images/templates/27.jpg',
+  '/assets/images/templates/28.jpg'
 ]
 
 const currentImage = ref(0)

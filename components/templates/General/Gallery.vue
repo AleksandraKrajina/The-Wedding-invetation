@@ -2,13 +2,13 @@
 import { ref, computed } from 'vue'
 
 const galleryImages = ref<string[]>([
-  '/assets/images/templates/bride.jpg',
-  '/assets/images/templates/groom.jpg',
-  '/assets/images/templates/horizontal.jpg',
-  '/assets/images/templates/ceremony.jpg',
-  '/assets/images/templates/lunch.jpg',
-  '/assets/images/templates/bestman.jpg',
-  '/assets/images/templates/godmother.jpg',
+  '/assets/images/templates/24.jpg',
+  '/assets/images/templates/12.jpg',
+  '/assets/images/templates/3.jpg',
+  '/assets/images/templates/1.jpg',
+  '/assets/images/templates/27.jpg',
+  '/assets/images/templates/19.jpg',
+  '/assets/images/templates/25.jpg',
 ])
 
 const topImages = computed(() => galleryImages.value.slice(0, 4))

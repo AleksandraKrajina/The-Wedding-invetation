@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    body {
-      font-family: 'Playfair Display', serif;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Playfair Display', serif;
-    }
-  }
-
 
   .p-datatable-paginator-bottom {
     margin-top: 10px;

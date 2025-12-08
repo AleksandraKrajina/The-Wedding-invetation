@@ -1,19 +1,28 @@
 <script setup lang="ts">
-import Countdown from '~/components/templates/Countdown.vue'
+import Countdown from '~/components/templates/elegant/Countdown.vue'
 import Hero from '~/components/templates/elegant/Hero.vue'
 import WlcomeMessage from '~/components/templates/elegant/WelcomeMessage.vue'
 import EventDetails from '~/components/templates/elegant/EventDetails.vue'
 import OurStory from '~/components/templates/elegant/OurStory.vue'
-import Rsvp from '~/components/templates/General/Rsvp.vue'
+import Rsvp from '~/components/templates/elegant/Rsvp.vue'
 import Gallery from '~/components/templates/General/Gallery.vue'
-import BestMan from '~/components/templates/BestMan.vue'
+import BestMan from '~/components/templates/elegant/BestMan.vue'
 import Navigation from '~/components/templates/Navigation.vue'
 
 </script>
 
 <style scoped>
-.font-light {
-  font-family: "Playfair Display", serif;
+@font-face {
+
+  font-family: 'tanmoncheri';
+  src: url('/fonts/tan-mon-cheri.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.tanmoncheri {
+  font-family: 'tanmoncheri', cursive;
 }
 </style>
 
@@ -27,7 +36,7 @@ import Navigation from '~/components/templates/Navigation.vue'
     <section>
       <WlcomeMessage />
     </section>
-    <section>
+    <section class="bg-black text-white py-10">
       <Countdown targetDate="2026-10-29T17:00:00" />
     </section>
     <section>
@@ -36,7 +45,7 @@ import Navigation from '~/components/templates/Navigation.vue'
     <section>
       <OurStory />
     </section>
-    <section>
+    <section class="bg-black py-3">
       <Gallery />
     </section>
     <section>
