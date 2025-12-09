@@ -31,7 +31,7 @@ const calculateTimeLeft = () => {
 
     timeLeft.value = {
         monts: Math.floor(diff / (1000 * 60 * 60 * 24 * 30)),
-        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        days: Math.floor((diff / (1000 * 60 * 60 * 24)) % 30),
         hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((diff / 1000 / 60) % 60),
         seconds: Math.floor((diff / 1000) % 60),
@@ -52,7 +52,7 @@ onUnmounted(() => {
 <template>
     <section class="w-full min-h-[20vh] flex items-center justify-center tanmoncheri">
         <div class="text-center ">
-            <div class="grid grid-cols-5 gap-10 text-4xl md:text-6xl  ">
+            <div class="grid grid-cols-5 gap-12 lg:gap-24 text-4xl md:text-6xl  ">
                 <div>
                     <p>{{ timeLeft.monts }}</p>
                     <span class="text-base font-medium">Monts</span>

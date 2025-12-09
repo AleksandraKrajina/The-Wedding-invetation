@@ -1,22 +1,22 @@
 <template>
   <section id="home" class="h-3/4 relative flex items-cente tanmoncheri">
-    <div class="absolute inset-0">
+    <div class="absolute inset-0 ">
       <img src="/public/assets/images/templates/5.jpg" alt="Wedding Hero"
         class="w-full h-full object-cover brightness-95" />
     </div>
     <div class="relative z-10 w-full">
-      <div class="border border-white mt-11"></div>
+      <div class="border border-white mt-20"></div>
       <div class="fix left-0 right-0 md:p-6 container mx-auto">
 
         <div class="flex justify-between tanmoncheri flex-col md:flex-row items-center text-white text-lg md:text-xl">
           <div>15.09.2025.</div>
-          <div>VENČANJE</div>
+          <div>{{ $t('weddingText') }}</div>
           <div>SONATA OPEN CONCEPT</div>
         </div>
       </div>
-      <div class="container mx-auto px-6 mt-8 ">
+      <div class="container mt-8 left-0">
         <h1
-          class="text-white tanmoncheri text-8xl md:text-[12rem] font-extralight tracking-wider leading-tight md:pl-12">
+          class="text-white tanmoncheri text-7xl md:text-[11rem] font-extralight tracking-wider leading-tight md:pl-12  pt-32">
           MINJA &<br />LUKA
         </h1>
       </div>

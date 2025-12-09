@@ -1,8 +1,8 @@
 <template>
-  <section class="py-20">
-    <div class="container mx-auto px-4 max-w-4xl text-center space-y-8">
-      <h2 class="text-4xl font-light">SLAVIMO LJUBAV</h2>
-      <p class="text-gray-600 text-lg leading-relaxed">
+  <section class="py-20 tanmoncheri">
+    <div class="container mx-auto px-4 max-w-4xl text-center space-y-8 ">
+      <h2 class="text-5xl font-light">{{ $t('celebratyngLove') }}</h2>
+      <p class="text-gray-600 text-lg leading-relaxed font-sans">
         {{ $t('heroElegant_1') }}
         <br>
         <br>

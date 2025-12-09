@@ -16,11 +16,11 @@ const bottomImages = computed(() => galleryImages.value.slice(4, 7))
 </script>
 
 <template>
-  <section class="w-full container mx-auto my-20">
+  <section class="w-full container mx-auto my-20 tanmoncheri">
     <div class="w-full px-1">
 
       <!-- DESKTOP LAYOUT -->
-      <div class="hidden md:block space-y-4">
+      <div class="hidden md:block space-y-2">
 
         <!-- Gornji mozaik -->
         <div class="grid grid-cols-3 gap-4 auto-rows-[260px]">
@@ -82,7 +82,7 @@ const bottomImages = computed(() => galleryImages.value.slice(4, 7))
           <img :src="galleryImages[6]" class="w-full h-64 object-cover" />
         </div>
       </div>
-
+      <p class="text-white items-center justify-center flex pt-6">{{ $t('gallery') }}</p>
     </div>
   </section>
 </template>

@@ -2,11 +2,11 @@
   <section
     class="relative w-full bg-black tanmoncheri text-white shadow-lg  px-14 py-12 text-start overflow-hidden container mx-auto">
     <div class="relative ">
-      <p class="tracking-[0.1em] text-7xl text-[#1e1c1c]-500  ">POTVRDA
-        <br />PRISUSTVA
+      <p class="tracking-[0.1em] text-6xl text-[#1e1c1c]-500  "> {{ $t('Rsvp_title_1') }} <br /> {{ $t('Rsrv_title_2')
+      }}
       </p>
       <p class=" text-sm text-gray-200 ">
-        Molimo vas da potvrdite vas dolazak putem forme ispod do 10.09. Hvala!
+        {{ $t('Rsvp_desc') }}
       </p>
     </div>
 
@@ -40,16 +40,14 @@
       <div class="mt-6">
         <button type="submit"
           class="  bg-white px-6 py-3 text-sm font-bold tracking-wide text-black transition hover:opacity-90">
-          POSALJI
+          {{ $t('send') }}
         </button>
       </div>
     </form>
 
     <div>
-      <p class="justify-center items-center text-center">
-        SNOVE I LJUBAV POKLONIĆEMO JEDNO DRUGOM, RADOST I
-        VESELJE PODELIĆEMO SA VAMA! <br />
-        DOBRO NAM DOŠLI!
+      <p class="justify-center items-center text-center  px-24 py-5">
+        {{ $t('Rsvp_note') }}
       </p>
     </div>
 

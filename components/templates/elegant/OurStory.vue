@@ -12,23 +12,26 @@ function closeVideo() {
 }
 </script>
 <template>
-  <section class="relative w-full h-[75vh] overflow-hidden tanmoncheri">
+  <section class="relative w-full h-[60vh] overflow-hidden tanmoncheri">
 
     <div class="absolute inset-0">
-      <video class="w-full h-full" src="/assets/images/templates/video_demo.mp4" controls preload="metadata">
+      <video class="w-full h-full" src="/assets/images/templates/video_demo.mp4" preload="metadata">
       </video>
 
 
       <div class="absolute inset-0 bg-black/60"></div>
     </div>
 
-    <div class="relative z-10 flex flex-col  justify-center items-center text-center h-full text-white space-y-8 px-4">
-      <h2 class="text-6xl ">NAŠA PRIČA</h2>
+    <div
+      class="relative z-10 flex flex-col  justify-center items-center text-center h-full text-white space-y-24 pt-20 px-4">
+      <h2 class="text-6xl ">{{ $t('ourStoryTitle') }}</h2>
 
-      <button @click="openVideo"
-        class="text-white border border-white px-8 py-3 hover:bg-white hover:text-black transition-colors">
-        PUSTI VIDEO
-      </button>
+      <div class="grid grid-cols-2 gap-4 hover:text-black">
+        <button @click="openVideo" class="pt-3 transition-colors flex">
+          {{ $t('playVideo') }}
+        </button>
+        <img src="/assets/images/templates/play_button.png" class="pt-3 w-6" />
+      </div>
     </div>
   </section>
 
@@ -47,7 +50,8 @@ function closeVideo() {
       ✕
     </button>
 
-    <iframe class="w-full max-w-4xl h-[60vh] md:h-[70vh]" src="https://www.youtube.com/embed/r_I1UOVP6Uc?autoplay=1"
-      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <video class="w-full max-w-4xl h-[60vh] md:h-[70vh]" src="/assets/images/templates/video_demo.mp4"
+      preload="metadata" allowfullscreen autoplay controls>
+    </video>
   </div>
 </template>
