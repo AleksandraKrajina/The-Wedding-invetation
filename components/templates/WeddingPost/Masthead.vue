@@ -5,8 +5,8 @@ const heroSrc = '/assets/images/templates/WeddingPost/weddingpost7.jpg'
 <template>
   <header class="mx-auto container  px-4 pt-6 pb-4 bg-[#fffbf7]">
     <div class="text-center">
-      <h1 class="mt-2 h-serif md:text-7xl text-4xl tracking-wide engravers-old-english">The Wedding Post</h1>
-      <p class="text-xs">Special Edition</p>
+      <h1 class="mt-2 h-serif text-4xl md:text-7xl tracking-wide engravers-old-english">The Wedding Post</h1>
+      <p class="text-xs md:text-2xl">Special Edition</p>
       <div class="border-t-4 border-black mb-1"></div>
       <div class="border-t border-black"></div>
       <div class="border-b border-black mt-1"></div>
