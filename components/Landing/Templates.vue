@@ -1,21 +1,6 @@
 <script setup>
 </script>
 
-<style scoped>
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-section {
-  animation: fadeIn 1s ease-out forwards;
-}
-</style>
 
 <template>
   <section class="py-24 bg-neutral-50 relative overflow-hidden">
@@ -102,7 +87,7 @@ section {
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
-              <img src="/" alt="Romantic Template"
+              <img src="/assets/images/hero/hero.png" alt="Romantic Template"
                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" />
 
               <!-- Overlay with View button -->
@@ -126,3 +111,20 @@ section {
     </div>
   </section>
 </template>
+
+
+<style scoped>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+section {
+  animation: fadeIn 1s ease-out forwards;
+}
+</style>
