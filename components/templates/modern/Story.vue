@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
       <div class="grid md:grid-cols-2 gap-10 items-center p-4 md:pl-16">
 
         <div
-          class="relative w-full  max-w-sm md:max-w-md aspect-[3/4] border-2 -rotate-3 shadow-xl overflow-hidden md:overflow-visible">
+          class="relative w-full  max-w-sm md:max-w-sm aspect-[3/4] border-2 -rotate-3 shadow-xl overflow-hidden md:overflow-visible">
           <img v-for="(img, i) in images" :key="i" :src="img" :class="[
             'absolute inset-0 pt-7 pl-6 pr-6 pb-14 right-6 w-full h-full object-cover transition-opacity duration-1000',
             currentImage === i ? 'opacity-100' : 'opacity-0'

@@ -16,11 +16,11 @@
             <div class="border-x-4 border-b-4 border-black p-6 h-[230px] md:h-[250px] relative">
 
               <div class="lg:space-y-1">
-                <p class="text-sm">13H</p>
+                <p class="text-lg">13H</p>
                 <p class="text-sm">CRKVA RUŽICA NA KALEMEGDANU</p>
               </div>
 
-              <h3 class="text-3xl font-light mt-4">
+              <h3 class="text-3xl md:text-xl font-light mt-4">
                 CRKVENO <br class="hidden md:visible lg:visible" /> VENČANJE
               </h3>
 
@@ -39,12 +39,12 @@
             <div class="border-x-4 border-b-4 border-black p-6 h-[230px] md:h-[250px] relative">
 
               <div class="lg:space-y-1">
-                <p class="text-sm">16H30</p>
-                <p class="text-sm">SONATA OPEN CONCEPT</p>
-                <p class="text-sm">ZRENJANINSKI PUT 106B</p>
+                <p class="text-lg">16H30</p>
+                <p class="text-sm ">SONATA OPEN CONCEPT ZRENJANINSKI PUT 106B</p>
+
               </div>
 
-              <h3 class="text-3xl font-light mt-4">
+              <h3 class="text-3xl md:text-xl font-light mt-4">
                 GRAĐANSKO <br class="hidden md:visible lg:visible" /> VENČANJE
               </h3>
 
@@ -64,12 +64,12 @@
 
               <div class="lg:space-y-1">
                 <p class="text-lg">18H</p>
-                <p class="text-sm">NAKON GRAĐANSKOG VENČANJA I</p>
-                <p class="text-sm">SLIKANJA POČINJE SVEČANI RUČAK I</p>
-                <p class="text-sm">ŽURKA.</p>
+                <p class="text-sm">NAKON VENČANJA I SLIKANJA POČINJE SVEČANI RUČAK I ŽURKA</p>
+
+
               </div>
 
-              <h3 class="text-3xl font-light mt-4">
+              <h3 class="text-3xl md:text-xl font-light mt-4">
                 SVEČANI <br class="hidden md:visible lg:visible" /> RUČAK
               </h3>
 

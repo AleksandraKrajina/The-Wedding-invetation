@@ -22,7 +22,7 @@ import Navigation from '~/components/templates/Navigation.vue'
     </aside>
 
     <main class="w-full font-cormorant md:ml-[20%] md:w-4/5 pt-10">
-      <!-- Sekcije -->
+
       <div class="py-12 space-y-12">
         <section id="home">
           <Hero />

@@ -40,7 +40,7 @@ const links = [
 
 <template>
   <aside
-    class="hidden md:fixed lg:flex border font-bodoni top-10 left-0 h-screen w-1/5 bg-white text-[color:var(--text-color)] flex-col justify-between z-50">
+    class="hidden md:fixed lg:flex border font-bodoni top-10 left-0 lg:h-screen w-1/5 bg-white text-[color:var(--text-color)] flex-col justify-between z-50">
     <div>
       <h2 class="text-5xl font-bodoni flex justify-center border-b p-5">
         29.<br>July
@@ -50,7 +50,7 @@ const links = [
     <nav class="flex-1 flex flex-col justify-center items-start px-7 space-y-7">
       <template v-for="(link, index) in links" :key="index">
         <NuxtLink v-if="link.type !== 'overlay'" :to="link.href"
-          class="text-xl font-medium hover:text-2xl transition-all">
+          class="text-lg font-medium hover:text-xl transition-all">
           {{ link.label }}
         </NuxtLink>
         <button v-else class="text-lg  font-medium hover:text-xl transition-all" @click="openOverlay(link.id)">

@@ -52,7 +52,7 @@ section {
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
-              <img src="/././assets/images/templates/modern.png" alt="Elegant Template"
+              <img src="/././assets/images/templates/5.jpg" alt="Elegant Template"
                 class="w-full h-full object-cover shadow-lg border transition-all duration-700 group-hover:scale-105" />
 
               <!-- Overlay with View button -->
@@ -77,7 +77,7 @@ section {
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
-              <img src="/././assets/images/templates/postWedding.png" alt="Modern Template"
+              <img src="/././assets/images/demo1/hero.png" alt="Modern Template"
                 class="w-full h-full object-cover shadow-lg border transition-all duration-700 group-hover:scale-105" />
 
               <!-- Overlay with View button -->
@@ -102,7 +102,7 @@ section {
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
-              <img src="/././assets/images/templates/elegant.png" alt="Romantic Template"
+              <img src="/././assets/images/templates/weddingPost.png" alt="Romantic Template"
                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" />
 
               <!-- Overlay with View button -->

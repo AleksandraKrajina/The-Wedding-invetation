@@ -45,7 +45,7 @@ import Gallery from '~/components/templates/General/Gallery.vue'
 
 <template>
   <Navigation />
-  <main class="page-bg min-h-screen text-neutral-900 pt-10 EBGramond-BoldItalic">
+  <main class="page-bg min-h-screen bg-[#fffbf7] text-neutral-900 pt-10 EBGramond-BoldItalic">
     <Masthead />
     <Intro />
     <Countdown targetDate="2026-10-29T17:00:00" class=" mx-auto container bg-black text-white py-2 " />

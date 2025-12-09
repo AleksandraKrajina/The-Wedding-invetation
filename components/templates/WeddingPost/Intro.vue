@@ -1,6 +1,6 @@
 <template>
   <section class="mx-auto container  px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8 bg-[#fffbf7] EBGramond-BoldItalic">
-    <blockquote class="h-serif  text-4xl ">
+    <blockquote class="h-serif  text-4xl items-center flex text-center">
 
       Everything is better when we are together.
     </blockquote>
