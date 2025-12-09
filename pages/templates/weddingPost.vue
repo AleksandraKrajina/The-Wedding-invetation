@@ -13,39 +13,9 @@ import Navigation from '~/components/templates/Navigation.vue'
 import Gallery from '~/components/templates/General/Gallery.vue'
 
 </script>
-
-<style scoped>
-@font-face {
-  font-family: 'EBGramond-BoldItalic';
-  src: url('/fonts/EBGramond-BoldItalic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'engravers-old-english';
-  src: url('/fonts/engravers-old-english.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-.EBGramond-BoldItalic {
-  font-family: 'EBGramond-BoldItalic', serif;
-}
-
-.engravers-old-english {
-  font-family: 'engravers-old-english', serif;
-}
-</style>
-
-
-
-
 <template>
   <Navigation />
-  <main class="page-bg min-h-screen bg-[#fffbf7] text-neutral-900 pt-10 EBGramond-BoldItalic">
+  <main class="page-bg min-h-screen bg-[#fffbf7] text-neutral-900 pt-10 EBGaramond-BoldItalic ">
     <Masthead />
     <Intro />
     <Countdown targetDate="2026-10-29T17:00:00" class=" mx-auto container bg-black text-white py-2 " />
