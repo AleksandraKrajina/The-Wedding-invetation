@@ -2,13 +2,13 @@
 import { ref, computed } from 'vue'
 
 const galleryImages = ref<string[]>([
-  '/assets/images/templates/24.jpg',
-  '/assets/images/templates/12.jpg',
-  '/assets/images/templates/3.jpg',
-  '/assets/images/templates/1.jpg',
-  '/assets/images/templates/27.jpg',
-  '/assets/images/templates/19.jpg',
-  '/assets/images/templates/25.jpg',
+  '/assets/images/templates/WeddingPost/weddingpost6.jpg',
+  '/assets/images/templates/WeddingPost/weddingpost8.jpg',
+  '/assets/images/templates/WeddingPost/weddingpost2.jpg',
+  '/assets/images/templates/WeddingPost/weddingpost4.jpg',
+  '/assets/images/templates/WeddingPost/weddingpost5.jpg',
+  '/assets/images/templates/WeddingPost/weddingpost9.jpg',
+  '/assets/images/templates/WeddingPost/weddingpost3.jpg',
 ])
 
 const topImages = computed(() => galleryImages.value.slice(0, 4))
@@ -17,7 +17,7 @@ const bottomImages = computed(() => galleryImages.value.slice(4, 7))
 
 <template>
   <section class="w-full container mx-auto my-20 tanmoncheri">
-    <div class="w-full px-1">
+    <div class="w-full px-2">
 
       <!-- DESKTOP LAYOUT -->
       <div class="hidden md:block space-y-2">

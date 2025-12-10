@@ -1,4 +1,6 @@
 <script setup lang="ts">
+useHead({ title: 'The elegant template' })
+
 import Countdown from '~/components/templates/elegant/Countdown.vue'
 import Hero from '~/components/templates/elegant/Hero.vue'
 import WlcomeMessage from '~/components/templates/elegant/WelcomeMessage.vue'
@@ -27,7 +29,7 @@ import Navigation from '~/components/templates/Navigation.vue'
 </style>
 
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen w-full bg-white">
 
     <Navigation />
     <section id="home">

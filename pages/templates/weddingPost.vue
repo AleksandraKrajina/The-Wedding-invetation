@@ -15,7 +15,7 @@ import Gallery from '~/components/templates/General/Gallery.vue'
 </script>
 <template>
   <Navigation />
-  <main class="page-bg min-h-screen bg-[#fffbf7] text-neutral-900 pt-10 EBGaramond-BoldItalic ">
+  <main class="page-bg min-h-screen w-full  bg-[#fffbf7] text-neutral-900 pt-10 EBGaramond-BoldItalic ">
     <Masthead />
     <Intro />
     <Countdown targetDate="2026-10-29T17:00:00" class=" mx-auto container bg-black text-white py-2 " />
@@ -30,18 +30,23 @@ import Gallery from '~/components/templates/General/Gallery.vue'
     <WeddingParty />
 
     <section class=" mx-auto bg-[#fffbf7] container px-5">
-      <p class=" text-xs w-full flex items-center justify-between p-3">
+
+
+      <div class="border-t-4 border-black mb-1"></div>
+      <div class="border-t-2 border-black mb-1 "></div>
+
+      <div class="border-t-2 border-black mb-1 "></div>
+      <p class=" text-xs w-full flex items-center justify-between ">
         <span class="text-left">Monday, June 29, 2026</span>
         <span class="text-right">Barcelona, Spain</span>
+
+      <div class="border-t-2 border-black "></div>
       </p>
-      <div class="border-t-4 border-black mb-1"></div>
-      <div class="border-t-2 border-black mb-1 mt-1"></div>
 
       <Rsvp />
 
       <div class="border-t-4 border-black mb-1"></div>
-      <div class="border-t border-black"></div>
+      <div class="border-t border-black mb-10"></div>
     </section>
-    <FooterSection />
   </main>
 </template>

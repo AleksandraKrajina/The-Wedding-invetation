@@ -1,4 +1,6 @@
 <script setup lang="ts">
+useHead({ title: 'The modern template' })
+
 import Hero from '~/components/templates/modern/Hero.vue'
 import OnTheDay from '~/components/templates/modern/OnTheDay.vue'
 import Story from '~/components/templates/modern/Story.vue'

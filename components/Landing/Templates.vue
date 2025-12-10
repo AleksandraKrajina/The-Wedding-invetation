@@ -18,8 +18,8 @@
       <div class="max-w-6xl mx-auto">
         <!-- Section heading with modern typography -->
         <div class="mb-20 text-center">
-          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">Our
-            Templates</span>
+          <span class="inline-block text-stone-500 text-sm font-medium tracking-wider uppercase mb-3">{{
+            $t('ourTemplates') }}</span>
           <h2 class="text-4xl md:text-5xl font-light text-neutral-800 mb-6 leading-tight">
             <span class="relative inline-block">
               {{ $t('findYourPerfectDesign') }}
@@ -37,7 +37,7 @@
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
-              <img src="" alt="Elegant Template"
+              <img src="/assets/images/template1.jpg" alt="Elegant Template"
                 class="w-full h-full object-cover shadow-lg border transition-all duration-700 group-hover:scale-105" />
 
               <!-- Overlay with View button -->
@@ -62,7 +62,7 @@
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
-              <img src="" alt="Modern Template"
+              <img src="/assets/images/template2.jpg" alt="Modern Template"
                 class="w-full h-full object-cover shadow-lg border transition-all duration-700 group-hover:scale-105" />
 
               <!-- Overlay with View button -->
@@ -87,7 +87,7 @@
             <div
               class="relative aspect-[3/4] bg-white rounded-lg overflow-hidden shadow-sm mb-6 transition-all duration-500 group-hover:shadow-md">
               <!-- Template Preview Image -->
-              <img src="/assets/images/hero/hero.png" alt="Romantic Template"
+              <img src="/assets/images/template3.jpg" alt="Romantic Template"
                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" />
 
               <!-- Overlay with View button -->

@@ -15,7 +15,7 @@
 
             <div class="border-x-2 border-b-2 border-black-80 p-6 h-[230px] md:h-[220px] relative">
 
-              <div class="lg:space-y-1">
+              <div class="lg:space-y-1 font-sans">
                 <p class="text-lg">13H</p>
                 <p class="text-sm">CRKVA RUŽICA NA KALEMEGDANU</p>
               </div>
@@ -26,11 +26,11 @@
 
             </div>
           </div>
-          <div class="grid grid-cols-2 container">
-            <button class="pt-5  text-black/55 text-sm">
+          <div class="grid grid-cols-2 container ">
+            <button class="pt-5  text-black/55 text-xs">
               {{ $t('seeOnMap') }}
             </button>
-            <img src="/assets/images/templates/rightArrow.png" class=" pt-5 right-0 w-9 opacity-30 " />
+            <img src="/assets/images/templates/rightArrow.png" class=" pt-5 right-0 w-8 opacity-30 " />
           </div>
         </div>
 
@@ -41,7 +41,7 @@
 
             <div class="border-x-2 border-b-2 border-black-80 p-6 h-[230px] md:h-[220px] relative">
 
-              <div class="lg:space-y-1">
+              <div class="lg:space-y-1 font-sans">
                 <p class="text-lg">16H30</p>
                 <p class="text-sm ">SONATA OPEN CONCEPT ZRENJANINSKI PUT 106B</p>
 
@@ -54,10 +54,10 @@
             </div>
           </div>
           <div class="grid grid-cols-2 container">
-            <button class="pt-5 text-black/55 text-sm">
+            <button class="pt-5 text-black/55 text-xs">
               {{ $t('seeOnMap') }}
             </button>
-            <img src="/assets/images/templates/rightArrow.png" class=" pt-5 right-0 w-9 opacity-30 " />
+            <img src="/assets/images/templates/rightArrow.png" class=" pt-5 right-0 w-8 opacity-30 " />
           </div>
         </div>
 
@@ -68,7 +68,7 @@
 
             <div class="border-x-2 border-b-2 border-black-80 p-6 h-[230px] md:h-[220px] relative">
 
-              <div class="lg:space-y-1">
+              <div class="lg:space-y-1 font-sans">
                 <p class="text-lg">18H</p>
                 <p class="text-sm">{{ $t('weddingDescText_3') }}</p>
 
@@ -82,10 +82,10 @@
             </div>
           </div>
           <div class="grid grid-cols-2 container">
-            <button class="pt-5 text-black/55 text-sm">
+            <button class="pt-5 text-black/55 text-xs">
               {{ $t('seeOnMap') }}
             </button>
-            <img src="/assets/images/templates/rightArrow.png" class=" pt-5 right-0 w-9 opacity-30 " />
+            <img src="/assets/images/templates/rightArrow.png" class=" pt-5 right-0 w-8 opacity-30 " />
           </div>
         </div>
 
