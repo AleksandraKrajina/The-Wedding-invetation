@@ -1,8 +1,9 @@
 <template>
   <section
-    class="relative w-full bg-black tanmoncheri text-white shadow-lg  px-14 py-12 text-start overflow-hidden container mx-auto">
+    class="relative w-full bg-black tanmoncheri text-white shadow-lg  px-4 md:px-14 py-12 text-start overflow-hidden container mx-auto">
     <div class="relative ">
-      <p class="tracking-[0.1em] text-6xl text-[#1e1c1c]-500  "> {{ $t('Rsvp_title_1') }} <br /> {{ $t('Rsrv_title_2')
+      <p class="tracking-[0.1em] text-4xl sm:text-6xl text-[#1e1c1c]-500  "> {{ $t('Rsvp_title_1') }} <br /> {{
+        $t('Rsrv_title_2')
       }}
       </p>
       <p class=" text-sm text-gray-200 ">
@@ -10,7 +11,7 @@
       </p>
     </div>
 
-    <form class="my-10  gap-5 text-left">
+    <form class="my-10  gap- text-left">
       <label class=" md:w-2/3 flex flex-col text-xs uppercase tracking-wide text-[#1e1c1c]-500">
         <input type="text " placeholder="IME I PREZIME"
           class="mt-2 bg-black border border-gray-200 px-4 py-3 text-sm  focus:outline-none" />
@@ -46,7 +47,7 @@
     </form>
 
     <div>
-      <p class="justify-center items-center text-center  px-24 py-5">
+      <p class="justify-center items-center text-center  md:px-24 py-5">
         {{ $t('Rsvp_note') }}
       </p>
     </div>

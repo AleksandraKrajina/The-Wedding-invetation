@@ -55,23 +55,23 @@ onUnmounted(() => {
             <div class="grid grid-cols-5 md:gap-12 gap-1 lg:gap-24 text-4xl md:text-6xl  ">
                 <div>
                     <p>{{ timeLeft.monts }}</p>
-                    <span class="text-base font-medium">Monts</span>
+                    <span class="md:text-base text-xs">Monts</span>
                 </div>
                 <div>
                     <p>{{ timeLeft.days }}</p>
-                    <span class="text-base font-medium">Days</span>
+                    <span class="md:text-base text-xs">Days</span>
                 </div>
                 <div>
                     <p>{{ timeLeft.hours }}</p>
-                    <span class="text-base font-medium">Hours</span>
+                    <span class="md:text-base text-xs">Hours</span>
                 </div>
                 <div>
                     <p>{{ timeLeft.minutes }}</p>
-                    <span class="text-base font-medium">Minutes</span>
+                    <span class="md:text-base text-xs">Minutes</span>
                 </div>
                 <div>
                     <p>{{ timeLeft.seconds }}</p>
-                    <span class="text-base font-medium">Seconds</span>
+                    <span class="md:text-base text-xs">Seconds</span>
                 </div>
             </div>
         </div>

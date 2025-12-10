@@ -12,9 +12,9 @@ const heroSrc_3 = '/assets/images/templates/WeddingPost/11.png'
     </div>
     <div class="lg:col-span-2 h-full lg:border-r-2 border-black md:pr-5 ">
       <img :src="heroSrc_1" alt="Story" class="w-full h-2/5 md:h-2/3  grayscale " />
-      <h4 class="h-serif text-3xl justify-center text-center ">{{ $t('ourStoryPostTitle_1') }}</h4>
+      <h4 class="h-serif text-3xl justify-center text-center py-4">{{ $t('ourStoryPostTitle_1') }}</h4>
 
-      <p class="text-xl leading-6 font-sans pb-6">
+      <p class="text-xl leading-6 font-sans pb-6 ">
         {{ $t('ourStoryPostDesc_1') }}
       </p>
       <p class="text-xl leading-6 font-sans">
