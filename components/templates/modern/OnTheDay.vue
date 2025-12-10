@@ -49,7 +49,7 @@ onMounted(() => {
     class=" bg-transparent border-b container mx-auto justify-center items-center ">
     <div class="mx-auto pt-28 text-left ">
 
-      <h2 ref="title" class="text-6xl text-[color:var(--text-color)] md:text-6xl  font-bodoni pl-6 border-b pb-1 mb-11">
+      <h2 ref="title" class="text-6xl text-[color:var(--text-color)]  font-bodoni pl-6 border-b pb-1 mb-11">
         On the day
       </h2>
 
@@ -57,7 +57,7 @@ onMounted(() => {
       <div ref="cards" class="p-6 justify-center items-center mx-auto grid md:grid-cols-3 gap-7 md:pt-16 pb-24">
 
         <!-- Info Card -->
-        <div class="bg-gray-50 p-8 rounded-md md:mr-5 text-[color:var(--text-color)]">
+        <div class="bg-gray-50 lg:h-[270px] p-7 rounded-md md:mr-5 text-[color:var(--text-color)]">
           <h3 class="text-xl  mb-4 font-bold">Info</h3>
           <p class="text-gray-600">
             {{ $t('onTheDayInfo') }}
@@ -65,7 +65,7 @@ onMounted(() => {
         </div>
 
         <!-- Gifts Card -->
-        <div class="bg-gray-50 p-8 rounded-md md:mr-5 text-[color:var(--text-color)]">
+        <div class="bg-gray-50 lg:h-[270px] p-7 rounded-md md:mr-5 text-[color:var(--text-color)]">
           <h3 class="text-xl  mb-4 font-bold">{{ $t('gifts') }}</h3>
           <p class="text-gray-600">
             {{ $t('onTheDayGifts') }}
@@ -73,7 +73,7 @@ onMounted(() => {
         </div>
 
         <!-- Night Card -->
-        <div class="bg-gray-50 p-8 rounded-md text-[color:var(--text-color)]">
+        <div class="bg-gray-50 lg:h-[270px] p-7 rounded-md text-[color:var(--text-color)]">
           <h3 class="text-xl mb-4 font-bold">{{ $t('night') }}</h3>
           <p class="text-gray-600">
             {{ $t('onTheDayNight') }}

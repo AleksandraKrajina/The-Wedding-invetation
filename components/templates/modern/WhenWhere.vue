@@ -28,9 +28,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="when-where" ref="section" class="h-full w-full text-left justify-center border-b py-32">
+  <section id="when-where" ref="section" class="h-full w-full text-left justify-center border-b py-28">
     <div class="container mx-auto  text-[color:var(--text-color)]">
-      <h2 ref="title" class="text-4xl md:text-5xl  left border-b  mb-6 pl-4 font-bodoni">When & Where</h2>
+      <h2 ref="title" class="text-6xl  left border-b pb-1 mb-4 pl-4 font-bodoni">When & Where</h2>
 
       <div class="md:max-w-2xl w-full mx-auto bg-white p-8 md:p-12 rounded-lg shadow-sm text-center">
         <div class="mb-8">

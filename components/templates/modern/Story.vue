@@ -64,9 +64,9 @@ onBeforeUnmount(() => {
 
 <template>
   <section id="story" ref="section" class="h-full w-full text-left justify-center bg-white border-b">
-    <div class="py-32 text-[color:var(--text-color)] container mx-auto">
+    <div class="py-28 text-[color:var(--text-color)] container mx-auto">
 
-      <h2 ref="title" class="text-4xl md:text-5xl pl-6 border-b font-bodoni  text-[color:var(--text-color)]">
+      <h2 ref="title" class="text-6xl pl-6 border-b font-bodoni pb-1 text-[color:var(--text-color)]">
         Story
       </h2>
 

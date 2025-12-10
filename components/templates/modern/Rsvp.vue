@@ -50,52 +50,44 @@ const submitRSVP = () => {
 <template>
   <section id="Rsvp" ref="section" class=" bg-black/75 container mx-auto w-full h-screen ">
     <div class=" text-white">
+      <div class="max-w-2xl mx-auto bg-transparent p-5 md:p-10 lg:p-10 justify-center items-center">
 
-      <div class="max-w-md mx-auto bg-transparent p-5 md:p-10 lg:p-10 ">
-        <form class="space-y-7" @submit.prevent="submitRSVP">
-          <div>
-            <label for="name" class="block text-2xl font-large text mb-1 bg-transparent">Your Name(s)</label>
-            <input id="name" v-model="formData.name" type="text" required
-              class="w-full px-4 py-2 border-b bg-transparent focus:ring-2 focus:ring-black focus:border-transparent ">
-          </div>
+        <form class="my-10 text-left space-y-6 pt-16 " @submit.prevent="submitRSVP">
+          <label class=" flex flex-col text-sm uppercase tracking-wide text-[#1e1c1c]-500">
+            <input type="text " placeholder="IME I PREZIME"
+              class="mt-2 bg-black border border-gray-400 px-4 py-3 text-sm  focus:outline-none" />
+          </label>
 
-          <div>
-            <label class="block text-2xl font-large text mb-2">Will you be attending?</label>
-            <div class="space-y-4">
-              <label class="flex items-center">
-                <input v-model="formData.attending" type="radio" value="yes" class="h-5 w-6 text focus:ring-black">
-                <span class="ml-2 text-lg">Accept with pleasure</span>
-              </label>
-              <label class="flex items-center">
-                <input v-model="formData.attending" type="radio" value="no" class="h-5 w-6 text-lg focus:ring-black">
-                <span class="ml-2 text-lg">Regretfully decline</span>
-              </label>
-            </div>
-          </div>
-
-          <div v-if="formData.attending === 'yes'">
-            <label for="guests" class="block bg-transparent text-2xl font-large text mb-1">Number of guests</label>
-            <select id="guests" v-model="formData.guests" class="w-full px-4 py-2 border focus:ring-2 bg-transparent">
-              <option value="1">1 person</option>
-              <option value="2">2 people</option>
-              <option value="3">3 people</option>
-              <option value="4">4 people</option>
+          <label class="  flex flex-col text-xs uppercase tracking-wide text-[#1e1c1c]-500">
+            <select class="mt-2 bg-black border border-gray-400 px-4 py-3 text-lg focus:outline-none">
+              <option value="da">Da</option>
+              <option value="ne">Nažalost ne mogu</option>
             </select>
-          </div>
+          </label>
 
-          <div>
-            <label for="message" class="block text-2xl bg-transparent font-large text mb-1">Message (optional)</label>
-            <textarea id="message" v-model="formData.message" rows="3"
-              class="w-full px-4 py-2 border bg-transparent focus:ring-2 focus:ring-black focus:border-transparent" />
-          </div>
+          <label class=" flex flex-col text-xs uppercase tracking-wide text-[#1e1c1c]-500">
+            <input type="number" min="1" placeholder="ODABIR ODRASLIH"
+              class="mt-2 bg-black border border-gray-400 px-4 py-3 text-sm  focus:outline-none" />
+          </label>
 
-          <div class="pt-4">
+          <label class="  flex flex-col text-xs uppercase tracking-wide text-[#1e1c1c]-500">
+            <input type="number" min="1" placeholder="BROJ DECE (KLIKNI ZA ODABIR)"
+              class="mt-2 bg-black border border-gray-400 px-4 py-3 text-sm  focus:outline-none" />
+          </label>
+
+          <label class="  flex  flex-col text-xs uppercase tracking-wide text-[#1e1c1c]-500">
+            <textarea rows="4" placeholder="DIJETALNE PREFERENCIJE ILI NAPOMENE"
+              class="mt-2 bg-black border border-gray-400 px-4 py-3 text-sm  focus:outline-none resize-none"></textarea>
+          </label>
+          <div class="mt-6">
             <button type="submit"
-              class="w-full bg-white text-black/80 py-6 px-10 text-xl rounded-sm hover:bg-gray-300 transition-colors">
-              Send RSVP
+              class=" w-full bg-white px-6 py-3 text-md font-bold tracking-wide text-black transition hover:opacity-80">
+              {{ $t('send') }}
             </button>
           </div>
         </form>
+
+
 
         <p class="text-center text-md text-gray-500 mt-8">Kindly reply by September 25th</p>
       </div>

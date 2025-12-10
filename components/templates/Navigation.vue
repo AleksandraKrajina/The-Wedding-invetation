@@ -50,7 +50,7 @@ const changeLanguage = (lang: string) => {
       Back to home
     </NuxtLink>
 
-  <LanguageSwitcher />
+    <LanguageSwitcher />
 
     <!-- Color switcher -->
     <select v-model="selectedColor" class="border rounded px-2 py-1 text-sm bg-white/20">

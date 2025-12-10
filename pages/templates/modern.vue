@@ -14,12 +14,13 @@ import Navigation from '~/components/templates/Navigation.vue'
 </script>
 
 <template>
-  <div class="flex min-h-screen w-full p-0 m-0 relative scroll-smooth text-[color:var(--text-color)]">
+  <div
+    class="flex min-h-screen w-full p-0 m-0 relative scroll-smooth text-[color:var(--text-color)] EBGaramond-BoldItalic">
 
     <Navigation />
 
 
-    <aside class="md:block lg:block w-1/5 fixed left-0 top-10 h-screen z-40">
+    <aside class=" lg:block w-1/5 fixed left-0 top-9 h-screen z-40">
       <Header />
     </aside>
 

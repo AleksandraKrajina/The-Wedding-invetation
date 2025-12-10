@@ -102,7 +102,7 @@ onMounted(async () => {
   <section id="timing" ref="section" class="w-full flex flex-col lg:flex-row pt-28 border-b">
 
     <h2 ref="title"
-      class="md:absolute h-min w-3/4 pb-1 text-6xl md:text-6xl font-bodoni pl-6 border-b bg-white text-[color:var(--text-color)]">
+      class=" lg:absolute h-min w-3/4 pb-1 text-6xl  font-bodoni pl-6 border-b bg-white text-[color:var(--text-color)]">
       Timing
     </h2>
 
