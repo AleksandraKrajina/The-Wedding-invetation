@@ -52,7 +52,7 @@ onUnmounted(() => {
 <template>
     <section class="w-full min-h-[20vh] flex items-center justify-center tanmoncheri">
         <div class="text-center ">
-            <div class="grid grid-cols-5 md:gap-12 gap-1 lg:gap-24 text-4xl md:text-6xl  ">
+            <div class="grid grid-cols-5 md:gap-12 gap-2 lg:gap-24 text-4xl md:text-6xl  ">
                 <div>
                     <p>{{ timeLeft.monts }}</p>
                     <span class="md:text-base text-xs">Monts</span>

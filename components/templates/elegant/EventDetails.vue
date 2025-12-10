@@ -4,7 +4,7 @@
 <template>
   <section class="py-20 bg-white md:mx-10 tanmoncheri">
     <div class="container mx-auto px-1">
-      <h2 class="text-6xl font-light text-left mb-16">{{ $t('whenAndWhere') }}</h2>
+      <h2 class="text-6xl font-light text-left mb-10 leading-relaxed">{{ $t('whenAndWhere') }}</h2>
 
       <div class="grid md:grid-cols-3 gap-8">
 

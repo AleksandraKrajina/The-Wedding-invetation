@@ -2,11 +2,11 @@
   <section
     class="relative w-full bg-black tanmoncheri text-white shadow-lg  px-4 md:px-14 py-12 text-start overflow-hidden container mx-auto">
     <div class="relative ">
-      <p class="tracking-[0.1em] text-4xl sm:text-6xl text-[#1e1c1c]-500  "> {{ $t('Rsvp_title_1') }} <br /> {{
+      <p class="tracking-[0.1em] text-3xl md:text-6xl text-[#1e1c1c]-500  "> {{ $t('Rsvp_title_1') }} <br /> {{
         $t('Rsrv_title_2')
       }}
       </p>
-      <p class=" text-sm text-gray-200 ">
+      <p class=" text-xs md:text-md text-gray-200 ">
         {{ $t('Rsvp_desc') }}
       </p>
     </div>
