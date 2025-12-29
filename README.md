@@ -1,6 +1,12 @@
 # 💍 The Wedding Invitations
 
-A modern and elegant web solution for creating personalized digital invitations.
+Developed interactive wedding invitation web templates featuring responsive 
+design and smooth animations. Implemented a dynamic gallery and RSVP form for 
+guests, with live customization of background and text colors. The website is 
+multilingual, currently available in Serbian and English, with Hungarian in progress. 
+Designed templates are fully responsive across devices. The project concept 
+includes expanding the collection with additional invitation websites, allowing 
+users to create personalized and immersive digital invitations
 
 ---
 
