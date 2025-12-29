@@ -15,7 +15,7 @@ A modern and elegant web solution for creating personalized digital invitations.
 ## 📌 About the Project
 
 This repository contains a collection of invitation templates showcased on our website.  
-The idea behind this project is to introduce a unique and stylish way of sending invitations — primarily for weddings, but we also create **custom, fully personalized invitations** for any special occasion, all packaged as beautiful and interactive web experiences.
+The idea behind this project is to introduce a unique and stylish way of sending invitations - primarily for weddings, but we also create **custom, fully personalized invitations** for any special occasion, all packaged as beautiful and interactive web experiences.
 
 Our goal is to combine modern web design with meaningful, memorable moments.
 
