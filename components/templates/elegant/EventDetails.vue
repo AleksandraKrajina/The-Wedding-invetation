@@ -13,7 +13,7 @@
             <img src="/public/assets/images/templates/23.jpg" alt="Church Ceremony"
               class="w-full aspect-[4/3] object-cover border-black-80 border-2" />
 
-            <div class="border-x-2 border-b-2 border-black-80 p-6 h-[230px] md:h-[220px] relative">
+            <div class="border-x-2 border-b-2 border-black-80 p-6 h-[230px] md:h-[220px] relative ">
 
               <div class="lg:space-y-1 font-sans">
                 <p class="text-lg">13H</p>
